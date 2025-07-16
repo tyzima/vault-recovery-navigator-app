@@ -1,8 +1,8 @@
 import { fileClient } from './fileClient';
 
 // Use direct localhost connection for development
-const API_BASE = 'http://localhost:3001/api';
-const WS_URL = 'ws://localhost:3001/ws';
+const API_BASE = process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:3001/api';
+const WS_URL = process.env.NODE_ENV === 'production' ? `${window.location.protocol === 'https:' ? 'wss:' : 'ws:'}//${window.location.host}/ws` : 'ws://localhost:3001/ws';
 
 export interface ChatChannel {
   id: string;

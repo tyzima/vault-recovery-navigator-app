@@ -3,7 +3,7 @@
  */
 
 // Server configuration
-const SERVER_BASE_URL = 'http://localhost:3001';
+const SERVER_BASE_URL = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3001';
 
 /**
  * Convert a relative file URL to a full URL
