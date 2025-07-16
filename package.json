@@ -13,7 +13,8 @@
     "server:dev": "cd server && npm run dev",
     "setup": "node setup-file-storage.js",
     "start:local": "./start-dev.sh",
-    "start:production": "npm run build && npm run server:production",
+    "start:production": "npm run build && npm run install:server && npm run server:production",
+    "install:server": "cd server && npm install",
     "server:production": "cd server && npm start"
   },
   "dependencies": {
