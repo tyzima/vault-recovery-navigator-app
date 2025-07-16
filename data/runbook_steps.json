@@ -1,0 +1,4085 @@
+[
+  {
+    "id": "aws-step-001-uuid",
+    "runbook_id": "f1a2b3c4-d5e6-7890-1234-567890abcdef",
+    "title": "Initial Assessment and AWS Console Access",
+    "description": "Verify AWS access and assess the scope of infrastructure failure.",
+    "step_order": 1,
+    "estimated_duration_minutes": 15,
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-06-27T16:13:48.967Z",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-aws-001-1",
+        "order": 1,
+        "title": "Verify AWS Console Access",
+        "completed": false,
+        "description": "Log into AWS Management Console and verify access to all required services (EC2, RDS, Route53, ELB).",
+        "question": {
+          "id": "c6ce4177-9012-4b44-9065-7ca490df4a7f",
+          "question": "Enter your question here",
+          "type": "yes_no",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "required": false
+        }
+      },
+      {
+        "id": "task-aws-001-2",
+        "order": 2,
+        "title": "Check AWS Health Dashboard",
+        "completed": false,
+        "description": "Review AWS Service Health Dashboard for any ongoing service disruptions in your region."
+      },
+      {
+        "id": "task-aws-001-3",
+        "order": 3,
+        "title": "Document Failed Resources",
+        "completed": false,
+        "description": "Create a list of all failed EC2 instances, RDS databases, load balancers, and DNS records."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "aws-step-002-uuid",
+    "runbook_id": "f1a2b3c4-d5e6-7890-1234-567890abcdef",
+    "title": "EC2 Instance Recovery",
+    "description": "Restore failed EC2 instances from AMIs or snapshots.",
+    "step_order": 2,
+    "estimated_duration_minutes": 45,
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-06-22T01:39:36.460Z",
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-aws-002-1",
+        "order": 1,
+        "title": "Launch Instances from AMIs",
+        "completed": false,
+        "description": "Launch new EC2 instances from the latest AMI backups, using the same instance types and configurations.",
+        "question": null,
+        "codeBlock": "# Add your code here..."
+      },
+      {
+        "id": "task-aws-002-2",
+        "order": 2,
+        "title": "Restore EBS Volumes from Snapshots",
+        "completed": false,
+        "description": "Create new EBS volumes from the most recent snapshots and attach to recovered instances.",
+        "question": {
+          "id": "abe14457-6f24-4082-a598-9b8f775046e8",
+          "question": "Enter your question here",
+          "type": "yes_no",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "required": false
+        }
+      },
+      {
+        "id": "task-aws-002-3",
+        "order": 3,
+        "title": "Configure Security Groups and Key Pairs",
+        "completed": false,
+        "description": "Apply appropriate security groups and SSH key pairs to restored instances.",
+        "question": {
+          "id": "dcd5bac1-0057-40b3-a6ce-eaca8bc4a01b",
+          "question": "Enter your question here",
+          "type": "yes_no",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "required": false
+        }
+      },
+      {
+        "id": "task-aws-002-4",
+        "order": 4,
+        "title": "Verify Instance Health",
+        "question": {
+          "type": "yes_no",
+          "question": "Are all EC2 instances running and passing health checks?",
+          "required": true
+        },
+        "completed": true,
+        "description": "Check that all restored instances are in 'running' state and passing system status checks."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "aws-step-003-uuid",
+    "runbook_id": "f1a2b3c4-d5e6-7890-1234-567890abcdef",
+    "title": "Load Balancer and DNS Recovery",
+    "description": "Restore Elastic Load Balancers and Route53 DNS configurations.",
+    "step_order": 3,
+    "estimated_duration_minutes": 30,
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-06-20T22:32:47.482Z",
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-aws-003-1",
+        "order": 1,
+        "title": "Recreate Load Balancers",
+        "completed": true,
+        "description": "Create new Application or Network Load Balancers and configure target groups with recovered instances."
+      },
+      {
+        "id": "task-aws-003-2",
+        "order": 2,
+        "title": "Update Route53 DNS Records",
+        "completed": true,
+        "description": "Update DNS A records and CNAMEs to point to new load balancer endpoints or instance IPs."
+      },
+      {
+        "id": "task-aws-003-3",
+        "order": 3,
+        "title": "Test DNS Resolution",
+        "completed": true,
+        "description": "Verify that all domain names resolve correctly to the new infrastructure endpoints."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "power-step-001-uuid",
+    "runbook_id": "g2b3c4d5-e6f7-8901-2345-678901bcdefg",
+    "title": "Power Systems Assessment",
+    "description": "Assess power restoration and UPS/generator status.",
+    "step_order": 1,
+    "estimated_duration_minutes": 20,
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-01-20T10:00:00.000000+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-power-001-1",
+        "order": 1,
+        "title": "Verify Main Power Restoration",
+        "completed": false,
+        "description": "Confirm that main electrical power has been restored to the data center facility."
+      },
+      {
+        "id": "task-power-001-2",
+        "order": 2,
+        "title": "Check UPS Status",
+        "completed": false,
+        "description": "Inspect all UPS units for proper operation, battery levels, and any error indicators."
+      },
+      {
+        "id": "task-power-001-3",
+        "order": 3,
+        "title": "Generator Shutdown Procedures",
+        "question": {
+          "type": "yes_no",
+          "question": "Were backup generators used during the outage?",
+          "required": true
+        },
+        "completed": false,
+        "description": "If generators were used, follow proper shutdown procedures and switch back to main power."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "power-step-002-uuid",
+    "runbook_id": "g2b3c4d5-e6f7-8901-2345-678901bcdefg",
+    "title": "Core Infrastructure Startup",
+    "description": "Start critical infrastructure systems in proper sequence.",
+    "step_order": 2,
+    "estimated_duration_minutes": 60,
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-01-20T10:00:00.000000+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-power-002-1",
+        "order": 1,
+        "title": "Power On Network Equipment",
+        "completed": false,
+        "description": "Start core switches, routers, and firewalls first to establish network connectivity."
+      },
+      {
+        "id": "task-power-002-2",
+        "order": 2,
+        "title": "Start Storage Systems",
+        "completed": false,
+        "description": "Power on SAN/NAS storage systems and wait for full initialization before proceeding."
+      },
+      {
+        "id": "task-power-002-3",
+        "order": 3,
+        "title": "Boot Server Infrastructure",
+        "completed": false,
+        "description": "Start servers in order: domain controllers, DNS servers, DHCP servers, then application servers."
+      },
+      {
+        "id": "task-power-002-4",
+        "order": 4,
+        "title": "Verify System Connectivity",
+        "completed": false,
+        "description": "Test network connectivity between all critical systems and external internet access."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "postgres-step-001-uuid",
+    "runbook_id": "h3c4d5e6-f7g8-9012-3456-789012cdefgh",
+    "title": "Backup Identification and Validation",
+    "description": "Identify the correct PostgreSQL backup and validate its integrity.",
+    "step_order": 1,
+    "estimated_duration_minutes": 20,
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-06-20T22:36:00.463Z",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-postgres-001-1",
+        "order": 1,
+        "title": "List Available Backups",
+        "completed": false,
+        "description": "Review all available PostgreSQL backups and identify the most recent clean backup before the failure."
+      },
+      {
+        "id": "task-postgres-001-2",
+        "order": 2,
+        "title": "Validate Backup Integrity",
+        "completed": false,
+        "description": "Run integrity checks on the selected backup files to ensure they are not corrupted."
+      },
+      {
+        "id": "task-postgres-001-3",
+        "order": 3,
+        "title": "Document Recovery Point",
+        "completed": false,
+        "description": "Note the backup timestamp and estimate data loss window for stakeholder communication."
+      }
+    ],
+    "app_id": null,
+    "conditions": {
+      "question": {
+        "id": "d60a3e42-e637-449f-8218-823019911833",
+        "type": "select",
+        "question": "Question",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "required": false
+      }
+    },
+    "depends_on": null
+  },
+  {
+    "id": "postgres-step-002-uuid",
+    "runbook_id": "h3c4d5e6-f7g8-9012-3456-789012cdefgh",
+    "title": "Database Restoration Process",
+    "description": "Restore PostgreSQL database from the validated backup.",
+    "step_order": 2,
+    "estimated_duration_minutes": 90,
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-06-20T22:36:08.794Z",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-postgres-002-1",
+        "order": 1,
+        "title": "Stop Application Connections",
+        "completed": false,
+        "description": "Coordinate with application teams to stop all connections to the database during restoration."
+      },
+      {
+        "id": "task-postgres-002-2",
+        "order": 2,
+        "title": "Create New Database Instance",
+        "completed": false,
+        "description": "Provision a new PostgreSQL instance with appropriate resources and configuration."
+      },
+      {
+        "id": "task-postgres-002-3",
+        "order": 3,
+        "title": "Restore Database from Backup",
+        "completed": false,
+        "description": "Execute pg_restore command to restore the database from the selected backup file."
+      },
+      {
+        "id": "task-postgres-002-4",
+        "order": 4,
+        "title": "Verify Data Integrity",
+        "question": {
+          "type": "yes_no",
+          "question": "Has the database been successfully restored with all expected data?",
+          "required": true
+        },
+        "completed": false,
+        "description": "Run data validation queries to confirm all tables and data are present and correct."
+      }
+    ],
+    "app_id": null,
+    "conditions": {
+      "visibilityRules": [
+        {
+          "id": "3aafefbc-ae3f-4382-be5e-b098c49e2fb8",
+          "stepId": "postgres-step-001-uuid",
+          "questionId": "d60a3e42-e637-449f-8218-823019911833",
+          "requiredAnswer": "Yes",
+          "description": "Show when \"Question\" = \"Yes\""
+        }
+      ]
+    },
+    "depends_on": null
+  },
+  {
+    "id": "failover-step-001-uuid",
+    "runbook_id": "i4d5e6f7-g8h9-0123-4567-890123defghi",
+    "title": "Failover Assessment and Preparation",
+    "description": "Assess master database failure and prepare for replica promotion.",
+    "step_order": 1,
+    "estimated_duration_minutes": 15,
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-01-20T10:00:00.000000+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-failover-001-1",
+        "order": 1,
+        "title": "Confirm Master Database Failure",
+        "completed": false,
+        "description": "Verify that the master database is truly unavailable and not just experiencing temporary issues."
+      },
+      {
+        "id": "task-failover-001-2",
+        "order": 2,
+        "title": "Check Read Replica Status",
+        "completed": false,
+        "description": "Verify that read replicas are healthy and have current data synchronized."
+      },
+      {
+        "id": "task-failover-001-3",
+        "order": 3,
+        "title": "Select Primary Replica",
+        "completed": false,
+        "description": "Choose the most up-to-date read replica to promote as the new master database."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "failover-step-002-uuid",
+    "runbook_id": "i4d5e6f7-g8h9-0123-4567-890123defghi",
+    "title": "Replica Promotion and Configuration",
+    "description": "Promote read replica to master and update configurations.",
+    "step_order": 2,
+    "estimated_duration_minutes": 30,
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-01-20T10:00:00.000000+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-failover-002-1",
+        "order": 1,
+        "title": "Promote Read Replica",
+        "completed": false,
+        "description": "Execute promotion command to convert the selected read replica to a standalone master database."
+      },
+      {
+        "id": "task-failover-002-2",
+        "order": 2,
+        "title": "Update Connection Strings",
+        "completed": false,
+        "description": "Modify application configuration files to point to the new master database endpoint."
+      },
+      {
+        "id": "task-failover-002-3",
+        "order": 3,
+        "title": "Restart Applications",
+        "completed": false,
+        "description": "Restart application services to pick up new database connection configurations."
+      },
+      {
+        "id": "task-failover-002-4",
+        "order": 4,
+        "title": "Verify Application Connectivity",
+        "question": {
+          "type": "yes_no",
+          "question": "Are applications successfully connecting to the new master database?",
+          "required": true
+        },
+        "completed": false,
+        "description": "Test database connections from all applications and verify read/write operations work correctly."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "microservices-step-001-uuid",
+    "runbook_id": "j5e6f7g8-h9i0-1234-5678-901234efghij",
+    "title": "Environment Assessment and Git Repository Access",
+    "description": "Assess the current state and prepare for microservices redeployment.",
+    "step_order": 1,
+    "estimated_duration_minutes": 20,
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-01-20T10:00:00.000000+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-microservices-001-1",
+        "order": 1,
+        "title": "Identify Failed Services",
+        "completed": false,
+        "description": "Create a list of all critical microservices that need to be redeployed from scratch."
+      },
+      {
+        "id": "task-microservices-001-2",
+        "order": 2,
+        "title": "Locate Last Known Good Commits",
+        "completed": false,
+        "description": "Identify the Git commit hashes for the last stable deployment of each service."
+      },
+      {
+        "id": "task-microservices-001-3",
+        "order": 3,
+        "title": "Verify Kubernetes Cluster Status",
+        "completed": false,
+        "description": "Check that the Kubernetes cluster is healthy and has sufficient resources for deployment."
+      },
+      {
+        "id": "task-microservices-001-4",
+        "order": 4,
+        "title": "Clean Failed Deployments",
+        "completed": false,
+        "description": "Remove any failed or corrupted pods, services, and deployments from the cluster."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "microservices-step-002-uuid",
+    "runbook_id": "j5e6f7g8-h9i0-1234-5678-901234efghij",
+    "title": "Container Build and Registry Push",
+    "description": "Build Docker containers for all critical microservices.",
+    "step_order": 2,
+    "estimated_duration_minutes": 45,
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-01-20T10:00:00.000000+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-microservices-002-1",
+        "order": 1,
+        "title": "Build Docker Images",
+        "completed": false,
+        "description": "Execute docker build commands for each microservice using the identified stable commit hashes."
+      },
+      {
+        "id": "task-microservices-002-2",
+        "order": 2,
+        "title": "Tag and Push to Registry",
+        "completed": false,
+        "description": "Tag built images with appropriate versions and push to the container registry."
+      },
+      {
+        "id": "task-microservices-002-3",
+        "order": 3,
+        "title": "Verify Image Availability",
+        "completed": false,
+        "description": "Confirm all required container images are available in the registry and accessible by Kubernetes."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "microservices-step-003-uuid",
+    "runbook_id": "j5e6f7g8-h9i0-1234-5678-901234efghij",
+    "title": "Kubernetes Deployment and Verification",
+    "description": "Deploy microservices to Kubernetes and verify functionality.",
+    "step_order": 3,
+    "estimated_duration_minutes": 60,
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-01-20T10:00:00.000000+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-microservices-003-1",
+        "order": 1,
+        "title": "Deploy Core Services First",
+        "completed": false,
+        "description": "Deploy foundational services (authentication, configuration) before dependent services."
+      },
+      {
+        "id": "task-microservices-003-2",
+        "order": 2,
+        "title": "Deploy Remaining Microservices",
+        "completed": false,
+        "description": "Deploy all other microservices in dependency order using kubectl apply commands."
+      },
+      {
+        "id": "task-microservices-003-3",
+        "order": 3,
+        "title": "Verify Pod Status",
+        "completed": false,
+        "description": "Check that all pods are in 'Running' state and passing readiness/liveness probes."
+      },
+      {
+        "id": "task-microservices-003-4",
+        "order": 4,
+        "title": "Test Service Connectivity",
+        "question": {
+          "type": "yes_no",
+          "question": "Are all microservices communicating properly and health endpoints responding?",
+          "required": true
+        },
+        "completed": false,
+        "description": "Test inter-service communication and external API endpoints to verify full functionality."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "rollback-step-001-uuid",
+    "runbook_id": "k6f7g8h9-i0j1-2345-6789-012345fghijk",
+    "title": "Deployment History Analysis",
+    "description": "Identify the last known good deployment for rollback.",
+    "step_order": 1,
+    "estimated_duration_minutes": 15,
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-01-20T10:00:00.000000+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-rollback-001-1",
+        "order": 1,
+        "title": "Review Deployment History",
+        "completed": false,
+        "description": "Examine CI/CD pipeline history to identify the last successful deployment before issues began."
+      },
+      {
+        "id": "task-rollback-001-2",
+        "order": 2,
+        "title": "Verify Rollback Target",
+        "completed": false,
+        "description": "Confirm the target deployment version had no known issues and passed all tests."
+      },
+      {
+        "id": "task-rollback-001-3",
+        "order": 3,
+        "title": "Check Artifact Availability",
+        "completed": false,
+        "description": "Ensure the deployment artifacts (containers, configs) for the target version are still available."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "rollback-step-002-uuid",
+    "runbook_id": "k6f7g8h9-i0j1-2345-6789-012345fghijk",
+    "title": "Controlled Rollback Execution",
+    "description": "Execute the rollback with monitoring and validation.",
+    "step_order": 2,
+    "estimated_duration_minutes": 30,
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-01-20T10:00:00.000000+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-rollback-002-1",
+        "order": 1,
+        "title": "Enable Canary Monitoring",
+        "completed": false,
+        "description": "Set up enhanced monitoring and alerting before starting the rollback process."
+      },
+      {
+        "id": "task-rollback-002-2",
+        "order": 2,
+        "title": "Execute Rollback Command",
+        "completed": false,
+        "description": "Run the CI/CD rollback command or kubectl rollout undo to revert to the previous version."
+      },
+      {
+        "id": "task-rollback-002-3",
+        "order": 3,
+        "title": "Monitor Rollback Progress",
+        "completed": false,
+        "description": "Watch deployment status and health metrics during the rollback process."
+      },
+      {
+        "id": "task-rollback-002-4",
+        "order": 4,
+        "title": "Validate Service Health",
+        "question": {
+          "type": "yes_no",
+          "question": "Are all services healthy and functioning normally after rollback?",
+          "required": true
+        },
+        "completed": false,
+        "description": "Run health checks, validate API responses, and confirm all functionality is restored."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "ransomware-step-001-uuid",
+    "runbook_id": "l7g8h9i0-j1k2-3456-7890-123456ghijkl",
+    "title": "Immediate Containment and Assessment",
+    "description": "Contain the ransomware attack and assess the scope of compromise.",
+    "step_order": 1,
+    "estimated_duration_minutes": 30,
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-01-20T10:00:00.000000+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-ransomware-001-1",
+        "order": 1,
+        "title": "Isolate Affected Systems",
+        "completed": false,
+        "description": "Immediately disconnect infected systems from the network to prevent lateral movement."
+      },
+      {
+        "id": "task-ransomware-001-2",
+        "order": 2,
+        "title": "Activate Incident Response Team",
+        "completed": false,
+        "description": "Notify and assemble the complete incident response team including legal and management."
+      },
+      {
+        "id": "task-ransomware-001-3",
+        "order": 3,
+        "title": "Document Initial Findings",
+        "completed": false,
+        "description": "Record all observed indicators of compromise, affected systems, and ransomware variant."
+      },
+      {
+        "id": "task-ransomware-001-4",
+        "order": 4,
+        "title": "Preserve Evidence",
+        "completed": false,
+        "description": "Create forensic images of key systems before any remediation activities begin."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "ransomware-step-002-uuid",
+    "runbook_id": "l7g8h9i0-j1k2-3456-7890-123456ghijkl",
+    "title": "System Recovery and Restoration",
+    "description": "Restore systems from clean backups and eliminate malware.",
+    "step_order": 2,
+    "estimated_duration_minutes": 180,
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-01-20T10:00:00.000000+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-ransomware-002-1",
+        "order": 1,
+        "title": "Verify Backup Integrity",
+        "completed": false,
+        "description": "Confirm that backup systems and data are clean and not compromised."
+      },
+      {
+        "id": "task-ransomware-002-2",
+        "order": 2,
+        "title": "Rebuild Critical Systems",
+        "completed": false,
+        "description": "Restore domain controllers, file servers, and critical applications from clean backups."
+      },
+      {
+        "id": "task-ransomware-002-3",
+        "order": 3,
+        "title": "Apply Security Updates",
+        "completed": false,
+        "description": "Install all available security patches and updates before reconnecting to the network."
+      },
+      {
+        "id": "task-ransomware-002-4",
+        "order": 4,
+        "title": "Validate System Integrity",
+        "question": {
+          "type": "yes_no",
+          "question": "Are all restored systems clean and functioning properly?",
+          "required": true
+        },
+        "completed": false,
+        "description": "Run comprehensive malware scans and verify all systems are operating normally."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "credential-step-001-uuid",
+    "runbook_id": "m8h9i0j1-k2l3-4567-8901-234567hijklm",
+    "title": "High Priority Credential Rotation",
+    "description": "Rotate the most critical credentials first to minimize risk.",
+    "step_order": 1,
+    "estimated_duration_minutes": 60,
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-01-20T10:00:00.000000+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-credential-001-1",
+        "order": 1,
+        "title": "Rotate Administrative Passwords",
+        "completed": false,
+        "description": "Change passwords for all domain admin, local admin, and service accounts immediately."
+      },
+      {
+        "id": "task-credential-001-2",
+        "order": 2,
+        "title": "Regenerate API Keys",
+        "completed": false,
+        "description": "Create new API keys for all critical systems and cloud services, disable old keys."
+      },
+      {
+        "id": "task-credential-001-3",
+        "order": 3,
+        "title": "Update Database Credentials",
+        "completed": false,
+        "description": "Change passwords for all database service accounts and application database connections."
+      },
+      {
+        "id": "task-credential-001-4",
+        "order": 4,
+        "title": "Rotate Security Certificates",
+        "completed": false,
+        "description": "Replace SSL certificates and signing certificates that may have been compromised."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "credential-step-002-uuid",
+    "runbook_id": "m8h9i0j1-k2l3-4567-8901-234567hijklm",
+    "title": "User Account and System Integration Updates",
+    "description": "Complete credential rotation for all user accounts and system integrations.",
+    "step_order": 2,
+    "estimated_duration_minutes": 120,
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-01-20T10:00:00.000000+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-credential-002-1",
+        "order": 1,
+        "title": "Force User Password Resets",
+        "completed": false,
+        "description": "Require all users to change passwords at next login, prioritize privileged accounts."
+      },
+      {
+        "id": "task-credential-002-2",
+        "order": 2,
+        "title": "Update Application Configurations",
+        "completed": false,
+        "description": "Update all application configuration files with new credentials and API keys."
+      },
+      {
+        "id": "task-credential-002-3",
+        "order": 3,
+        "title": "Refresh Integration Credentials",
+        "completed": false,
+        "description": "Update credentials for all third-party integrations, monitoring tools, and backup systems."
+      },
+      {
+        "id": "task-credential-002-4",
+        "order": 4,
+        "title": "Verify Access and Functionality",
+        "question": {
+          "type": "yes_no",
+          "question": "Are all systems and integrations working with the new credentials?",
+          "required": true
+        },
+        "completed": false,
+        "description": "Test all systems to ensure they're functioning properly with updated credentials."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "e587827a-ce52-4c28-8ba6-e28d6730e3ba",
+    "title": "k",
+    "description": "",
+    "estimated_duration_minutes": null,
+    "assigned_to": null,
+    "runbook_id": "f1a2b3c4-d5e6-7890-1234-567890abcdef",
+    "step_order": 4,
+    "created_at": "2025-06-20T16:29:22.100Z",
+    "updated_at": "2025-06-20T22:30:13.994Z",
+    "conditions": {
+      "visibilityRules": [
+        {
+          "id": "945445bb-3a1d-4a21-9d99-3df064cb4846",
+          "stepId": "aws-step-002-uuid",
+          "taskId": "task-aws-002-4",
+          "requiredAnswer": "yes",
+          "description": "Show when \"Are all EC2 instances running and passing health checks?\" = \"yes\""
+        }
+      ],
+      "question": {
+        "id": "dff2e300-e0a8-43ff-aee6-138a68efbc1a",
+        "type": "select",
+        "question": "Test",
+        "options": [
+          "One",
+          "Two"
+        ],
+        "required": false
+      }
+    }
+  },
+  {
+    "id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "title": "Start the first step",
+    "description": null,
+    "estimated_duration_minutes": 20,
+    "assigned_to": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
+    "runbook_id": "e0f8bc26-4102-47ae-931c-5c74d56ec24c",
+    "step_order": 1,
+    "created_at": "2025-06-21T01:09:03.034Z",
+    "updated_at": "2025-06-21T08:17:03.986Z",
+    "tasks": [
+      {
+        "id": "5976d15c-1181-4836-aaf1-9d86870dfd2b",
+        "title": "The first task",
+        "description": "How it works",
+        "completed": false,
+        "order": 1,
+        "photoUrl": "/uploads/step-photos/5976d15c-1181-4836-aaf1-9d86870dfd2b-1750478922602.png"
+      }
+    ],
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750493823984.png"
+  },
+  {
+    "id": "9e006c25-003e-4b6d-b4f4-98a02b670442",
+    "title": "The Second Step",
+    "description": "",
+    "estimated_duration_minutes": 20,
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "runbook_id": "e0f8bc26-4102-47ae-931c-5c74d56ec24c",
+    "step_order": 2,
+    "created_at": "2025-06-21T01:09:27.579Z",
+    "updated_at": "2025-06-21T04:54:07.293Z"
+  },
+  {
+    "id": "d405d344-c2af-44e6-9bd3-dc8ae4837111",
+    "title": "On",
+    "description": "",
+    "estimated_duration_minutes": 90,
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "runbook_id": "e0f8bc26-4102-47ae-931c-5c74d56ec24c",
+    "step_order": 3,
+    "created_at": "2025-06-21T04:50:03.358Z",
+    "updated_at": "2025-06-21T04:53:31.913Z"
+  },
+  {
+    "id": "b1fae484-e53b-46e9-8fca-46ca673715f0",
+    "title": "Initial Assessment and Access Verification",
+    "step_order": 1,
+    "description": "Verify AWS access and assess the scope of infrastructure failure",
+    "estimated_duration_minutes": 30,
+    "assigned_to": "aws",
+    "tasks": [
+      {
+        "id": "730d4736-1ad2-4a08-94b7-cfa9ee8fd6e2",
+        "order": 1,
+        "title": "Verify AWS Console Access",
+        "completed": false,
+        "description": "Log into AWS Management Console and verify access to all required services (EC2, RDS, Route53, ELB)"
+      },
+      {
+        "id": "0e1ec6ac-9094-452b-ab5c-4685339b813d",
+        "order": 2,
+        "title": "Check AWS Health Dashboard",
+        "completed": false,
+        "description": "Review AWS Service Health Dashboard for any ongoing service disruptions in your region"
+      },
+      {
+        "id": "8cd1d8fc-8663-43a9-965d-971dc99301be",
+        "order": 3,
+        "title": "Document Failed Resources",
+        "completed": false,
+        "description": "Create a list of all failed EC2 instances, RDS databases, load balancers, and DNS records"
+      },
+      {
+        "id": "f5ae3950-bd56-47d2-b511-e9b9053aeb10",
+        "order": 4,
+        "title": "Gather Architecture Documentation",
+        "completed": false,
+        "description": "Collect all relevant architecture diagrams and configuration documentation"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "type": "yes_no",
+        "required": true,
+        "question": "Is AWS console access confirmed and working?"
+      }
+    },
+    "depends_on": null,
+    "runbook_id": "7e8a38b8-fa47-4690-bb78-94505e16f14c",
+    "created_at": "2025-06-21T08:19:15.073Z",
+    "updated_at": "2025-06-21T08:19:15.073Z"
+  },
+  {
+    "id": "3425c599-4825-4830-89c3-379e932b098f",
+    "title": "EC2 Instance Recovery",
+    "step_order": 2,
+    "description": "Restore failed EC2 instances from AMIs or snapshots",
+    "estimated_duration_minutes": 45,
+    "assigned_to": "infrastructure",
+    "tasks": [
+      {
+        "id": "62b80c36-afa7-4bfa-820c-eafd54ff9284",
+        "order": 1,
+        "title": "Launch Instances from AMIs",
+        "completed": false,
+        "description": "Launch new EC2 instances from the latest AMI backups, using the same instance types and configurations"
+      },
+      {
+        "id": "f275a4d9-b359-4ecc-84ed-6a3ca5a39a82",
+        "order": 2,
+        "title": "Restore EBS Volumes from Snapshots",
+        "completed": false,
+        "description": "Create new EBS volumes from the most recent snapshots and attach to recovered instances"
+      },
+      {
+        "id": "1b13e599-10b4-4b1b-b050-229c3fa83982",
+        "order": 3,
+        "title": "Configure Security Groups and Key Pairs",
+        "completed": false,
+        "description": "Apply appropriate security groups and SSH key pairs to restored instances"
+      },
+      {
+        "id": "f4373dd2-2885-475a-9843-6a18b4ff75f3",
+        "order": 4,
+        "title": "Verify Instance Health",
+        "completed": false,
+        "description": "Check that all restored instances are in 'running' state and passing system status checks"
+      },
+      {
+        "id": "d84f9944-57b6-4e1c-b328-4dd2051b7072",
+        "order": 5,
+        "title": "Update Private DNS Records",
+        "completed": false,
+        "description": "Update any internal DNS records pointing to the new instance IPs"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "type": "select",
+        "required": true,
+        "question": "Which recovery method should be used?",
+        "options": [
+          "AMI Recovery",
+          "Snapshot Recovery",
+          "Hybrid Approach"
+        ]
+      },
+      "description": "Show this step only if AWS console access is confirmed"
+    },
+    "depends_on": "Step 1 (Initial Assessment)",
+    "runbook_id": "7e8a38b8-fa47-4690-bb78-94505e16f14c",
+    "created_at": "2025-06-21T08:19:15.077Z",
+    "updated_at": "2025-06-21T08:19:15.077Z"
+  },
+  {
+    "id": "8c4d3dbd-c61a-4e59-8331-b351e9d9f213",
+    "title": "Database Recovery and Validation",
+    "step_order": 3,
+    "description": "Restore RDS databases and validate data integrity",
+    "estimated_duration_minutes": 60,
+    "assigned_to": "database",
+    "tasks": [
+      {
+        "id": "6002a55c-b7a2-4877-9a94-d445e2ab18d9",
+        "order": 1,
+        "title": "Launch RDS Instances from Snapshots",
+        "completed": false,
+        "description": "Create new RDS instances from the most recent automated snapshots"
+      },
+      {
+        "id": "27670551-39db-43d8-b4aa-3eef46cef042",
+        "order": 2,
+        "title": "Update Database Connection Strings",
+        "completed": false,
+        "description": "Update application configuration with new database endpoints"
+      },
+      {
+        "id": "7bf9c4c1-779c-4922-89d4-53d7d791f8cc",
+        "order": 3,
+        "title": "Run Database Integrity Checks",
+        "completed": false,
+        "description": "Execute consistency checks and validate critical data"
+      },
+      {
+        "id": "3ca12bf4-18e4-412c-8c3a-3f414b060e67",
+        "order": 4,
+        "title": "Test Database Connectivity",
+        "completed": false,
+        "description": "Verify applications can connect and perform basic operations"
+      },
+      {
+        "id": "d630cf29-888d-4e05-9d4a-081a5d29ad95",
+        "order": 5,
+        "title": "Update Backup Schedules",
+        "completed": false,
+        "description": "Ensure automated backup schedules are configured for new instances"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "type": "text",
+        "required": false,
+        "question": "What is the Recovery Point Objective (RPO) achieved?"
+      },
+      "description": "Show this step if EC2 recovery is completed successfully"
+    },
+    "depends_on": "Step 2 (EC2 Instance Recovery)",
+    "runbook_id": "7e8a38b8-fa47-4690-bb78-94505e16f14c",
+    "created_at": "2025-06-21T08:19:15.081Z",
+    "updated_at": "2025-06-21T08:19:15.081Z"
+  },
+  {
+    "id": "9938a986-ef33-442e-a8c6-a3c0543fd778",
+    "title": "Load Balancer and DNS Recovery",
+    "step_order": 4,
+    "description": "Restore Elastic Load Balancers and Route53 DNS configurations",
+    "estimated_duration_minutes": 30,
+    "assigned_to": "network",
+    "tasks": [
+      {
+        "id": "8ea06107-feae-420c-90e6-d178a9bc702f",
+        "order": 1,
+        "title": "Recreate Load Balancers",
+        "completed": false,
+        "description": "Create new Application or Network Load Balancers and configure target groups with recovered instances"
+      },
+      {
+        "id": "2bc954c1-7bf6-48da-8487-3c0fbc2862c6",
+        "order": 2,
+        "title": "Update Route53 DNS Records",
+        "completed": false,
+        "description": "Update DNS A records and CNAMEs to point to new load balancer endpoints or instance IPs"
+      },
+      {
+        "id": "195e07d5-bddb-427e-a9fc-f4616c0ca996",
+        "order": 3,
+        "title": "Configure SSL Certificates",
+        "completed": false,
+        "description": "Attach SSL certificates to load balancers and configure HTTPS listeners"
+      },
+      {
+        "id": "a223489b-0628-4b67-8a34-5927cef8931c",
+        "order": 4,
+        "title": "Test DNS Resolution",
+        "completed": false,
+        "description": "Verify that all domain names resolve correctly to the new infrastructure endpoints"
+      },
+      {
+        "id": "b432ab1b-d990-463b-9504-db611fac7800",
+        "order": 5,
+        "title": "Update Health Check Configurations",
+        "completed": false,
+        "description": "Configure health checks for all target groups and verify they're passing"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "type": "yes_no",
+        "required": true,
+        "question": "Are all applications accessible via their public URLs?"
+      },
+      "description": "Show this step after database recovery is validated"
+    },
+    "depends_on": "Step 3 (Database Recovery)",
+    "runbook_id": "7e8a38b8-fa47-4690-bb78-94505e16f14c",
+    "created_at": "2025-06-21T08:19:15.085Z",
+    "updated_at": "2025-06-21T08:19:15.085Z"
+  },
+  {
+    "id": "7ff3f2f1-8022-4243-a3b8-9e606b93b2ce",
+    "title": "Application Deployment and Testing",
+    "step_order": 5,
+    "description": "Deploy applications and perform comprehensive testing",
+    "estimated_duration_minutes": 90,
+    "assigned_to": "development",
+    "tasks": [
+      {
+        "id": "c56a6b13-2f7d-4238-8f74-62c0f7bd8186",
+        "order": 1,
+        "title": "Deploy Application Code",
+        "completed": false,
+        "description": "Deploy the latest stable version of applications to recovered infrastructure"
+      },
+      {
+        "id": "3da0c73e-7f8f-4063-9297-5acfee326054",
+        "order": 2,
+        "title": "Update Configuration Files",
+        "completed": false,
+        "description": "Update application configurations with new database and service endpoints"
+      },
+      {
+        "id": "14beb306-d913-4a6d-8704-a95e3ecfec60",
+        "order": 3,
+        "title": "Run Smoke Tests",
+        "completed": false,
+        "description": "Execute basic functionality tests to ensure core features are working"
+      },
+      {
+        "id": "56e023a9-21cc-449d-8104-ce1fa61951e7",
+        "order": 4,
+        "title": "Perform Load Testing",
+        "completed": false,
+        "description": "Run load tests to verify the infrastructure can handle expected traffic"
+      },
+      {
+        "id": "1eaabfe1-7ee0-41c0-8336-5ad1556b5954",
+        "order": 5,
+        "title": "Validate Integrations",
+        "completed": false,
+        "description": "Test all third-party integrations and API connections"
+      },
+      {
+        "id": "2f7d5d70-72e2-438e-ad6e-01babd14fcb2",
+        "order": 6,
+        "title": "Monitor Application Logs",
+        "completed": false,
+        "description": "Review application logs for any errors or performance issues"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "type": "select",
+        "required": true,
+        "question": "What is the overall system health status?",
+        "options": [
+          "Fully Operational",
+          "Partially Operational",
+          "Needs Attention"
+        ]
+      },
+      "description": "Show this step after network infrastructure is restored"
+    },
+    "depends_on": "Step 4 (Load Balancer and DNS Recovery)",
+    "runbook_id": "7e8a38b8-fa47-4690-bb78-94505e16f14c",
+    "created_at": "2025-06-21T08:19:15.088Z",
+    "updated_at": "2025-06-21T08:19:15.088Z"
+  },
+  {
+    "id": "56f547a3-1400-4639-9eb5-6c2fe4e8f303",
+    "title": "Security Hardening and Compliance",
+    "step_order": 6,
+    "description": "Apply security configurations and ensure compliance",
+    "estimated_duration_minutes": 45,
+    "assigned_to": "security",
+    "tasks": [
+      {
+        "id": "4f16a8bd-3ebc-4cdb-8416-9c42cc58486b",
+        "order": 1,
+        "title": "Update Security Groups",
+        "completed": false,
+        "description": "Review and apply appropriate security group rules for all instances"
+      },
+      {
+        "id": "f930677a-2f30-4146-9349-137c4e76eb9a",
+        "order": 2,
+        "title": "Configure CloudTrail Logging",
+        "completed": false,
+        "description": "Ensure CloudTrail is configured and logging all API activities"
+      },
+      {
+        "id": "31cac478-75e8-4e37-8489-e2d36bb38374",
+        "order": 3,
+        "title": "Enable GuardDuty",
+        "completed": false,
+        "description": "Activate AWS GuardDuty for threat detection and monitoring"
+      },
+      {
+        "id": "77ed673e-38ab-4aef-90a7-3b78f81e7d9d",
+        "order": 4,
+        "title": "Review IAM Policies",
+        "completed": false,
+        "description": "Audit IAM roles and policies to ensure least privilege access"
+      },
+      {
+        "id": "f09cf302-548f-498e-8bfd-20fde3855054",
+        "order": 5,
+        "title": "Configure Backup Encryption",
+        "completed": false,
+        "description": "Ensure all backups and snapshots are encrypted at rest"
+      },
+      {
+        "id": "3e056630-1440-44f3-b450-c7ed3d23fa83",
+        "order": 6,
+        "title": "Run Security Baseline Scan",
+        "completed": false,
+        "description": "Execute security scanning tools to identify any vulnerabilities"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "type": "yes_no",
+        "required": true,
+        "question": "Do all security configurations meet compliance requirements?"
+      },
+      "description": "Show this step after applications are deployed and tested"
+    },
+    "depends_on": "Step 5 (Application Deployment)",
+    "runbook_id": "7e8a38b8-fa47-4690-bb78-94505e16f14c",
+    "created_at": "2025-06-21T08:19:15.091Z",
+    "updated_at": "2025-06-21T08:19:15.091Z"
+  },
+  {
+    "id": "9c78db00-9273-4c3c-996c-c61e815c0692",
+    "title": "Monitoring and Alerting Setup",
+    "step_order": 7,
+    "description": "Configure monitoring, alerting, and logging systems",
+    "estimated_duration_minutes": 30,
+    "assigned_to": "ops",
+    "tasks": [
+      {
+        "id": "c22a3eb8-a4cc-49e2-beb4-76da565aa2fc",
+        "order": 1,
+        "title": "Configure CloudWatch Alarms",
+        "completed": false,
+        "description": "Set up CloudWatch alarms for critical metrics and thresholds"
+      },
+      {
+        "id": "54a2e78c-de25-43c2-98c0-2631cb9d2fd6",
+        "order": 2,
+        "title": "Set Up Log Aggregation",
+        "completed": false,
+        "description": "Configure centralized logging for all applications and infrastructure"
+      },
+      {
+        "id": "df1b1f3a-8844-499e-a5bd-3c93254b73fd",
+        "order": 3,
+        "title": "Test Alert Notifications",
+        "completed": false,
+        "description": "Verify that all alerts are properly configured and notifications are working"
+      },
+      {
+        "id": "ebbed75a-0335-40c0-859b-7fbbf5c9d981",
+        "order": 4,
+        "title": "Create Status Dashboard",
+        "completed": false,
+        "description": "Set up monitoring dashboards for real-time system visibility"
+      },
+      {
+        "id": "0e779a94-f500-4061-9f0c-5577bc02bb25",
+        "order": 5,
+        "title": "Document Monitoring Procedures",
+        "completed": false,
+        "description": "Update runbooks with new monitoring and alerting configurations"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "type": "text",
+        "required": false,
+        "question": "List any monitoring gaps identified during setup"
+      },
+      "description": "Show this step after security hardening is complete"
+    },
+    "depends_on": "Step 6 (Security Hardening)",
+    "runbook_id": "7e8a38b8-fa47-4690-bb78-94505e16f14c",
+    "created_at": "2025-06-21T08:19:15.095Z",
+    "updated_at": "2025-06-21T08:19:15.095Z"
+  },
+  {
+    "id": "2455c15b-82a9-49c3-a9b9-3f406e721f0a",
+    "title": "Final Validation and Documentation",
+    "step_order": 8,
+    "description": "Step description",
+    "estimated_duration_minutes": 20,
+    "assigned_to": "username",
+    "tasks": [
+      {
+        "id": "81f9f775-d848-4005-b43c-0998e9acfed0",
+        "order": 1,
+        "title": "End-to-End Testing",
+        "completed": false,
+        "description": "Execute comprehensive end-to-end tests covering all critical business functions"
+      },
+      {
+        "id": "1769c5ba-6617-4293-be1b-12083741b688",
+        "order": 2,
+        "title": "Performance Validation",
+        "completed": false,
+        "description": "Verify system performance meets established SLA requirements"
+      },
+      {
+        "id": "84ea08e7-6e9a-4e40-80ae-7240293b61b5",
+        "order": 3,
+        "title": "Update Recovery Documentation",
+        "completed": false,
+        "description": "Document any changes made during recovery and update procedures"
+      },
+      {
+        "id": "188727f6-79ce-46ee-ac63-26689d229fb5",
+        "order": 4,
+        "title": "Notify Stakeholders",
+        "completed": false,
+        "description": "Inform all relevant stakeholders that recovery is complete"
+      },
+      {
+        "id": "215b1f93-8b87-40a6-b14e-007f05b8b049",
+        "order": 5,
+        "title": "Schedule Post-Incident Review",
+        "completed": false,
+        "description": "Plan a post-incident review meeting to discuss lessons learned"
+      },
+      {
+        "id": "ea666e92-67ee-4580-aea6-37178bccffa2",
+        "order": 6,
+        "title": "Task Title",
+        "completed": false,
+        "description": "Task description"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "type": "yes_no",
+        "required": true,
+        "question": "Is the system fully recovered and operational?"
+      },
+      "description": "Show this step after monitoring setup is complete"
+    },
+    "depends_on": "Step 7 (Monitoring Setup)",
+    "runbook_id": "7e8a38b8-fa47-4690-bb78-94505e16f14c",
+    "created_at": "2025-06-21T08:19:15.099Z",
+    "updated_at": "2025-06-21T08:19:15.099Z"
+  },
+  {
+    "id": "2455c15b-82a9-49c3-a9b9-3f406e721f0a",
+    "title": "Final Validation and Documentation",
+    "step_order": 8,
+    "description": "Step description",
+    "estimated_duration_minutes": 20,
+    "assigned_to": "username",
+    "tasks": [
+      {
+        "id": "81f9f775-d848-4005-b43c-0998e9acfed0",
+        "order": 1,
+        "title": "End-to-End Testing",
+        "completed": false,
+        "description": "Execute comprehensive end-to-end tests covering all critical business functions"
+      },
+      {
+        "id": "1769c5ba-6617-4293-be1b-12083741b688",
+        "order": 2,
+        "title": "Performance Validation",
+        "completed": false,
+        "description": "Verify system performance meets established SLA requirements"
+      },
+      {
+        "id": "84ea08e7-6e9a-4e40-80ae-7240293b61b5",
+        "order": 3,
+        "title": "Update Recovery Documentation",
+        "completed": false,
+        "description": "Document any changes made during recovery and update procedures"
+      },
+      {
+        "id": "188727f6-79ce-46ee-ac63-26689d229fb5",
+        "order": 4,
+        "title": "Notify Stakeholders",
+        "completed": false,
+        "description": "Inform all relevant stakeholders that recovery is complete"
+      },
+      {
+        "id": "215b1f93-8b87-40a6-b14e-007f05b8b049",
+        "order": 5,
+        "title": "Schedule Post-Incident Review",
+        "completed": false,
+        "description": "Plan a post-incident review meeting to discuss lessons learned"
+      },
+      {
+        "id": "ea666e92-67ee-4580-aea6-37178bccffa2",
+        "order": 6,
+        "title": "Task Title",
+        "completed": false,
+        "description": "Task description"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "type": "yes_no",
+        "required": true,
+        "question": "Is the system fully recovered and operational?"
+      },
+      "description": "Show this step after monitoring setup is complete"
+    },
+    "depends_on": "Step 7 (Monitoring Setup)",
+    "runbook_id": "7e8a38b8-fa47-4690-bb78-94505e16f14c",
+    "created_at": "2025-06-21T08:19:15.102Z",
+    "updated_at": "2025-06-21T08:19:15.102Z"
+  },
+  {
+    "id": "9e89d2ea-a2f4-4cbf-9a64-4815a670c2ef",
+    "title": "Initial Assessment and Access Verification",
+    "step_order": 1,
+    "description": "Verify AWS access and assess the scope of infrastructure failure",
+    "estimated_duration_minutes": 30,
+    "assigned_to": "aws",
+    "tasks": [
+      {
+        "id": "4f849f7f-94ff-4c40-9ca5-974eb09301bc",
+        "order": 1,
+        "title": "Verify AWS Console Access",
+        "completed": false,
+        "description": "Log into AWS Management Console and verify access to all required services (EC2, RDS, Route53, ELB)"
+      },
+      {
+        "id": "086d9475-5c02-4dce-a6d7-593e0c5d0e67",
+        "order": 2,
+        "title": "Check AWS Health Dashboard",
+        "completed": false,
+        "description": "Review AWS Service Health Dashboard for any ongoing service disruptions in your region"
+      },
+      {
+        "id": "fdbf9ff7-58fa-4299-b443-c5de2ca594ca",
+        "order": 3,
+        "title": "Document Failed Resources",
+        "completed": false,
+        "description": "Create a list of all failed EC2 instances, RDS databases, load balancers, and DNS records"
+      },
+      {
+        "id": "e116d02d-4579-4b66-8bcc-d393da134345",
+        "order": 4,
+        "title": "Gather Architecture Documentation",
+        "completed": false,
+        "description": "Collect all relevant architecture diagrams and configuration documentation"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "4d78c781-3d42-42cd-a120-32731d3c8f22",
+        "type": "yes_no",
+        "question": "Is AWS console access confirmed and working?",
+        "options": [],
+        "required": true
+      }
+    },
+    "depends_on": null,
+    "runbook_id": "11bbf6d4-53ef-4ae5-92b9-d5ff7c45154a",
+    "created_at": "2025-06-21T08:25:29.302Z",
+    "updated_at": "2025-06-21T08:25:29.302Z"
+  },
+  {
+    "id": "9c1a055f-5ce6-4ec1-b56d-529a88003587",
+    "title": "EC2 Instance Recovery",
+    "step_order": 2,
+    "description": "Restore failed EC2 instances from AMIs or snapshots",
+    "estimated_duration_minutes": 45,
+    "assigned_to": "infrastructure",
+    "tasks": [
+      {
+        "id": "8b3ff60b-43e0-4dd8-8161-4211f7797e13",
+        "order": 1,
+        "title": "Launch Instances from AMIs",
+        "completed": false,
+        "description": "Launch new EC2 instances from the latest AMI backups, using the same instance types and configurations"
+      },
+      {
+        "id": "a18db1d7-fbbe-4127-b9df-fd78c501bd79",
+        "order": 2,
+        "title": "Restore EBS Volumes from Snapshots",
+        "completed": false,
+        "description": "Create new EBS volumes from the most recent snapshots and attach to recovered instances"
+      },
+      {
+        "id": "3f86d8c4-fdcb-451b-93c5-6a47a34c6f61",
+        "order": 3,
+        "title": "Configure Security Groups and Key Pairs",
+        "completed": false,
+        "description": "Apply appropriate security groups and SSH key pairs to restored instances"
+      },
+      {
+        "id": "408bfb2f-9417-4ef3-a2ad-d2b5f06dc284",
+        "order": 4,
+        "title": "Verify Instance Health",
+        "completed": false,
+        "description": "Check that all restored instances are in 'running' state and passing system status checks"
+      },
+      {
+        "id": "45b037a6-82b3-4567-9773-78260c682654",
+        "order": 5,
+        "title": "Update Private DNS Records",
+        "completed": false,
+        "description": "Update any internal DNS records pointing to the new instance IPs"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "5eaa6391-9050-4bb5-aaad-2d3b3c0d5dfd",
+        "type": "select",
+        "question": "Which recovery method should be used?",
+        "options": [
+          "AMI Recovery",
+          "Snapshot Recovery",
+          "Hybrid Approach"
+        ],
+        "required": true
+      },
+      "description": "Show this step only if AWS console access is confirmed"
+    },
+    "depends_on": "Step 1 (Initial Assessment)",
+    "runbook_id": "11bbf6d4-53ef-4ae5-92b9-d5ff7c45154a",
+    "created_at": "2025-06-21T08:25:29.307Z",
+    "updated_at": "2025-06-21T08:25:29.307Z"
+  },
+  {
+    "id": "1c484a64-d396-4aba-aca7-b49524e04f54",
+    "title": "Database Recovery and Validation",
+    "step_order": 3,
+    "description": "Restore RDS databases and validate data integrity",
+    "estimated_duration_minutes": 60,
+    "assigned_to": "database",
+    "tasks": [
+      {
+        "id": "731f8811-8435-466d-bdd9-b2401ad5f09d",
+        "order": 1,
+        "title": "Launch RDS Instances from Snapshots",
+        "completed": false,
+        "description": "Create new RDS instances from the most recent automated snapshots"
+      },
+      {
+        "id": "c0c8b53b-85d4-4110-81f1-9d9579474a80",
+        "order": 2,
+        "title": "Update Database Connection Strings",
+        "completed": false,
+        "description": "Update application configuration with new database endpoints"
+      },
+      {
+        "id": "3c1818ed-d9ec-4401-9960-e6a23ff3f80b",
+        "order": 3,
+        "title": "Run Database Integrity Checks",
+        "completed": false,
+        "description": "Execute consistency checks and validate critical data"
+      },
+      {
+        "id": "c2bb3195-f0c7-497e-a393-ac83159a22d8",
+        "order": 4,
+        "title": "Test Database Connectivity",
+        "completed": false,
+        "description": "Verify applications can connect and perform basic operations"
+      },
+      {
+        "id": "ee897b66-3ed3-4a40-8614-59bc78e382f5",
+        "order": 5,
+        "title": "Update Backup Schedules",
+        "completed": false,
+        "description": "Ensure automated backup schedules are configured for new instances"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "e78f0344-db04-493a-aea9-c258708c5398",
+        "type": "text",
+        "question": "What is the Recovery Point Objective (RPO) achieved?",
+        "options": [],
+        "required": false
+      },
+      "description": "Show this step if EC2 recovery is completed successfully"
+    },
+    "depends_on": "Step 2 (EC2 Instance Recovery)",
+    "runbook_id": "11bbf6d4-53ef-4ae5-92b9-d5ff7c45154a",
+    "created_at": "2025-06-21T08:25:29.309Z",
+    "updated_at": "2025-06-21T08:25:29.309Z"
+  },
+  {
+    "id": "61c6e948-8490-4454-b3f4-9d4c6da056b1",
+    "title": "Load Balancer and DNS Recovery",
+    "step_order": 4,
+    "description": "Restore Elastic Load Balancers and Route53 DNS configurations",
+    "estimated_duration_minutes": 30,
+    "assigned_to": "network",
+    "tasks": [
+      {
+        "id": "ba4d56de-d203-4506-a87a-1df0a226f617",
+        "order": 1,
+        "title": "Recreate Load Balancers",
+        "completed": false,
+        "description": "Create new Application or Network Load Balancers and configure target groups with recovered instances"
+      },
+      {
+        "id": "dca70274-464e-4faf-bc07-08d381898d43",
+        "order": 2,
+        "title": "Update Route53 DNS Records",
+        "completed": false,
+        "description": "Update DNS A records and CNAMEs to point to new load balancer endpoints or instance IPs"
+      },
+      {
+        "id": "5754e94c-ac4a-41e9-b07a-17a7d976b891",
+        "order": 3,
+        "title": "Configure SSL Certificates",
+        "completed": false,
+        "description": "Attach SSL certificates to load balancers and configure HTTPS listeners"
+      },
+      {
+        "id": "06b59cfa-dfd5-4294-b41c-c89f0586e134",
+        "order": 4,
+        "title": "Test DNS Resolution",
+        "completed": false,
+        "description": "Verify that all domain names resolve correctly to the new infrastructure endpoints"
+      },
+      {
+        "id": "2ddf17ca-b18c-4b68-8555-310b4213e100",
+        "order": 5,
+        "title": "Update Health Check Configurations",
+        "completed": false,
+        "description": "Configure health checks for all target groups and verify they're passing"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "e63630a4-0b28-4a06-86ae-679837129d71",
+        "type": "yes_no",
+        "question": "Are all applications accessible via their public URLs?",
+        "options": [],
+        "required": true
+      },
+      "description": "Show this step after database recovery is validated"
+    },
+    "depends_on": "Step 3 (Database Recovery)",
+    "runbook_id": "11bbf6d4-53ef-4ae5-92b9-d5ff7c45154a",
+    "created_at": "2025-06-21T08:25:29.313Z",
+    "updated_at": "2025-06-21T08:25:29.313Z"
+  },
+  {
+    "id": "4aefdae3-49ac-4544-81b4-f7788e7fa587",
+    "title": "Application Deployment and Testing",
+    "step_order": 5,
+    "description": "Deploy applications and perform comprehensive testing",
+    "estimated_duration_minutes": 90,
+    "assigned_to": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
+    "tasks": [
+      {
+        "id": "edaf88f6-48b5-4c25-8856-89d4337c1d6d",
+        "order": 1,
+        "title": "Deploy Application Code",
+        "completed": false,
+        "description": "Deploy the latest stable version of applications to recovered infrastructure"
+      },
+      {
+        "id": "2197b1bb-effb-496c-ad63-3c5ddcbea479",
+        "order": 2,
+        "title": "Update Configuration Files",
+        "completed": false,
+        "description": "Update application configurations with new database and service endpoints"
+      },
+      {
+        "id": "23ab1c96-38c5-4004-a70f-b008b984a252",
+        "order": 3,
+        "title": "Run Smoke Tests",
+        "completed": false,
+        "description": "Execute basic functionality tests to ensure core features are working"
+      },
+      {
+        "id": "24a0a732-0b45-4253-8aa4-c1b2f4951e1e",
+        "order": 4,
+        "title": "Perform Load Testing",
+        "completed": false,
+        "description": "Run load tests to verify the infrastructure can handle expected traffic"
+      },
+      {
+        "id": "99ae75ce-59d6-4ea0-82db-e4439129592e",
+        "order": 5,
+        "title": "Validate Integrations",
+        "completed": false,
+        "description": "Test all third-party integrations and API connections"
+      },
+      {
+        "id": "b93b946f-fd83-4bfa-9d34-f00929461b15",
+        "order": 6,
+        "title": "Monitor Application Logs",
+        "completed": false,
+        "description": "Review application logs for any errors or performance issues"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "8eb98ab5-90b3-4389-8493-925898c43aba",
+        "type": "select",
+        "question": "What is the overall system health status?",
+        "options": [
+          "Fully Operational",
+          "Partially Operational",
+          "Needs Attention"
+        ],
+        "required": true
+      },
+      "description": "Show this step after network infrastructure is restored"
+    },
+    "depends_on": "Step 4 (Load Balancer and DNS Recovery)",
+    "runbook_id": "11bbf6d4-53ef-4ae5-92b9-d5ff7c45154a",
+    "created_at": "2025-06-21T08:25:29.316Z",
+    "updated_at": "2025-06-21T08:26:15.096Z"
+  },
+  {
+    "id": "1ef53e75-5174-4d46-8b60-42d793dfcaf8",
+    "title": "Security Hardening and Compliance",
+    "step_order": 6,
+    "description": "Apply security configurations and ensure compliance",
+    "estimated_duration_minutes": 45,
+    "assigned_to": "security",
+    "tasks": [
+      {
+        "id": "2dd1e8ce-0872-406a-942e-9d962e913ac9",
+        "order": 1,
+        "title": "Update Security Groups",
+        "completed": false,
+        "description": "Review and apply appropriate security group rules for all instances"
+      },
+      {
+        "id": "d11af63c-f47f-4a56-a2cc-a895e80303cf",
+        "order": 2,
+        "title": "Configure CloudTrail Logging",
+        "completed": false,
+        "description": "Ensure CloudTrail is configured and logging all API activities"
+      },
+      {
+        "id": "96171b61-7624-4af3-9442-8b1dfd7b9908",
+        "order": 3,
+        "title": "Enable GuardDuty",
+        "completed": false,
+        "description": "Activate AWS GuardDuty for threat detection and monitoring"
+      },
+      {
+        "id": "8d90f716-4db5-46c5-9e17-01b1b44bed21",
+        "order": 4,
+        "title": "Review IAM Policies",
+        "completed": false,
+        "description": "Audit IAM roles and policies to ensure least privilege access"
+      },
+      {
+        "id": "e1d33e9b-0ee6-4ab7-ad08-3f875700f3fd",
+        "order": 5,
+        "title": "Configure Backup Encryption",
+        "completed": false,
+        "description": "Ensure all backups and snapshots are encrypted at rest"
+      },
+      {
+        "id": "ffa34ba3-f326-4bfb-9b97-4eb1e68679f7",
+        "order": 6,
+        "title": "Run Security Baseline Scan",
+        "completed": false,
+        "description": "Execute security scanning tools to identify any vulnerabilities"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "6c04a403-bfbc-47ff-863c-45b793fab74c",
+        "type": "yes_no",
+        "question": "Do all security configurations meet compliance requirements?",
+        "options": [],
+        "required": true
+      },
+      "description": "Show this step after applications are deployed and tested"
+    },
+    "depends_on": "Step 5 (Application Deployment)",
+    "runbook_id": "11bbf6d4-53ef-4ae5-92b9-d5ff7c45154a",
+    "created_at": "2025-06-21T08:25:29.318Z",
+    "updated_at": "2025-06-21T08:25:29.318Z"
+  },
+  {
+    "id": "96afbfeb-ed81-4b68-ba54-a611c60a413d",
+    "title": "Monitoring and Alerting Setup",
+    "step_order": 7,
+    "description": "Configure monitoring, alerting, and logging systems",
+    "estimated_duration_minutes": 30,
+    "assigned_to": "ops",
+    "tasks": [
+      {
+        "id": "9e954b0c-07ec-4b85-aca7-40d676ecc902",
+        "order": 1,
+        "title": "Configure CloudWatch Alarms",
+        "completed": false,
+        "description": "Set up CloudWatch alarms for critical metrics and thresholds"
+      },
+      {
+        "id": "c3c21446-2f5e-4baf-8dfe-806193fa7772",
+        "order": 2,
+        "title": "Set Up Log Aggregation",
+        "completed": false,
+        "description": "Configure centralized logging for all applications and infrastructure"
+      },
+      {
+        "id": "81eea81a-2584-4247-8b22-d58f16398545",
+        "order": 3,
+        "title": "Test Alert Notifications",
+        "completed": false,
+        "description": "Verify that all alerts are properly configured and notifications are working"
+      },
+      {
+        "id": "99cf213c-d021-45d6-b472-1de79a394508",
+        "order": 4,
+        "title": "Create Status Dashboard",
+        "completed": false,
+        "description": "Set up monitoring dashboards for real-time system visibility"
+      },
+      {
+        "id": "434a4496-6001-4cfd-bde1-4fc932f52cbd",
+        "order": 5,
+        "title": "Document Monitoring Procedures",
+        "completed": false,
+        "description": "Update runbooks with new monitoring and alerting configurations"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "166f1730-bc77-46d2-b95a-0cb81d5ec87c",
+        "type": "text",
+        "question": "List any monitoring gaps identified during setup",
+        "options": [],
+        "required": false
+      },
+      "description": "Show this step after security hardening is complete"
+    },
+    "depends_on": "Step 6 (Security Hardening)",
+    "runbook_id": "11bbf6d4-53ef-4ae5-92b9-d5ff7c45154a",
+    "created_at": "2025-06-21T08:25:29.320Z",
+    "updated_at": "2025-06-21T08:25:29.320Z"
+  },
+  {
+    "id": "6f709e6f-c9c7-4643-8b77-f14fba3d2350",
+    "title": "Final Validation and Documentation",
+    "step_order": 8,
+    "description": "Step description",
+    "estimated_duration_minutes": 20,
+    "assigned_to": "username",
+    "tasks": [
+      {
+        "id": "913eca59-1ed4-4fb9-838f-2d65f786e8af",
+        "order": 1,
+        "title": "End-to-End Testing",
+        "completed": false,
+        "description": "Execute comprehensive end-to-end tests covering all critical business functions"
+      },
+      {
+        "id": "a2b90772-5948-4ca2-aaba-c82c49a986f7",
+        "order": 2,
+        "title": "Performance Validation",
+        "completed": false,
+        "description": "Verify system performance meets established SLA requirements"
+      },
+      {
+        "id": "8a931ad2-8433-409e-abc9-ed588526cb1a",
+        "order": 3,
+        "title": "Update Recovery Documentation",
+        "completed": false,
+        "description": "Document any changes made during recovery and update procedures"
+      },
+      {
+        "id": "d4cb50fa-c4d8-4d8c-ae61-47ea12a5b611",
+        "order": 4,
+        "title": "Notify Stakeholders",
+        "completed": false,
+        "description": "Inform all relevant stakeholders that recovery is complete"
+      },
+      {
+        "id": "2cfb5563-a73d-4667-837f-762b6015d722",
+        "order": 5,
+        "title": "Schedule Post-Incident Review",
+        "completed": false,
+        "description": "Plan a post-incident review meeting to discuss lessons learned"
+      },
+      {
+        "id": "4812618d-2565-4694-9ce2-bbcfcf5dd746",
+        "order": 6,
+        "title": "Task Title",
+        "completed": false,
+        "description": "Task description"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "e1083bbf-2358-4f7c-b96c-181d21756ad2",
+        "type": "yes_no",
+        "question": "Is the system fully recovered and operational?",
+        "options": [],
+        "required": true
+      },
+      "description": "Show this step after monitoring setup is complete"
+    },
+    "depends_on": "Step 7 (Monitoring Setup)",
+    "runbook_id": "11bbf6d4-53ef-4ae5-92b9-d5ff7c45154a",
+    "created_at": "2025-06-21T08:25:29.323Z",
+    "updated_at": "2025-06-21T08:25:29.323Z"
+  },
+  {
+    "id": "6f709e6f-c9c7-4643-8b77-f14fba3d2350",
+    "title": "Final Validation and Documentation",
+    "step_order": 8,
+    "description": "Step description",
+    "estimated_duration_minutes": 20,
+    "assigned_to": "username",
+    "tasks": [
+      {
+        "id": "913eca59-1ed4-4fb9-838f-2d65f786e8af",
+        "order": 1,
+        "title": "End-to-End Testing",
+        "completed": false,
+        "description": "Execute comprehensive end-to-end tests covering all critical business functions"
+      },
+      {
+        "id": "a2b90772-5948-4ca2-aaba-c82c49a986f7",
+        "order": 2,
+        "title": "Performance Validation",
+        "completed": false,
+        "description": "Verify system performance meets established SLA requirements"
+      },
+      {
+        "id": "8a931ad2-8433-409e-abc9-ed588526cb1a",
+        "order": 3,
+        "title": "Update Recovery Documentation",
+        "completed": false,
+        "description": "Document any changes made during recovery and update procedures"
+      },
+      {
+        "id": "d4cb50fa-c4d8-4d8c-ae61-47ea12a5b611",
+        "order": 4,
+        "title": "Notify Stakeholders",
+        "completed": false,
+        "description": "Inform all relevant stakeholders that recovery is complete"
+      },
+      {
+        "id": "2cfb5563-a73d-4667-837f-762b6015d722",
+        "order": 5,
+        "title": "Schedule Post-Incident Review",
+        "completed": false,
+        "description": "Plan a post-incident review meeting to discuss lessons learned"
+      },
+      {
+        "id": "4812618d-2565-4694-9ce2-bbcfcf5dd746",
+        "order": 6,
+        "title": "Task Title",
+        "completed": false,
+        "description": "Task description"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "e1083bbf-2358-4f7c-b96c-181d21756ad2",
+        "type": "yes_no",
+        "question": "Is the system fully recovered and operational?",
+        "options": [],
+        "required": true
+      },
+      "description": "Show this step after monitoring setup is complete"
+    },
+    "depends_on": "Step 7 (Monitoring Setup)",
+    "runbook_id": "11bbf6d4-53ef-4ae5-92b9-d5ff7c45154a",
+    "created_at": "2025-06-21T08:25:29.325Z",
+    "updated_at": "2025-06-21T08:25:29.325Z"
+  },
+  {
+    "id": "dd9152e2-1590-41be-a9a8-07bfb6a3b904",
+    "title": "Initial Check",
+    "step_order": 1,
+    "description": "Verify system access and document issues",
+    "estimated_duration_minutes": 15,
+    "assigned_to": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
+    "tasks": [
+      {
+        "id": "8f443359-023e-4fda-94a1-8f9fa6d16b17",
+        "order": 1,
+        "title": "Check AWS Console",
+        "completed": false,
+        "description": "Log into AWS console and verify access"
+      },
+      {
+        "id": "2f1ea380-3f4a-4f60-836a-32c5350733c9",
+        "order": 2,
+        "title": "List Failed Services",
+        "completed": false,
+        "description": "Document all services that are currently down"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "ab269a6b-3710-448a-99a4-cc331d9894f2",
+        "type": "yes_no",
+        "question": "Is AWS access working?",
+        "options": [],
+        "required": true
+      },
+      "description": "Always execute first "
+    },
+    "depends_on": "None --- ",
+    "runbook_id": "5a7fd831-0fca-4e44-b60d-a54382842be9",
+    "created_at": "2025-06-21T08:32:21.251Z",
+    "updated_at": "2025-06-21T08:32:21.251Z"
+  },
+  {
+    "id": "2f2ca5fd-1941-404a-8486-038010079074",
+    "title": "Recovery Actions",
+    "step_order": 2,
+    "description": "Execute recovery procedures",
+    "estimated_duration_minutes": 30,
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "tasks": [
+      {
+        "id": "b03cb17b-c97a-481d-afb8-7c1562a62a92",
+        "order": 1,
+        "title": "Restart Services",
+        "completed": false,
+        "description": "Restart all critical services in the correct order"
+      },
+      {
+        "id": "f65649b0-8ccd-454a-9b6f-1140bb42b2bf",
+        "order": 2,
+        "title": "Verify Connectivity",
+        "completed": false,
+        "description": "Test network connectivity between services"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "abb33e2f-ed7b-4311-b69f-1c8a49285a5f",
+        "type": "select",
+        "question": "Which platform needs priority?",
+        "options": [
+          "AWS",
+          "Azure",
+          "Both"
+        ],
+        "required": true
+      },
+      "description": "Execute after initial check is complete "
+    },
+    "depends_on": "This step depends on: Step 1 --- ",
+    "runbook_id": "5a7fd831-0fca-4e44-b60d-a54382842be9",
+    "created_at": "2025-06-21T08:32:21.258Z",
+    "updated_at": "2025-06-21T08:32:21.258Z"
+  },
+  {
+    "id": "3bd2fef3-45a0-4451-ac0c-a0cbd2724a6a",
+    "title": "Final Validation",
+    "step_order": 3,
+    "description": "Validate all systems are operational",
+    "estimated_duration_minutes": 20,
+    "assigned_to": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
+    "tasks": [
+      {
+        "id": "9c0590d8-c313-4a02-aa97-eb282dde6b3d",
+        "order": 1,
+        "title": "Run Health Checks",
+        "completed": false,
+        "description": "Execute automated health checks on all systems"
+      },
+      {
+        "id": "1b3c71d4-c9b1-411c-8d44-666a530dfa45",
+        "order": 2,
+        "title": "Update Documentation",
+        "completed": false,
+        "description": "Record what was done and lessons learned"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "72433e70-6ba2-479d-bdc8-17cf7d9db596",
+        "type": "text",
+        "question": "What was the total downtime?",
+        "options": [],
+        "required": false
+      },
+      "description": "Execute only after recovery is complete "
+    },
+    "depends_on": "This step depends on: Step 2 ",
+    "runbook_id": "5a7fd831-0fca-4e44-b60d-a54382842be9",
+    "created_at": "2025-06-21T08:32:21.267Z",
+    "updated_at": "2025-06-21T08:32:21.267Z"
+  },
+  {
+    "id": "6917b022-2f58-4067-bda3-372ab429eaad",
+    "title": "Initial Check",
+    "step_order": 1,
+    "description": "Verify system access and document issues",
+    "estimated_duration_minutes": 15,
+    "assigned_to": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
+    "tasks": [
+      {
+        "id": "d49c9b6a-2b0c-4bca-98c5-cd54d3922099",
+        "order": 1,
+        "title": "Check AWS Console",
+        "completed": false,
+        "description": "Log into AWS console and verify access"
+      },
+      {
+        "id": "20c3aba8-19f6-4118-a25a-90cd0b74ad14",
+        "order": 2,
+        "title": "List Failed Services",
+        "completed": false,
+        "description": "Document all services that are currently down"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "e6066ef9-7282-4eb2-b53f-728bda743e84",
+        "type": "select",
+        "question": "Is AWS access working?",
+        "options": [
+          "Yes",
+          "No",
+          "Partially"
+        ],
+        "required": true
+      },
+      "description": "Always execute first "
+    },
+    "depends_on": "None --- ",
+    "runbook_id": "b4e5f4ff-7395-4bfe-9bdd-7b6b2e6c5856",
+    "created_at": "2025-06-21T08:35:32.532Z",
+    "updated_at": "2025-06-21T08:35:32.532Z"
+  },
+  {
+    "id": "bba42724-7680-4231-b585-c74debb9e89a",
+    "title": "Recovery Actions",
+    "step_order": 2,
+    "description": "Execute recovery procedures",
+    "estimated_duration_minutes": 30,
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "tasks": [
+      {
+        "id": "7fb6f87e-7c67-47df-b227-1264221eda11",
+        "order": 1,
+        "title": "Restart Services",
+        "completed": false,
+        "description": "Restart all critical services in the correct order"
+      },
+      {
+        "id": "40917f21-7375-4b13-a839-e53267214f9d",
+        "order": 2,
+        "title": "Verify Connectivity",
+        "completed": false,
+        "description": "Test network connectivity between services"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "6afdac4b-b81d-4a09-8dc0-172bfe1e9c91",
+        "type": "select",
+        "question": "Which platform needs priority?",
+        "options": [
+          "AWS",
+          "Azure",
+          "Both"
+        ],
+        "required": true
+      },
+      "description": "Execute after initial check is complete "
+    },
+    "depends_on": "This step depends on: Step 1 --- ",
+    "runbook_id": "b4e5f4ff-7395-4bfe-9bdd-7b6b2e6c5856",
+    "created_at": "2025-06-21T08:35:32.537Z",
+    "updated_at": "2025-06-21T08:35:32.537Z"
+  },
+  {
+    "id": "cc274b7e-d3f0-4825-bc68-c741d3e098c7",
+    "title": "Final Validation",
+    "step_order": 3,
+    "description": "Validate all systems are operational",
+    "estimated_duration_minutes": 20,
+    "assigned_to": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
+    "tasks": [
+      {
+        "id": "fa1cd21d-ffa3-4f0a-ac01-5767a8cf69db",
+        "order": 1,
+        "title": "Run Health Checks",
+        "completed": false,
+        "description": "Execute automated health checks on all systems"
+      },
+      {
+        "id": "55727c93-3f71-4ac9-8c94-5d701723ddfb",
+        "order": 2,
+        "title": "Update Documentation",
+        "completed": false,
+        "description": "Record what was done and lessons learned"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "c3a0de32-1e23-4221-b1da-48a69dc0f70d",
+        "type": "select",
+        "question": "What was the total downtime?",
+        "options": [
+          "Under 30 minutes",
+          "30-60 minutes",
+          "1-2 hours",
+          "Over 2 hours"
+        ],
+        "required": false
+      },
+      "description": "Execute only after recovery is complete "
+    },
+    "depends_on": "This step depends on: Step 2 ",
+    "runbook_id": "b4e5f4ff-7395-4bfe-9bdd-7b6b2e6c5856",
+    "created_at": "2025-06-21T08:35:32.543Z",
+    "updated_at": "2025-06-21T08:35:32.543Z"
+  },
+  {
+    "id": "326fbae3-8b97-4e66-8475-4fd2ab0753a6",
+    "title": "Initial Assessment and Emergency Response",
+    "step_order": 1,
+    "description": "Rapid assessment of database failure scope and initiation of emergency response procedures",
+    "estimated_duration_minutes": 15,
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "tasks": [
+      {
+        "id": "059d67f3-6461-4a33-94e9-ba9208536545",
+        "order": 1,
+        "title": "Verify Database Connectivity",
+        "completed": false,
+        "description": "Test connections to all primary and secondary database instances across AWS RDS and Azure SQL"
+      },
+      {
+        "id": "128447d8-f33f-4bfc-a268-f50b900085d9",
+        "order": 2,
+        "title": "Check Application Health",
+        "completed": false,
+        "description": "Assess impact on dependent applications and services"
+      },
+      {
+        "id": "beaaeaed-425f-4da0-ba25-d382847fe5a6",
+        "order": 3,
+        "title": "Notify Stakeholders",
+        "completed": false,
+        "description": "Send immediate notification to Infrastructure Team and Application/DevOps Team leads"
+      },
+      {
+        "id": "71d4213e-4c65-4961-a137-054157ea6264",
+        "order": 4,
+        "title": "Document Incident Timeline",
+        "completed": false,
+        "description": "Begin incident log with timestamps and initial observations"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "6c1d816a-b033-4050-aaeb-e12e07c6a012",
+        "type": "select",
+        "question": "What is the scope of the database failure?",
+        "options": [
+          "Single Instance",
+          "Multiple Instances",
+          "Complete Cluster Failure",
+          "Cross-Region Failure"
+        ],
+        "required": true
+      },
+      "description": "This step is always executed first in any database emergency "
+    },
+    "depends_on": "None - This is the initial emergency response step --- ",
+    "runbook_id": "41aec009-c397-436c-89f7-86dd49e65633",
+    "created_at": "2025-06-21T08:51:48.550Z",
+    "updated_at": "2025-06-21T17:53:50.779Z"
+  },
+  {
+    "id": "4673a597-eeff-4611-9430-4da5ae428f5a",
+    "title": "AWS RDS Primary Recovery",
+    "step_order": 2,
+    "description": "Restore AWS RDS instances from automated backups and snapshots",
+    "estimated_duration_minutes": 30,
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "tasks": [
+      {
+        "id": "2221ccd9-524a-408e-abb6-3e3dd5f5c2cb",
+        "order": 1,
+        "title": "Identify Latest Backup",
+        "completed": false,
+        "description": "Locate the most recent automated backup and manual snapshot for each affected RDS instance"
+      },
+      {
+        "id": "a638443a-a29b-4532-8f4e-b3f5a5193a5f",
+        "order": 2,
+        "title": "Initiate Point-in-Time Recovery",
+        "completed": false,
+        "description": "Create new RDS instances from the latest viable recovery point"
+      },
+      {
+        "id": "817896e7-4b02-4d79-b7bd-ab639ed1e622",
+        "order": 3,
+        "title": "Configure Security Groups",
+        "completed": false,
+        "description": "Apply appropriate security groups and parameter groups to restored instances"
+      },
+      {
+        "id": "02cbd7ae-7bfc-424b-8426-7f7f4c8ff9b1",
+        "order": 4,
+        "title": "Update DNS Records",
+        "completed": false,
+        "description": "Update Route 53 DNS records to point to restored database instances"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "7626698e-8990-4430-b4eb-d81bec18538e",
+        "type": "select",
+        "question": "Which AWS regions are affected?",
+        "options": [
+          "us-east-1",
+          "us-west-2",
+          "eu-west-1",
+          "Multiple Regions"
+        ],
+        "required": true
+      },
+      "description": "Execute only if AWS RDS instances are affected "
+    },
+    "depends_on": "This step depends on: Step 1 (Initial Assessment) --- ",
+    "runbook_id": "41aec009-c397-436c-89f7-86dd49e65633",
+    "created_at": "2025-06-21T08:51:48.558Z",
+    "updated_at": "2025-06-21T08:51:48.558Z"
+  },
+  {
+    "id": "ef67bef9-9df1-471c-ba4b-ac709016a41b",
+    "title": "Azure SQL Database Recovery",
+    "step_order": 3,
+    "description": "Restore Azure SQL databases from geo-redundant backups",
+    "estimated_duration_minutes": 25,
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "tasks": [
+      {
+        "id": "6d30eea7-9cdb-4785-96f2-10d1a71294c0",
+        "order": 1,
+        "title": "Access Azure Portal",
+        "completed": false,
+        "description": "Log into Azure portal and navigate to SQL Database service"
+      },
+      {
+        "id": "dc31bfd6-d2b9-4e12-b9c8-d551e487b023",
+        "order": 2,
+        "title": "Initiate Geo-Restore",
+        "completed": false,
+        "description": "Restore databases from geo-redundant backups to secondary region if needed"
+      },
+      {
+        "id": "ce9cf5ac-958c-4107-9d3e-d38803c74687",
+        "order": 3,
+        "title": "Configure Firewall Rules",
+        "completed": false,
+        "description": "Set up appropriate firewall rules and virtual network access"
+      },
+      {
+        "id": "47f69dda-5959-49cb-948e-e8ba810c905e",
+        "order": 4,
+        "title": "Test Database Connectivity",
+        "completed": false,
+        "description": "Verify restored databases are accessible and responsive"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "07b4d460-01fa-480a-9f52-6f1fbe5783c7",
+        "type": "select",
+        "question": "Should we restore to the same region or failover to secondary?",
+        "options": [
+          "Same Region",
+          "Secondary Region",
+          "Both for Testing"
+        ],
+        "required": true
+      },
+      "description": "Execute if Azure SQL databases are in scope "
+    },
+    "depends_on": "This step can run in parallel with Step 2 --- ",
+    "runbook_id": "41aec009-c397-436c-89f7-86dd49e65633",
+    "created_at": "2025-06-21T08:51:48.562Z",
+    "updated_at": "2025-06-21T17:53:50.779Z"
+  },
+  {
+    "id": "3e86b755-1312-4a9f-b560-2abcd6b3abb9",
+    "title": "Backup Verification with Commvault",
+    "step_order": 4,
+    "description": "Verify and validate backup integrity using Commvault systems",
+    "estimated_duration_minutes": 20,
+    "assigned_to": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
+    "tasks": [
+      {
+        "id": "7de673a8-34bf-4901-af32-a9c5aae5584e",
+        "order": 1,
+        "title": "Check Commvault Console",
+        "completed": false,
+        "description": "Access Commvault Command Center and review recent backup job status"
+      },
+      {
+        "id": "1bf0f480-2929-4174-b586-384dc4391676",
+        "order": 2,
+        "title": "Verify Backup Completeness",
+        "completed": false,
+        "description": "Ensure all critical databases were successfully backed up in the last 24 hours"
+      },
+      {
+        "id": "89545fa6-03da-4174-8f23-d4aec559c554",
+        "order": 3,
+        "title": "Test Backup Restore",
+        "completed": false,
+        "description": "Perform test restore of a small database to verify backup integrity"
+      },
+      {
+        "id": "7c768741-32a8-4f91-945b-af8ae5481bb6",
+        "order": 4,
+        "title": "Document Backup Status",
+        "completed": false,
+        "description": "Create summary report of backup status for all affected systems"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "4019fe5f-1c94-48da-bb54-66093a19d636",
+        "type": "select",
+        "question": "Are all recent backups verified as complete and restorable?",
+        "options": [
+          "Yes - All Good",
+          "Partial - Some Issues",
+          "No - Major Problems"
+        ],
+        "required": true
+      },
+      "description": "Execute to ensure backup systems are reliable for this recovery "
+    },
+    "depends_on": "This step can run independently but should complete before final validation --- ",
+    "runbook_id": "41aec009-c397-436c-89f7-86dd49e65633",
+    "created_at": "2025-06-21T08:51:48.569Z",
+    "updated_at": "2025-06-21T08:51:48.569Z"
+  },
+  {
+    "id": "4f5c6305-8b49-45ea-93b3-62fe50cf2d3f",
+    "title": "Data Consistency and Validation",
+    "step_order": 5,
+    "description": "Comprehensive validation of restored databases and data integrity checks",
+    "estimated_duration_minutes": 40,
+    "assigned_to": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
+    "tasks": [
+      {
+        "id": "f3b6afdb-b2ce-478d-a7ca-2f0d0c4ac477",
+        "order": 1,
+        "title": "Run Database Consistency Checks",
+        "completed": false,
+        "description": "Execute DBCC CHECKDB (SQL Server) or equivalent consistency checks on all restored databases"
+      },
+      {
+        "id": "21005665-0a45-448f-9829-c3582930f8bf",
+        "order": 2,
+        "title": "Validate Critical Tables",
+        "completed": false,
+        "description": "Perform row counts and checksums on business-critical tables"
+      },
+      {
+        "id": "5df42ea4-4985-4e4a-8691-f6889cc2f7f6",
+        "order": 3,
+        "title": "Test Application Connections",
+        "completed": false,
+        "description": "Verify that applications can successfully connect and perform basic operations"
+      },
+      {
+        "id": "7e119b31-0e88-4d58-abf5-e1195b149ae8",
+        "order": 4,
+        "title": "Compare Data Timestamps",
+        "completed": false,
+        "description": "Ensure data timestamps align with expected recovery point objectives"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "e872e5f6-0c42-4591-81a3-22702b010691",
+        "type": "select",
+        "question": "What is the maximum acceptable data loss for this incident?",
+        "options": [
+          "Zero Loss",
+          "Under 1 Hour",
+          "1-4 Hours",
+          "Over 4 Hours Acceptable"
+        ],
+        "required": true
+      },
+      "description": "Execute only after database restoration is complete "
+    },
+    "depends_on": "This step depends on: Step 2 (AWS Recovery) and Step 3 (Azure Recovery) --- ",
+    "runbook_id": "41aec009-c397-436c-89f7-86dd49e65633",
+    "created_at": "2025-06-21T08:51:48.573Z",
+    "updated_at": "2025-06-21T08:51:48.573Z"
+  },
+  {
+    "id": "5a42bfa6-85ed-4c08-810a-69088fd33c32",
+    "title": "Application and Service Restart",
+    "step_order": 6,
+    "description": "Restart and validate all dependent applications and services",
+    "estimated_duration_minutes": 35,
+    "assigned_to": "67f80d02-749f-49a9-b104-a3b1ea787e72",
+    "tasks": [
+      {
+        "id": "f44c227b-aa53-45c7-994b-e2f47c927a1c",
+        "order": 1,
+        "title": "Restart Application Services",
+        "completed": false,
+        "description": "Restart all applications that depend on the restored databases"
+      },
+      {
+        "id": "574e168a-9093-4672-9777-3758e855ee6c",
+        "order": 2,
+        "title": "Update Connection Strings",
+        "completed": false,
+        "description": "Update application configuration files with new database endpoints if needed"
+      },
+      {
+        "id": "c3abdfb7-965f-46f1-a993-f1f6a20be3b7",
+        "order": 3,
+        "title": "Perform Health Checks",
+        "completed": false,
+        "description": "Run comprehensive health checks on all applications"
+      },
+      {
+        "id": "865749dd-4a4e-4444-ac23-6860a69c91c3",
+        "order": 4,
+        "title": "Monitor Application Logs",
+        "completed": false,
+        "description": "Review application logs for any database connection errors or data issues"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "1deb5a87-5cf7-402f-895a-cafe83b2d102",
+        "type": "select",
+        "question": "Are all critical business applications operational?",
+        "options": [
+          "Yes - All Running",
+          "Mostly - Minor Issues",
+          "No - Major Problems"
+        ],
+        "required": true
+      },
+      "description": "Execute after databases are restored and validated "
+    },
+    "depends_on": "This step depends on: Step 5 (Data Validation) --- ",
+    "runbook_id": "41aec009-c397-436c-89f7-86dd49e65633",
+    "created_at": "2025-06-21T08:51:48.584Z",
+    "updated_at": "2025-06-21T17:56:53.686Z"
+  },
+  {
+    "id": "bef959b0-f1c1-47ca-adf8-5147641a8c80",
+    "title": "Final Validation and Documentation",
+    "step_order": 7,
+    "description": "Final system validation and incident documentation",
+    "estimated_duration_minutes": 30,
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "tasks": [
+      {
+        "id": "05d0edce-9955-4c74-a6ca-87e753bbfc6d",
+        "order": 1,
+        "title": "End-to-End Testing",
+        "completed": false,
+        "description": "Perform complete business process testing to ensure full functionality"
+      },
+      {
+        "id": "0c80b939-c698-429f-b390-56ca66986e00",
+        "order": 2,
+        "title": "Performance Monitoring",
+        "completed": false,
+        "description": "Monitor database performance metrics to ensure optimal operation"
+      },
+      {
+        "id": "03e358e5-71f7-4527-9520-3f773d341be8",
+        "order": 3,
+        "title": "Update Monitoring Systems",
+        "completed": false,
+        "description": "Ensure all monitoring and alerting systems are tracking the restored databases"
+      },
+      {
+        "id": "613a034b-3d3a-47e9-a89c-8a3a1b827ca0",
+        "order": 4,
+        "title": "Complete Incident Report",
+        "completed": false,
+        "description": "Document lessons learned, timeline, and recommendations for future improvements"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "47a1d3cc-ba6d-49a4-b554-08c7a3672e32",
+        "type": "select",
+        "question": "What was the total recovery time achieved?",
+        "options": [
+          "Under 1 Hour",
+          "1-2 Hours",
+          "2-4 Hours",
+          "4-6 Hours",
+          "Over 6 Hours"
+        ],
+        "required": true
+      },
+      "description": "Execute as the final step to ensure complete recovery "
+    },
+    "depends_on": "This step depends on: All previous steps (1-6) --- # Additional Information ## Available Team Assignments: - **Kevin Cronin** - Database Team specialist - **Ty Rep** - Kelyn representative with AWS expertise - **Client Account** - Infrastructure team member - **John Doe** - Client admin with backup systems knowledge - **Test Last** - Kelyn admin with validation expertise - **Test Name** - Application team member ## Available Apps: - **AWS** - Amazon Web Services - **Azure** - Microsoft Azure - **Microsoft** - Microsoft technologies - **Google** - Google Cloud Platform - **Commvault** - Backup and recovery platform ## Teams Available: - **Infrastructure Team** - Physical and cloud infrastructure - **Database Team** - Data storage systems and backups - **Application/DevOps Team** - CI/CD and app deployment - **Security & Compliance Team** - Access control and compliance ",
+    "runbook_id": "41aec009-c397-436c-89f7-86dd49e65633",
+    "created_at": "2025-06-21T08:51:48.594Z",
+    "updated_at": "2025-06-21T17:53:50.779Z"
+  },
+  {
+    "id": "c1d9ea1c-bda9-4aea-8803-d25f67c9c0b9",
+    "title": "Incident Classification",
+    "step_order": 1,
+    "description": "Classify the type of incident to determine the appropriate response path",
+    "estimated_duration_minutes": 10,
+    "assigned_to": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
+    "tasks": [
+      {
+        "id": "1852ee7c-6e8e-4640-a537-9b5f27c0ffc9",
+        "order": 1,
+        "title": "Assess Incident Scope",
+        "completed": false,
+        "description": "Determine if this is a security, infrastructure, or application incident"
+      },
+      {
+        "id": "22921c38-022d-4676-9508-94b1183a38d5",
+        "order": 2,
+        "title": "Check System Status",
+        "completed": false,
+        "description": "Review monitoring dashboards for system health indicators"
+      },
+      {
+        "id": "6dcc6754-2d0b-4b65-88c9-ebb1defee0c0",
+        "order": 3,
+        "title": "Notify Initial Response Team",
+        "completed": false,
+        "description": "Alert the appropriate team leads based on incident classification"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "f982f71b-1ac3-45c8-9a54-267bd5fddaf4",
+        "type": "select",
+        "question": "What type of incident is this?",
+        "options": [
+          "Security Breach",
+          "Infrastructure Failure",
+          "Application Error",
+          "Network Outage"
+        ],
+        "required": true
+      }
+    },
+    "depends_on": "None - Initial classification step --- ",
+    "runbook_id": "6ab7bfdf-56d4-486d-b14c-324bcfa2c7c9",
+    "created_at": "2025-06-21T08:58:42.656Z",
+    "updated_at": "2025-06-21T08:58:42.656Z"
+  },
+  {
+    "id": "b16bc4fa-9bed-4ba8-ac9f-115026b58b03",
+    "title": "Security Incident Response",
+    "step_order": 2,
+    "description": "Execute security incident response procedures for breach containment",
+    "estimated_duration_minutes": 45,
+    "assigned_to": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
+    "tasks": [
+      {
+        "id": "69ad1555-5b6b-477b-9fe0-f663520e381b",
+        "order": 1,
+        "title": "Isolate Affected Systems",
+        "completed": false,
+        "description": "Immediately isolate compromised systems from the network"
+      },
+      {
+        "id": "fcdbcf6d-3af6-4f7f-8293-246d5f4dd592",
+        "order": 2,
+        "title": "Preserve Evidence",
+        "completed": false,
+        "description": "Take snapshots and preserve logs for forensic analysis"
+      },
+      {
+        "id": "bfc1c42b-5ea0-4165-9fc8-84c512f245ec",
+        "order": 3,
+        "title": "Reset Compromised Credentials",
+        "completed": false,
+        "description": "Force password resets for all potentially compromised accounts"
+      },
+      {
+        "id": "596617e8-c54a-4514-b915-0886f4c25135",
+        "order": 4,
+        "title": "Notify Legal and Compliance",
+        "completed": false,
+        "description": "Inform legal team and compliance officers of the security incident"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "c4bd2874-a075-477b-8858-9443e31672a3",
+        "type": "select",
+        "question": "Has the security breach been contained?",
+        "options": [
+          "Yes",
+          "Partially",
+          "No"
+        ],
+        "required": true
+      },
+      "structured": {
+        "type": "question_condition",
+        "step_number": 1,
+        "operator": "equals",
+        "answers": [
+          "Security Breach"
+        ]
+      }
+    },
+    "depends_on": "This step depends on: Step 1 (Incident Classification) --- ",
+    "runbook_id": "6ab7bfdf-56d4-486d-b14c-324bcfa2c7c9",
+    "created_at": "2025-06-21T08:58:42.661Z",
+    "updated_at": "2025-06-21T08:58:42.661Z"
+  },
+  {
+    "id": "f6614410-7924-4bd9-8035-ccfbf2300fd9",
+    "title": "Infrastructure Recovery",
+    "step_order": 3,
+    "description": "Restore failed infrastructure components and services",
+    "estimated_duration_minutes": 60,
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "tasks": [
+      {
+        "id": "3614803d-b90a-4927-bbc9-fbbf1c01c9db",
+        "order": 1,
+        "title": "Identify Failed Components",
+        "completed": false,
+        "description": "Create comprehensive list of failed servers, databases, and network components"
+      },
+      {
+        "id": "e91cc047-ae32-48d2-9d30-a5fa0947c4a9",
+        "order": 2,
+        "title": "Restore from Backups",
+        "completed": false,
+        "description": "Restore systems from most recent backups or snapshots"
+      },
+      {
+        "id": "c18054de-22b4-4e27-ab54-a02680800faa",
+        "order": 3,
+        "title": "Validate System Connectivity",
+        "completed": false,
+        "description": "Test network connectivity and service availability"
+      },
+      {
+        "id": "77d0b559-c52d-4f57-8d3a-640c7af8b0ec",
+        "order": 4,
+        "title": "Update Load Balancers",
+        "completed": false,
+        "description": "Update load balancer configurations to include restored systems"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "cff875de-c4f6-436e-a785-32aaa6ef8221",
+        "type": "select",
+        "question": "Are all critical systems restored and operational?",
+        "options": [
+          "Yes",
+          "Mostly",
+          "No"
+        ],
+        "required": true
+      },
+      "structured": {
+        "type": "question_condition",
+        "step_number": 1,
+        "operator": "equals",
+        "answers": [
+          "Infrastructure Failure",
+          "Network Outage"
+        ]
+      }
+    },
+    "depends_on": "This step depends on: Step 1 (Incident Classification) --- ",
+    "runbook_id": "6ab7bfdf-56d4-486d-b14c-324bcfa2c7c9",
+    "created_at": "2025-06-21T08:58:42.668Z",
+    "updated_at": "2025-06-21T08:58:42.668Z"
+  },
+  {
+    "id": "9b351173-d349-45e3-afd1-932bc93a78bf",
+    "title": "Application Troubleshooting",
+    "step_order": 4,
+    "description": "Diagnose and resolve application-specific errors and issues",
+    "estimated_duration_minutes": 30,
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "tasks": [
+      {
+        "id": "dc313137-69a6-490f-9024-afafa2a0f0c0",
+        "order": 1,
+        "title": "Review Application Logs",
+        "completed": false,
+        "description": "Analyze application logs for error patterns and root causes"
+      },
+      {
+        "id": "e3ad38ac-1b45-47df-ac72-9f3b8475aca3",
+        "order": 2,
+        "title": "Check Database Connectivity",
+        "completed": false,
+        "description": "Verify database connections and query performance"
+      },
+      {
+        "id": "7057e509-1fb9-4fac-9ec4-eb3c6debe66e",
+        "order": 3,
+        "title": "Restart Application Services",
+        "completed": false,
+        "description": "Restart application services in the correct order"
+      },
+      {
+        "id": "dd0e3d93-1c1a-4754-990a-366ac9ed6cf2",
+        "order": 4,
+        "title": "Validate Application Functions",
+        "completed": false,
+        "description": "Test critical application functions and user workflows"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "6967abae-d341-416a-895d-20c5bef0f575",
+        "type": "select",
+        "question": "Is the application fully functional?",
+        "options": [
+          "Yes",
+          "Limited Functionality",
+          "No"
+        ],
+        "required": true
+      },
+      "structured": {
+        "type": "question_condition",
+        "step_number": 1,
+        "operator": "equals",
+        "answers": [
+          "Application Error"
+        ]
+      }
+    },
+    "depends_on": "This step depends on: Step 1 (Incident Classification) --- ",
+    "runbook_id": "6ab7bfdf-56d4-486d-b14c-324bcfa2c7c9",
+    "created_at": "2025-06-21T08:58:42.674Z",
+    "updated_at": "2025-06-21T17:53:50.778Z"
+  },
+  {
+    "id": "c01f1d51-bed7-4133-840c-1432cf986a54",
+    "title": "Security Validation and Hardening",
+    "step_order": 5,
+    "description": "Additional security validation required after security incidents",
+    "estimated_duration_minutes": 35,
+    "assigned_to": "67f80d02-749f-49a9-b104-a3b1ea787e72",
+    "tasks": [
+      {
+        "id": "eb6d1474-cfc8-4f8d-a733-ff7079d6b2da",
+        "order": 1,
+        "title": "Run Security Scans",
+        "completed": false,
+        "description": "Execute vulnerability scans on all affected systems"
+      },
+      {
+        "id": "2f818982-e2f3-4049-b645-7469769f4866",
+        "order": 2,
+        "title": "Update Security Policies",
+        "completed": false,
+        "description": "Review and update security policies based on incident findings"
+      },
+      {
+        "id": "433d19fc-67ea-4b81-bbf2-23a986b6f10b",
+        "order": 3,
+        "title": "Implement Additional Monitoring",
+        "completed": false,
+        "description": "Deploy enhanced monitoring for early detection of similar incidents"
+      },
+      {
+        "id": "701dba51-a057-4c13-94a4-8b02af29d0d1",
+        "order": 4,
+        "title": "Conduct Security Training",
+        "completed": false,
+        "description": "Schedule security awareness training for affected teams"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "5b05c93b-2379-4bd5-8f4c-a50686e10666",
+        "type": "select",
+        "question": "Are enhanced security measures in place?",
+        "options": [
+          "Yes",
+          "In Progress",
+          "No"
+        ],
+        "required": true
+      },
+      "structured": {
+        "type": "question_condition",
+        "step_number": 2,
+        "operator": "equals",
+        "answers": [
+          "Yes",
+          "Partially"
+        ]
+      }
+    },
+    "depends_on": "This step depends on: Step 2 (Security Incident Response) --- ",
+    "runbook_id": "6ab7bfdf-56d4-486d-b14c-324bcfa2c7c9",
+    "created_at": "2025-06-21T08:58:42.681Z",
+    "updated_at": "2025-06-21T08:58:42.681Z"
+  },
+  {
+    "id": "9422be98-87eb-492b-a2d3-6e37b66b299c",
+    "title": "System Performance Validation",
+    "step_order": 6,
+    "description": "Validate system performance after infrastructure or application recovery",
+    "estimated_duration_minutes": 25,
+    "assigned_to": "83f81a97-d3dc-43a6-b5f5-1978b5da98ca",
+    "tasks": [
+      {
+        "id": "81e3434a-c76c-4955-b108-73b8ca0fba80",
+        "order": 1,
+        "title": "Run Performance Tests",
+        "completed": false,
+        "description": "Execute performance benchmarks to ensure systems meet SLA requirements"
+      },
+      {
+        "id": "8170f01f-9270-4dbc-877b-9f9431ed8adc",
+        "order": 2,
+        "title": "Monitor Resource Utilization",
+        "completed": false,
+        "description": "Check CPU, memory, and disk utilization on all restored systems"
+      },
+      {
+        "id": "68808cd8-980c-4016-9909-d75a12e41224",
+        "order": 3,
+        "title": "Validate Backup Systems",
+        "completed": false,
+        "description": "Ensure backup systems are functioning and schedules are current"
+      },
+      {
+        "id": "90580fe1-b368-4e84-98bf-4532bffdeaff",
+        "order": 4,
+        "title": "Update Monitoring Thresholds",
+        "completed": false,
+        "description": "Adjust monitoring thresholds based on incident learnings"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "c392ff4c-a5f1-4c7c-88b8-04d4eee7691f",
+        "type": "select",
+        "question": "Do all systems meet performance requirements?",
+        "options": [
+          "Yes",
+          "Within Acceptable Range",
+          "No"
+        ],
+        "required": true
+      },
+      "structured": {
+        "type": "question_condition",
+        "step_number": 3,
+        "operator": "equals",
+        "answers": [
+          "Yes",
+          "Mostly"
+        ]
+      }
+    },
+    "depends_on": "This step depends on: Step 3 (Infrastructure Recovery) --- ",
+    "runbook_id": "6ab7bfdf-56d4-486d-b14c-324bcfa2c7c9",
+    "created_at": "2025-06-21T08:58:42.688Z",
+    "updated_at": "2025-06-21T08:58:42.688Z"
+  },
+  {
+    "id": "7eb201a6-5423-40f7-8271-45611accce1d",
+    "title": "Final Incident Documentation",
+    "step_order": 7,
+    "description": "Complete incident documentation and conduct lessons learned session",
+    "estimated_duration_minutes": 20,
+    "assigned_to": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
+    "tasks": [
+      {
+        "id": "6d9d8eaa-ed5d-4169-ba60-53e3c3705c4a",
+        "order": 1,
+        "title": "Complete Incident Report",
+        "completed": false,
+        "description": "Document incident timeline, impact, and resolution steps"
+      },
+      {
+        "id": "23d569ec-b066-429b-8789-0a347bc89831",
+        "order": 2,
+        "title": "Conduct Lessons Learned Session",
+        "completed": false,
+        "description": "Meet with response team to identify process improvements"
+      },
+      {
+        "id": "f6e2a9cf-d1cd-4210-bee6-c8cc0bfa2b23",
+        "order": 3,
+        "title": "Update Runbooks",
+        "completed": false,
+        "description": "Update incident response runbooks based on lessons learned"
+      },
+      {
+        "id": "66f04ac6-5e90-4ebd-8225-81de2e494abc",
+        "order": 4,
+        "title": "Notify Stakeholders",
+        "completed": false,
+        "description": "Send final incident summary to all stakeholders"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "6c67a1bb-2b80-473a-9b96-542485e7c8fd",
+        "type": "select",
+        "question": "Has the incident been fully resolved and documented?",
+        "options": [
+          "Yes",
+          "Documentation Pending",
+          "No"
+        ],
+        "required": true
+      },
+      "structured": {
+        "type": "question_condition",
+        "step_number": 2,
+        "operator": "not_equals",
+        "answers": [
+          "No"
+        ]
+      }
+    },
+    "depends_on": "This step depends on: Previous response steps --- # Advanced Conditional Logic Examples This runbook demonstrates several types of conditional logic: ## 1. Single Answer Conditions: - **step_1_question_equals:Security Breach** - Shows Step 2 only for security incidents - **step_1_question_equals:Application Error** - Shows Step 4 only for application issues ## 2. Multiple Answer Conditions: - **step_1_question_equals:Infrastructure Failure|Network Outage** - Shows Step 3 for infrastructure OR network issues - **step_3_question_equals:Yes|Mostly** - Shows Step 6 if infrastructure recovery was successful OR mostly successful ## 3. Negative Conditions: - **step_2_question_not_equals:No** - Shows Step 7 unless security containment completely failed ## 4. Cascading Conditions: - Step 5 only appears if Step 2 (security response) was successful - Step 6 only appears if Step 3 (infrastructure recovery) was successful - This creates branching workflows based on success/failure ## Available Condition Types: - **always_show** - Step always appears - **step_X_question_equals:Answer** - Show if specific answer given - **step_X_question_not_equals:Answer** - Show if specific answer NOT given - **step_X_question_equals:Answer1|Answer2** - Show if ANY of the listed answers given This creates dynamic runbooks that adapt to the specific incident type and response success! ",
+    "runbook_id": "6ab7bfdf-56d4-486d-b14c-324bcfa2c7c9",
+    "created_at": "2025-06-21T08:58:42.697Z",
+    "updated_at": "2025-06-21T08:58:42.697Z"
+  },
+  {
+    "id": "f60ebf98-ef21-41d3-8fc4-d924ac935be4",
+    "title": "Initial Decision Point",
+    "step_order": 1,
+    "description": "Make initial decision that determines which subsequent steps appear",
+    "estimated_duration_minutes": 10,
+    "assigned_to": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
+    "tasks": [
+      {
+        "id": "35a02aac-06c5-47be-9db3-ccf7cd7af365",
+        "order": 1,
+        "title": "Assess Situation Type",
+        "completed": false,
+        "description": "Determine what type of situation we're dealing with"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "e57735ce-8128-4db8-a5ef-b65d80f2916f",
+        "type": "select",
+        "question": "What type of situation is this?",
+        "options": [
+          "Emergency",
+          "Maintenance",
+          "Testing"
+        ],
+        "required": true
+      }
+    },
+    "depends_on": "None - This is the starting point --- ",
+    "runbook_id": "4a025f52-d1ad-4f2d-bc1e-a7f005b93a96",
+    "created_at": "2025-06-21T09:02:31.741Z",
+    "updated_at": "2025-06-21T09:02:31.741Z"
+  },
+  {
+    "id": "97e8da7a-42c6-45d7-bf5e-ca9ea6df0e96",
+    "title": "Emergency Response (Only for Emergencies)",
+    "step_order": 2,
+    "description": "Emergency response procedures - only appears for emergency situations",
+    "estimated_duration_minutes": 30,
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "tasks": [
+      {
+        "id": "ab80b421-dfa7-42b8-9f0b-83f32fa538ff",
+        "order": 1,
+        "title": "Activate Emergency Protocol",
+        "completed": false,
+        "description": "Activate emergency response procedures immediately"
+      },
+      {
+        "id": "8fc7286b-12e9-441d-816f-f845cfb99e44",
+        "order": 2,
+        "title": "Notify Stakeholders",
+        "completed": false,
+        "description": "Send emergency notifications to all relevant stakeholders"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "838309bc-5dff-402e-a343-9d7bfe521e0e",
+        "type": "select",
+        "question": "Is the emergency contained?",
+        "options": [
+          "Yes",
+          "Partially",
+          "No"
+        ],
+        "required": true
+      },
+      "visibilityRules": [
+        {
+          "id": "a126666f-86be-488c-9fca-fe415dae039f",
+          "stepId": "f60ebf98-ef21-41d3-8fc4-d924ac935be4",
+          "questionId": "e57735ce-8128-4db8-a5ef-b65d80f2916f",
+          "requiredAnswer": "Emergency",
+          "description": "Show when Step 1 question \"What type of situation is this?\" = \"Emergency\""
+        }
+      ]
+    },
+    "depends_on": "This step depends on: Step 1 --- ",
+    "runbook_id": "4a025f52-d1ad-4f2d-bc1e-a7f005b93a96",
+    "created_at": "2025-06-21T09:02:31.748Z",
+    "updated_at": "2025-06-21T09:02:31.748Z"
+  },
+  {
+    "id": "0ffe0331-974e-461a-babf-b6ceaea2135f",
+    "title": "Maintenance Procedures (Only for Maintenance)",
+    "step_order": 3,
+    "description": "Scheduled maintenance procedures - only appears for maintenance situations",
+    "estimated_duration_minutes": 45,
+    "assigned_to": "bd15862a-168e-4f2a-b1eb-6a9f442e0637",
+    "tasks": [
+      {
+        "id": "545b5e4d-6f55-4de9-87ca-afda769dcf92",
+        "order": 1,
+        "title": "Prepare Maintenance Window",
+        "completed": false,
+        "description": "Set up maintenance window and user notifications"
+      },
+      {
+        "id": "8f39da9c-f66e-4b96-a13b-66f2c2e4ca2a",
+        "order": 2,
+        "title": "Execute Maintenance Tasks",
+        "completed": false,
+        "description": "Perform scheduled maintenance activities"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "2a7d4c2c-62bd-4b53-be95-b35772263cc7",
+        "type": "select",
+        "question": "Is maintenance completed successfully?",
+        "options": [
+          "Yes",
+          "No",
+          "Partially"
+        ],
+        "required": true
+      },
+      "visibilityRules": [
+        {
+          "id": "d6852247-dcda-4111-838d-6511b6f6eb23",
+          "stepId": "f60ebf98-ef21-41d3-8fc4-d924ac935be4",
+          "questionId": "e57735ce-8128-4db8-a5ef-b65d80f2916f",
+          "requiredAnswer": "Maintenance",
+          "description": "Show when Step 1 question \"What type of situation is this?\" = \"Maintenance\""
+        }
+      ]
+    },
+    "depends_on": "This step depends on: Step 1 --- ",
+    "runbook_id": "4a025f52-d1ad-4f2d-bc1e-a7f005b93a96",
+    "created_at": "2025-06-21T09:02:31.755Z",
+    "updated_at": "2025-06-21T09:02:31.755Z"
+  },
+  {
+    "id": "23145c74-b46b-4417-bd9c-d6436a1cfe9b",
+    "title": "Testing Procedures (Only for Testing)",
+    "step_order": 4,
+    "description": "Testing procedures - only appears for testing situations",
+    "estimated_duration_minutes": 20,
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "tasks": [
+      {
+        "id": "d5fd1aa3-9e76-4458-939f-a1ae7c02d884",
+        "order": 1,
+        "title": "Run Test Suite",
+        "completed": false,
+        "description": "Execute comprehensive test suite"
+      },
+      {
+        "id": "766db5c1-0b0b-4aca-9474-38fbb3824712",
+        "order": 2,
+        "title": "Validate Results",
+        "completed": false,
+        "description": "Verify all tests pass and document any failures"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "77f6ba41-2f29-4cb0-af8d-77d423bfe96a",
+        "type": "select",
+        "question": "Do all tests pass?",
+        "options": [
+          "Yes",
+          "No",
+          "Some Failed"
+        ],
+        "required": true
+      },
+      "visibilityRules": [
+        {
+          "id": "51d68e4b-9a11-4a4f-9a96-481ab8a15bef",
+          "stepId": "f60ebf98-ef21-41d3-8fc4-d924ac935be4",
+          "questionId": "e57735ce-8128-4db8-a5ef-b65d80f2916f",
+          "requiredAnswer": "Testing",
+          "description": "Show when Step 1 question \"What type of situation is this?\" = \"Testing\""
+        }
+      ]
+    },
+    "depends_on": "This step depends on: Step 1 --- ",
+    "runbook_id": "4a025f52-d1ad-4f2d-bc1e-a7f005b93a96",
+    "created_at": "2025-06-21T09:02:31.759Z",
+    "updated_at": "2025-06-21T17:53:50.779Z"
+  },
+  {
+    "id": "deff3378-3a4c-4364-85dc-96005ec7ba26",
+    "title": "Emergency Follow-up (Only if Emergency was Contained)",
+    "step_order": 5,
+    "description": "Follow-up actions after emergency containment",
+    "estimated_duration_minutes": 15,
+    "assigned_to": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
+    "tasks": [
+      {
+        "id": "4a1d0820-3ba2-4164-b2e4-8bd7b7f4a1f0",
+        "order": 1,
+        "title": "Document Incident",
+        "completed": false,
+        "description": "Create detailed incident report"
+      },
+      {
+        "id": "bc86a8f4-5065-4cbc-b584-95f89ba7d543",
+        "order": 2,
+        "title": "Review Response",
+        "completed": false,
+        "description": "Evaluate emergency response effectiveness"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "46ed3ac1-208a-4be7-8b5b-80a5b192dba1",
+        "type": "select",
+        "question": "Is incident documentation complete?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "required": true
+      },
+      "visibilityRules": [
+        {
+          "id": "8ab3085a-1cb6-42bc-87ff-7005ff52f6d4",
+          "stepId": "97e8da7a-42c6-45d7-bf5e-ca9ea6df0e96",
+          "questionId": "838309bc-5dff-402e-a343-9d7bfe521e0e",
+          "requiredAnswer": "Yes",
+          "description": "Show when Step 2 question \"Is the emergency contained?\" = \"Yes\""
+        },
+        {
+          "id": "6546446a-5eba-4565-b40d-46a73465ce6c",
+          "stepId": "97e8da7a-42c6-45d7-bf5e-ca9ea6df0e96",
+          "questionId": "838309bc-5dff-402e-a343-9d7bfe521e0e",
+          "requiredAnswer": "Partially",
+          "description": "Show when Step 2 question \"Is the emergency contained?\" = \"Partially\""
+        }
+      ]
+    },
+    "depends_on": "This step depends on: Step 2 (Emergency Response) --- ",
+    "runbook_id": "4a025f52-d1ad-4f2d-bc1e-a7f005b93a96",
+    "created_at": "2025-06-21T09:02:31.763Z",
+    "updated_at": "2025-06-21T09:02:31.763Z"
+  },
+  {
+    "id": "8712f872-bd45-4aac-b708-d7ff35aea849",
+    "title": "Final Validation (Not for Failed Tests)",
+    "step_order": 6,
+    "description": "Final validation - appears unless testing completely failed",
+    "estimated_duration_minutes": 10,
+    "assigned_to": "67f80d02-749f-49a9-b104-a3b1ea787e72",
+    "tasks": [
+      {
+        "id": "cd844373-13a2-4952-9fd4-0258353b72c3",
+        "order": 1,
+        "title": "Final System Check",
+        "completed": false,
+        "description": "Perform final validation of all systems"
+      },
+      {
+        "id": "efdc62ad-3ae0-4221-940a-b84d4097711b",
+        "order": 2,
+        "title": "Update Status",
+        "completed": false,
+        "description": "Update system status and notify teams"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "8628a367-bec3-48a6-a3bc-4106fd9762ad",
+        "type": "select",
+        "question": "Is system fully operational?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "required": true
+      },
+      "visibilityRules": [
+        {
+          "id": "30392c0b-9c92-4629-b743-e24ca04ef973",
+          "stepId": "23145c74-b46b-4417-bd9c-d6436a1cfe9b",
+          "questionId": "77f6ba41-2f29-4cb0-af8d-77d423bfe96a",
+          "requiredAnswer": "Yes",
+          "description": "Show when Step 4 question \"Do all tests pass?\" = \"Yes\" (not Some Failed)"
+        },
+        {
+          "id": "3ffd810d-df12-4da4-8114-81be69628e71",
+          "stepId": "23145c74-b46b-4417-bd9c-d6436a1cfe9b",
+          "questionId": "77f6ba41-2f29-4cb0-af8d-77d423bfe96a",
+          "requiredAnswer": "No",
+          "description": "Show when Step 4 question \"Do all tests pass?\" = \"No\" (not Some Failed)"
+        }
+      ]
+    },
+    "depends_on": "This step depends on: Previous steps --- # How This Demonstrates Visibility Rules: ## Conditional Logic Examples: 1. **step_1_question_equals:Emergency** - Step 2 only shows for Emergency situations 2. **step_1_question_equals:Maintenance** - Step 3 only shows for Maintenance situations 3. **step_1_question_equals:Testing** - Step 4 only shows for Testing situations 4. **step_2_question_equals:Yes|Partially** - Step 5 shows if emergency was contained (Yes OR Partially) 5. **step_4_question_not_equals:Some Failed** - Step 6 shows unless tests failed ## Expected Behavior: - **Choose \"Emergency\"**: Steps 1, 2, 5 (if emergency contained), 6 will appear - **Choose \"Maintenance\"**: Steps 1, 3, 6 will appear - **Choose \"Testing\"**: Steps 1, 4, 6 (unless tests failed) will appear This creates a dynamic workflow that adapts based on user responses! ",
+    "runbook_id": "4a025f52-d1ad-4f2d-bc1e-a7f005b93a96",
+    "created_at": "2025-06-21T09:02:31.768Z",
+    "updated_at": "2025-06-21T17:56:53.687Z"
+  },
+  {
+    "id": "13b0ae04-c313-4172-8964-a8720fff009d",
+    "title": "Initial Assessment",
+    "step_order": 1,
+    "description": "Assess situation type",
+    "estimated_duration_minutes": 15,
+    "assigned_to": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
+    "tasks": [
+      {
+        "id": "bf7ae0fc-ffc9-488a-a280-742ff1f6aea7",
+        "order": 1,
+        "title": "Check System Status",
+        "completed": false,
+        "description": "Review monitoring dashboards and system health"
+      },
+      {
+        "id": "6181cf24-d680-4991-917e-8741203dcbdb",
+        "order": 2,
+        "title": "Identify Issue Type",
+        "completed": false,
+        "description": "Determine if this is a security or infrastructure issue"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "e49001cd-21c3-4d38-9445-756f585bc5c1",
+        "type": "select",
+        "question": "What type of issue is this?",
+        "options": [
+          "Security Incident",
+          "Infrastructure Problem",
+          "All Clear"
+        ],
+        "required": true
+      }
+    },
+    "depends_on": "None - This is the initial step --- ",
+    "runbook_id": "4e1ec70a-5eb6-406f-8216-86bb657d8612",
+    "created_at": "2025-06-21T17:36:59.730Z",
+    "updated_at": "2025-06-21T17:36:59.730Z"
+  },
+  {
+    "id": "52b567ff-3556-4ade-8442-af24603e3e2d",
+    "title": "Emergency Response",
+    "step_order": 2,
+    "description": "Handle security incidents only",
+    "estimated_duration_minutes": 30,
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "tasks": [
+      {
+        "id": "9999086e-5569-4864-b63b-dd49903de9f3",
+        "order": 1,
+        "title": "Secure Systems",
+        "completed": false,
+        "description": "Isolate affected systems and reset credentials"
+      },
+      {
+        "id": "f9625fcd-74a9-4d51-bdeb-9e68bb320ab8",
+        "order": 2,
+        "title": "Notify Security Team",
+        "completed": false,
+        "description": "Alert security team and stakeholders"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "e4138a8c-99c0-48f9-a783-2aa1728ecccd",
+        "type": "select",
+        "question": "Is the incident contained?",
+        "options": [
+          "Yes",
+          "Partially",
+          "No"
+        ],
+        "required": true
+      },
+      "visibilityRules": [
+        {
+          "id": "8620d318-5da9-4f9f-a65c-b8d77e50cca3",
+          "stepId": "13b0ae04-c313-4172-8964-a8720fff009d",
+          "questionId": "e49001cd-21c3-4d38-9445-756f585bc5c1",
+          "requiredAnswer": "Security Incident",
+          "description": "Show when Step 1 question \"What type of issue is this?\" = \"Security Incident\""
+        }
+      ]
+    },
+    "depends_on": "This step depends on: Step 1 --- ",
+    "runbook_id": "4e1ec70a-5eb6-406f-8216-86bb657d8612",
+    "created_at": "2025-06-21T17:36:59.737Z",
+    "updated_at": "2025-06-21T17:36:59.737Z"
+  },
+  {
+    "id": "2df146bf-6d7c-4dd8-beae-fe2c7cede013",
+    "title": "Final Documentation",
+    "step_order": 3,
+    "description": "Step description",
+    "estimated_duration_minutes": 20,
+    "assigned_to": "83f81a97-d3dc-43a6-b5f5-1978b5da98ca",
+    "tasks": [
+      {
+        "id": "fdb77f92-0708-4f16-b2a8-19357ea4d5a6",
+        "order": 1,
+        "title": "Create Incident Report",
+        "completed": false,
+        "description": "Document what happened and actions taken"
+      },
+      {
+        "id": "e36de040-0651-4e2e-9e07-59e9846a95c9",
+        "order": 2,
+        "title": "Update Procedures",
+        "completed": false,
+        "description": "Update runbooks based on lessons learned"
+      },
+      {
+        "id": "f9fd1825-3210-400d-ad2d-b0a2d372e244",
+        "order": 3,
+        "title": "Task Title",
+        "completed": false,
+        "description": "Task description"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "317f4323-9e15-4341-b002-7797b09b76c4",
+        "type": "select",
+        "question": "Is documentation complete?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "required": true
+      },
+      "visibilityRules": [
+        {
+          "id": "9f2a27eb-8374-4c18-8617-e18a8d38fd9c",
+          "stepId": "52b567ff-3556-4ade-8442-af24603e3e2d",
+          "questionId": "e4138a8c-99c0-48f9-a783-2aa1728ecccd",
+          "requiredAnswer": "Yes",
+          "description": "Show when Step 2 question \"Is the incident contained?\" = \"Yes\" (not No)"
+        },
+        {
+          "id": "e9499bfd-bdf1-4493-88fe-4dbd1c862769",
+          "stepId": "52b567ff-3556-4ade-8442-af24603e3e2d",
+          "questionId": "e4138a8c-99c0-48f9-a783-2aa1728ecccd",
+          "requiredAnswer": "Partially",
+          "description": "Show when Step 2 question \"Is the incident contained?\" = \"Partially\" (not No)"
+        }
+      ]
+    },
+    "depends_on": "This step depends on: Step 2 --- # Usage Instructions ## Markdown Format Rules: ",
+    "runbook_id": "4e1ec70a-5eb6-406f-8216-86bb657d8612",
+    "created_at": "2025-06-21T17:36:59.744Z",
+    "updated_at": "2025-06-21T17:54:06.586Z"
+  },
+  {
+    "id": "2df146bf-6d7c-4dd8-beae-fe2c7cede013",
+    "title": "Final Documentation",
+    "step_order": 3,
+    "description": "Step description",
+    "estimated_duration_minutes": 20,
+    "assigned_to": "bd15862a-168e-4f2a-b1eb-6a9f442e0637",
+    "tasks": [
+      {
+        "id": "fdb77f92-0708-4f16-b2a8-19357ea4d5a6",
+        "order": 1,
+        "title": "Create Incident Report",
+        "completed": false,
+        "description": "Document what happened and actions taken"
+      },
+      {
+        "id": "e36de040-0651-4e2e-9e07-59e9846a95c9",
+        "order": 2,
+        "title": "Update Procedures",
+        "completed": false,
+        "description": "Update runbooks based on lessons learned"
+      },
+      {
+        "id": "f9fd1825-3210-400d-ad2d-b0a2d372e244",
+        "order": 3,
+        "title": "Task Title",
+        "completed": false,
+        "description": "Task description"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "317f4323-9e15-4341-b002-7797b09b76c4",
+        "type": "select",
+        "question": "Is documentation complete?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "required": true
+      },
+      "visibilityRules": [
+        {
+          "id": "f407ae1d-206f-4a8e-821f-8392aeb45648",
+          "stepId": "52b567ff-3556-4ade-8442-af24603e3e2d",
+          "questionId": "e4138a8c-99c0-48f9-a783-2aa1728ecccd",
+          "requiredAnswer": "Yes",
+          "description": "Show when Step 2 question \"Is the incident contained?\" = \"Yes\" (not No)"
+        },
+        {
+          "id": "a920c7ed-6b1d-4feb-b900-d8074dd3e295",
+          "stepId": "52b567ff-3556-4ade-8442-af24603e3e2d",
+          "questionId": "e4138a8c-99c0-48f9-a783-2aa1728ecccd",
+          "requiredAnswer": "Partially",
+          "description": "Show when Step 2 question \"Is the incident contained?\" = \"Partially\" (not No)"
+        }
+      ]
+    },
+    "depends_on": "This step depends on: Step 2 --- # Usage Instructions ## Markdown Format Rules: ",
+    "runbook_id": "4e1ec70a-5eb6-406f-8216-86bb657d8612",
+    "created_at": "2025-06-21T17:36:59.749Z",
+    "updated_at": "2025-06-21T17:36:59.749Z"
+  },
+  {
+    "id": "e500fd51-5a7b-429f-8419-18b3d0d770c4",
+    "runbook_id": "a050afc1-a8cc-49e2-a4d3-4c5e60fcf030",
+    "title": "Initial Assessment",
+    "description": "Assess situation type",
+    "step_order": 1,
+    "estimated_duration_minutes": 15,
+    "assigned_to": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
+    "tasks": [
+      {
+        "id": "a3c5c4b9-a77e-4470-a2d4-d3694d09fa37",
+        "order": 1,
+        "title": "Check System Status",
+        "completed": false,
+        "description": "Review monitoring dashboards and system health"
+      },
+      {
+        "id": "743dc751-8f9c-476b-aba2-390c02338be6",
+        "order": 2,
+        "title": "Identify Issue Type",
+        "completed": false,
+        "description": "Determine if this is a security or infrastructure issue"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "e49001cd-21c3-4d38-9445-756f585bc5c1",
+        "type": "select",
+        "question": "What type of issue is this?",
+        "options": [
+          "Security Incident",
+          "Infrastructure Problem",
+          "All Clear"
+        ],
+        "required": true
+      }
+    },
+    "depends_on": "None - This is the initial step --- ",
+    "created_at": "2025-06-21T18:10:52.798Z",
+    "updated_at": "2025-06-21T18:10:52.798Z"
+  },
+  {
+    "id": "fac01274-e3e9-4b14-b50b-034c9561c124",
+    "runbook_id": "a050afc1-a8cc-49e2-a4d3-4c5e60fcf030",
+    "title": "Emergency Response",
+    "description": "Handle security incidents only",
+    "step_order": 2,
+    "estimated_duration_minutes": 30,
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "tasks": [
+      {
+        "id": "1f180c28-d22f-43ed-a3bf-f766da0403a6",
+        "order": 1,
+        "title": "Secure Systems",
+        "completed": false,
+        "description": "Isolate affected systems and reset credentials"
+      },
+      {
+        "id": "fc2e166b-2544-4c42-be78-ac14a5684b2f",
+        "order": 2,
+        "title": "Notify Security Team",
+        "completed": false,
+        "description": "Alert security team and stakeholders"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "e4138a8c-99c0-48f9-a783-2aa1728ecccd",
+        "type": "select",
+        "question": "Is the incident contained?",
+        "options": [
+          "Yes",
+          "Partially",
+          "No"
+        ],
+        "required": true
+      },
+      "visibilityRules": [
+        {
+          "id": "8620d318-5da9-4f9f-a65c-b8d77e50cca3",
+          "stepId": "13b0ae04-c313-4172-8964-a8720fff009d",
+          "questionId": "e49001cd-21c3-4d38-9445-756f585bc5c1",
+          "requiredAnswer": "Security Incident",
+          "description": "Show when Step 1 question \"What type of issue is this?\" = \"Security Incident\""
+        }
+      ]
+    },
+    "depends_on": "This step depends on: Step 1 --- ",
+    "created_at": "2025-06-21T18:10:52.798Z",
+    "updated_at": "2025-06-21T18:10:52.798Z"
+  },
+  {
+    "id": "2ee85ceb-4313-452f-8530-634e44b15dd4",
+    "runbook_id": "a050afc1-a8cc-49e2-a4d3-4c5e60fcf030",
+    "title": "Final Documentation",
+    "description": "Step description",
+    "step_order": 3,
+    "estimated_duration_minutes": 20,
+    "assigned_to": "83f81a97-d3dc-43a6-b5f5-1978b5da98ca",
+    "tasks": [
+      {
+        "id": "974f2c65-587d-4287-8971-0b631a223459",
+        "order": 1,
+        "title": "Create Incident Report",
+        "completed": false,
+        "description": "Document what happened and actions taken"
+      },
+      {
+        "id": "eef8be29-5403-4481-9137-70e6660fa47a",
+        "order": 2,
+        "title": "Update Procedures",
+        "completed": false,
+        "description": "Update runbooks based on lessons learned"
+      },
+      {
+        "id": "ade755be-c99a-4d52-b5d3-7a5936da9099",
+        "order": 3,
+        "title": "Task Title",
+        "completed": false,
+        "description": "Task description"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "317f4323-9e15-4341-b002-7797b09b76c4",
+        "type": "select",
+        "question": "Is documentation complete?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "required": true
+      },
+      "visibilityRules": [
+        {
+          "id": "9f2a27eb-8374-4c18-8617-e18a8d38fd9c",
+          "stepId": "52b567ff-3556-4ade-8442-af24603e3e2d",
+          "questionId": "e4138a8c-99c0-48f9-a783-2aa1728ecccd",
+          "requiredAnswer": "Yes",
+          "description": "Show when Step 2 question \"Is the incident contained?\" = \"Yes\" (not No)"
+        },
+        {
+          "id": "e9499bfd-bdf1-4493-88fe-4dbd1c862769",
+          "stepId": "52b567ff-3556-4ade-8442-af24603e3e2d",
+          "questionId": "e4138a8c-99c0-48f9-a783-2aa1728ecccd",
+          "requiredAnswer": "Partially",
+          "description": "Show when Step 2 question \"Is the incident contained?\" = \"Partially\" (not No)"
+        }
+      ]
+    },
+    "depends_on": "This step depends on: Step 2 --- # Usage Instructions ## Markdown Format Rules: ",
+    "created_at": "2025-06-21T18:10:52.798Z",
+    "updated_at": "2025-06-21T18:10:52.798Z"
+  },
+  {
+    "id": "83e51f17-73d5-4be4-a1eb-8a3f74a38531",
+    "runbook_id": "a050afc1-a8cc-49e2-a4d3-4c5e60fcf030",
+    "title": "Final Documentation",
+    "description": "Step description",
+    "step_order": 3,
+    "estimated_duration_minutes": 20,
+    "assigned_to": "bd15862a-168e-4f2a-b1eb-6a9f442e0637",
+    "tasks": [
+      {
+        "id": "57948843-c2aa-4a64-97f1-d1fbaa4f9149",
+        "order": 1,
+        "title": "Create Incident Report",
+        "completed": false,
+        "description": "Document what happened and actions taken"
+      },
+      {
+        "id": "d640dea8-d8bd-458f-8a79-5d2fb6cbac97",
+        "order": 2,
+        "title": "Update Procedures",
+        "completed": false,
+        "description": "Update runbooks based on lessons learned"
+      },
+      {
+        "id": "efea3af7-7582-4d13-be69-7704a4cbe9b2",
+        "order": 3,
+        "title": "Task Title",
+        "completed": false,
+        "description": "Task description"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "317f4323-9e15-4341-b002-7797b09b76c4",
+        "type": "select",
+        "question": "Is documentation complete?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "required": true
+      },
+      "visibilityRules": [
+        {
+          "id": "f407ae1d-206f-4a8e-821f-8392aeb45648",
+          "stepId": "52b567ff-3556-4ade-8442-af24603e3e2d",
+          "questionId": "e4138a8c-99c0-48f9-a783-2aa1728ecccd",
+          "requiredAnswer": "Yes",
+          "description": "Show when Step 2 question \"Is the incident contained?\" = \"Yes\" (not No)"
+        },
+        {
+          "id": "a920c7ed-6b1d-4feb-b900-d8074dd3e295",
+          "stepId": "52b567ff-3556-4ade-8442-af24603e3e2d",
+          "questionId": "e4138a8c-99c0-48f9-a783-2aa1728ecccd",
+          "requiredAnswer": "Partially",
+          "description": "Show when Step 2 question \"Is the incident contained?\" = \"Partially\" (not No)"
+        }
+      ]
+    },
+    "depends_on": "This step depends on: Step 2 --- # Usage Instructions ## Markdown Format Rules: ",
+    "created_at": "2025-06-21T18:10:52.798Z",
+    "updated_at": "2025-06-21T18:10:52.798Z"
+  },
+  {
+    "id": "4174d488-2395-45d7-97a5-d066d146ac53",
+    "runbook_id": "3694003a-1abc-44d9-ae16-c42b1f401cc0",
+    "title": "Initial Assessment",
+    "description": "Assess situation type",
+    "step_order": 1,
+    "estimated_duration_minutes": 15,
+    "assigned_to": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
+    "tasks": [
+      {
+        "id": "37ecc941-f121-410e-b433-e5510b153539",
+        "order": 1,
+        "title": "Check System Status",
+        "completed": false,
+        "description": "Review monitoring dashboards and system health",
+        "codeBlock": "# Add your code here...",
+        "question": {
+          "id": "d44eb22b-be8b-4441-a700-76c8f5b39499",
+          "question": "Enter your question here",
+          "type": "yes_no",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "required": false
+        }
+      },
+      {
+        "id": "7e0509d2-bcef-4543-b009-4d052aae73d0",
+        "order": 2,
+        "title": "Identify Issue Type",
+        "completed": false,
+        "description": "Determine if this is a security or infrastructure issue"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "e49001cd-21c3-4d38-9445-756f585bc5c1",
+        "type": "select",
+        "question": "What type of issue is this?",
+        "options": [
+          "Security Incident",
+          "Infrastructure Problem",
+          "All Clear"
+        ],
+        "required": true
+      }
+    },
+    "depends_on": "None - This is the initial step --- ",
+    "created_at": "2025-06-21T18:11:07.949Z",
+    "updated_at": "2025-06-23T19:20:55.235Z"
+  },
+  {
+    "id": "e496dc85-98ed-4710-9a26-8bdf7eba87dd",
+    "runbook_id": "3694003a-1abc-44d9-ae16-c42b1f401cc0",
+    "title": "Emergency Response",
+    "description": "Handle security incidents only",
+    "step_order": 2,
+    "estimated_duration_minutes": 30,
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "tasks": [
+      {
+        "id": "26411892-c974-4629-9351-0cfa095335f6",
+        "order": 1,
+        "title": "Secure Systems",
+        "completed": false,
+        "description": "Isolate affected systems and reset credentials"
+      },
+      {
+        "id": "3fe9513e-c843-40e2-a889-ab06ad60cb88",
+        "order": 2,
+        "title": "Notify Security Team",
+        "completed": false,
+        "description": "Alert security team and stakeholders"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "e4138a8c-99c0-48f9-a783-2aa1728ecccd",
+        "type": "select",
+        "question": "Is the incident contained?",
+        "options": [
+          "Yes",
+          "Partially",
+          "No"
+        ],
+        "required": true
+      },
+      "visibilityRules": [
+        {
+          "id": "8620d318-5da9-4f9f-a65c-b8d77e50cca3",
+          "stepId": "13b0ae04-c313-4172-8964-a8720fff009d",
+          "questionId": "e49001cd-21c3-4d38-9445-756f585bc5c1",
+          "requiredAnswer": "Security Incident",
+          "description": "Show when Step 1 question \"What type of issue is this?\" = \"Security Incident\""
+        }
+      ]
+    },
+    "depends_on": "This step depends on: Step 1 --- ",
+    "created_at": "2025-06-21T18:11:07.949Z",
+    "updated_at": "2025-06-23T02:28:25.698Z"
+  },
+  {
+    "id": "423788d3-9c89-4dca-b77c-c775fef8306c",
+    "runbook_id": "3694003a-1abc-44d9-ae16-c42b1f401cc0",
+    "title": "Final Documentation",
+    "description": "Step description",
+    "step_order": 3,
+    "estimated_duration_minutes": 20,
+    "assigned_to": "83f81a97-d3dc-43a6-b5f5-1978b5da98ca",
+    "tasks": [
+      {
+        "id": "eddf31d3-401c-488b-bfe8-6ffe062b6432",
+        "order": 1,
+        "title": "Create Incident Report",
+        "completed": false,
+        "description": "Document what happened and actions taken"
+      },
+      {
+        "id": "d9ae7d9a-1e19-4969-81bf-620ee973b7e9",
+        "order": 2,
+        "title": "Update Procedures",
+        "completed": false,
+        "description": "Update runbooks based on lessons learned"
+      },
+      {
+        "id": "b45294a0-ecb6-4cab-9af6-3106b61ff549",
+        "order": 3,
+        "title": "Task Title",
+        "completed": false,
+        "description": "Task description"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "317f4323-9e15-4341-b002-7797b09b76c4",
+        "type": "select",
+        "question": "Is documentation complete?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "required": true
+      },
+      "visibilityRules": [
+        {
+          "id": "9f2a27eb-8374-4c18-8617-e18a8d38fd9c",
+          "stepId": "52b567ff-3556-4ade-8442-af24603e3e2d",
+          "questionId": "e4138a8c-99c0-48f9-a783-2aa1728ecccd",
+          "requiredAnswer": "Yes",
+          "description": "Show when Step 2 question \"Is the incident contained?\" = \"Yes\" (not No)"
+        },
+        {
+          "id": "e9499bfd-bdf1-4493-88fe-4dbd1c862769",
+          "stepId": "52b567ff-3556-4ade-8442-af24603e3e2d",
+          "questionId": "e4138a8c-99c0-48f9-a783-2aa1728ecccd",
+          "requiredAnswer": "Partially",
+          "description": "Show when Step 2 question \"Is the incident contained?\" = \"Partially\" (not No)"
+        }
+      ]
+    },
+    "depends_on": "This step depends on: Step 2 --- # Usage Instructions ## Markdown Format Rules: ",
+    "created_at": "2025-06-21T18:11:07.949Z",
+    "updated_at": "2025-06-21T18:11:07.949Z"
+  },
+  {
+    "id": "602c38ae-d7c8-472b-ae77-2b0841f66226",
+    "runbook_id": "3694003a-1abc-44d9-ae16-c42b1f401cc0",
+    "title": "Final Documentation",
+    "description": "Step description",
+    "step_order": 3,
+    "estimated_duration_minutes": 20,
+    "assigned_to": "bd15862a-168e-4f2a-b1eb-6a9f442e0637",
+    "tasks": [
+      {
+        "id": "7394eae4-fdca-4c78-bef8-21be226f857c",
+        "order": 1,
+        "title": "Create Incident Report",
+        "completed": false,
+        "description": "Document what happened and actions taken"
+      },
+      {
+        "id": "ec7899bd-f866-478f-af8c-db54f87f406c",
+        "order": 2,
+        "title": "Update Procedures",
+        "completed": false,
+        "description": "Update runbooks based on lessons learned"
+      },
+      {
+        "id": "23c68d6d-8f4a-4d08-811d-fe4595bd5620",
+        "order": 3,
+        "title": "Task Title",
+        "completed": false,
+        "description": "Task description"
+      }
+    ],
+    "conditions": {
+      "question": {
+        "id": "317f4323-9e15-4341-b002-7797b09b76c4",
+        "type": "select",
+        "question": "Is documentation complete?",
+        "options": [
+          "Yes",
+          "No"
+        ],
+        "required": true
+      },
+      "visibilityRules": [
+        {
+          "id": "f407ae1d-206f-4a8e-821f-8392aeb45648",
+          "stepId": "52b567ff-3556-4ade-8442-af24603e3e2d",
+          "questionId": "e4138a8c-99c0-48f9-a783-2aa1728ecccd",
+          "requiredAnswer": "Yes",
+          "description": "Show when Step 2 question \"Is the incident contained?\" = \"Yes\" (not No)"
+        },
+        {
+          "id": "a920c7ed-6b1d-4feb-b900-d8074dd3e295",
+          "stepId": "52b567ff-3556-4ade-8442-af24603e3e2d",
+          "questionId": "e4138a8c-99c0-48f9-a783-2aa1728ecccd",
+          "requiredAnswer": "Partially",
+          "description": "Show when Step 2 question \"Is the incident contained?\" = \"Partially\" (not No)"
+        }
+      ]
+    },
+    "depends_on": "This step depends on: Step 2 --- # Usage Instructions ## Markdown Format Rules: ",
+    "created_at": "2025-06-21T18:11:07.949Z",
+    "updated_at": "2025-06-21T18:11:07.949Z"
+  },
+  {
+    "id": "fa2fff4d-0262-4bba-a58f-cdbed0b00f4c",
+    "title": "Add a second step",
+    "description": "",
+    "estimated_duration_minutes": 5,
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "runbook_id": "4a716fd2-72e4-46e3-a53d-a3fb548642b3",
+    "step_order": 2,
+    "created_at": "2025-06-21T18:29:56.310Z",
+    "updated_at": "2025-06-22T15:34:17.722Z",
+    "tasks": [
+      {
+        "id": "c5271ed7-53ce-4888-a355-9d6578cf3b20",
+        "title": "hh",
+        "completed": false,
+        "order": 1,
+        "question": null,
+        "codeBlock": "# Add your code here..kkkkk"
+      }
+    ]
+  }
+]

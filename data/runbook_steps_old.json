@@ -1,0 +1,936 @@
+[
+  {
+    "id": "aws-recovery-step-1",
+    "runbook_id": "aws-infrastructure-recovery",
+    "title": "Initial Assessment and AWS Console Access",
+    "description": "Assess the scope of infrastructure failure and verify AWS console access.",
+    "step_order": 1,
+    "estimated_duration_minutes": 30,
+    "created_at": "2025-01-14T12:00:00.000000+00:00",
+    "updated_at": "2025-01-14T12:00:00.000000+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "aws-task-1-1",
+        "order": 1,
+        "title": "Verify AWS Console Access",
+        "completed": false,
+        "description": "Log into AWS Management Console and verify access to all necessary services (EC2, RDS, Route53, ELB)."
+      },
+      {
+        "id": "aws-task-1-2",
+        "order": 2,
+        "title": "Document Failed Infrastructure",
+        "completed": false,
+        "description": "Create a comprehensive list of failed EC2 instances, RDS databases, load balancers, and DNS records."
+      },
+      {
+        "id": "aws-task-1-3",
+        "order": 3,
+        "title": "Check AWS Service Health",
+        "completed": false,
+        "description": "Review AWS Service Health Dashboard to identify any regional or service-specific issues."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "aws-recovery-step-2",
+    "runbook_id": "aws-infrastructure-recovery",
+    "title": "EC2 Instance Recovery",
+    "description": "Restore failed EC2 instances from snapshots or launch new instances.",
+    "step_order": 2,
+    "estimated_duration_minutes": 90,
+    "created_at": "2025-01-14T12:00:00.000000+00:00",
+    "updated_at": "2025-01-14T12:00:00.000000+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "aws-task-2-1",
+        "order": 1,
+        "title": "Identify Latest EBS Snapshots",
+        "completed": false,
+        "description": "Locate the most recent EBS snapshots for critical instances in EC2 > Snapshots."
+      },
+      {
+        "id": "aws-task-2-2",
+        "order": 2,
+        "title": "Launch New EC2 Instances",
+        "completed": false,
+        "description": "Create new EC2 instances using the identified snapshots, matching original instance types and configurations."
+      },
+      {
+        "id": "aws-task-2-3",
+        "order": 3,
+        "title": "Configure Security Groups",
+        "completed": false,
+        "description": "Apply appropriate security groups and key pairs to restored instances."
+      },
+      {
+        "id": "aws-task-2-4",
+        "order": 4,
+        "title": "Verify Instance Connectivity",
+        "question": {
+          "type": "yes_no",
+          "question": "Are all EC2 instances accessible and responsive?",
+          "required": true
+        },
+        "completed": false,
+        "description": "Test SSH/RDP connectivity and verify services are running on restored instances."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "c04d04b4-f813-42c0-b826-f84c4ec3e954",
+    "runbook_id": "69bf7c4b-8de5-491c-999a-1b3329a26bdb",
+    "title": "Post-Recovery Validation",
+    "description": "Validate the system and ensure its stability.",
+    "step_order": 5,
+    "estimated_duration_minutes": 60,
+    "created_at": "2025-06-13T17:31:17.451808+00:00",
+    "updated_at": "2025-06-13T17:31:17.451808+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "fd2beb79-7373-4bb6-b118-039f4c11b7e7",
+        "order": 1,
+        "title": "System Checks",
+        "completed": false,
+        "description": "Perform comprehensive system checks to ensure stability and functionality."
+      },
+      {
+        "id": "f7e6758a-6333-4e4b-9dba-12fee9888e35",
+        "order": 2,
+        "title": "Application Testing",
+        "completed": false,
+        "description": "Test critical applications to confirm proper functionality."
+      },
+      {
+        "id": "bcf8cce8-f040-4884-b194-abdd8d4eb391",
+        "order": 3,
+        "title": "User Acceptance Testing (UAT)",
+        "question": {
+          "type": "yes_no",
+          "question": "Is the system stable and functioning as expected?",
+          "required": true
+        },
+        "completed": false,
+        "description": "Conduct UAT with key users to validate the restored system."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "80dc45f7-8821-4376-8a3f-d37fea7c3d7c",
+    "runbook_id": "a8e734de-0009-48eb-8d74-6cd8c16a26f9",
+    "title": "System Sanitization and Malware Removal",
+    "description": "Clean and sanitize all affected systems to remove ransomware and prevent reinfection.",
+    "step_order": 3,
+    "estimated_duration_minutes": 120,
+    "created_at": "2025-06-05T05:44:11.312435+00:00",
+    "updated_at": "2025-06-06T06:13:53.9+00:00",
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "photo_url": "https://gnafycjxxjhlrbnxyftp.supabase.co/storage/v1/object/public/runbook-step-photos/step-photos/80dc45f7-8821-4376-8a3f-d37fea7c3d7c-1749181374996.png",
+    "tasks": [
+      {
+        "id": "task-3-1",
+        "order": 0,
+        "title": "Boot from clean media",
+        "completed": false,
+        "description": "Start systems using antivirus rescue disks or clean USB drives"
+      },
+      {
+        "id": "task-3-2",
+        "order": 1,
+        "title": "Run comprehensive malware scan",
+        "completed": false,
+        "description": "Perform deep scan using multiple antivirus engines to detect all malware"
+      },
+      {
+        "id": "task-3-3",
+        "order": 2,
+        "title": "Remove ransomware artifacts",
+        "completed": false,
+        "description": "Delete ransomware executables, registry entries, and scheduled tasks"
+      },
+      {
+        "id": "task-3-4",
+        "order": 3,
+        "title": "Format and rebuild critical systems",
+        "completed": false,
+        "description": "For heavily infected systems, perform complete OS reinstallation"
+      },
+      {
+        "id": "task-3-5",
+        "order": 4,
+        "title": "Update system patches",
+        "completed": false,
+        "description": "Apply all security patches and updates before reconnecting to network"
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "06f5bd07-8fae-4154-bd3d-446a9f388c8c",
+    "runbook_id": "69bf7c4b-8de5-491c-999a-1b3329a26bdb",
+    "title": "Impact Assessment and Confirmation",
+    "description": "Determine the extent of the cyberattack and confirm CommServe compromise.",
+    "step_order": 1,
+    "estimated_duration_minutes": 60,
+    "created_at": "2025-06-13T17:31:16.822586+00:00",
+    "updated_at": "2025-06-13T17:33:00.32+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "400f2b29-b8dd-4cfb-84bb-ab27a5dd7b0a",
+        "order": 1,
+        "title": "Review Security Logs and Alerts",
+        "completed": false,
+        "description": "Analyze system logs, security information and event management (SIEM) alerts, and endpoint detection and response (EDR) data for evidence of compromise."
+      },
+      {
+        "id": "a80872ac-6c89-4852-b3cb-ff940852a7cf",
+        "order": 2,
+        "title": "Assess CommServe Functionality",
+        "completed": false,
+        "description": "Verify CommServe access, backup/restore functionality, and data integrity. Check for unusual activity or unauthorized changes."
+      },
+      {
+        "id": "2f5b12bb-3765-45a7-bb9b-bc57ca2e5f9a",
+        "order": 3,
+        "title": "Confirm Data Integrity Issues",
+        "question": {
+          "type": "yes_no",
+          "question": "Is the CommServe compromised or data integrity compromised?",
+          "required": true
+        },
+        "completed": true,
+        "description": "Check for data corruption, unauthorized data access or modification, or data deletion."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "fa883577-8291-489c-935b-179ac3935431",
+    "runbook_id": "69bf7c4b-8de5-491c-999a-1b3329a26bdb",
+    "title": "Cloud Environment Preparation",
+    "description": "Prepare the cloud environment for CommServe restoration.",
+    "step_order": 2,
+    "estimated_duration_minutes": 90,
+    "created_at": "2025-06-13T17:31:17.086674+00:00",
+    "updated_at": "2025-06-13T17:31:17.086674+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "37b7e903-e40c-4ef6-ae34-da8d56025834",
+        "order": 1,
+        "title": "Provision Cloud Resources",
+        "completed": false,
+        "description": "Create the necessary virtual machines (VMs), storage, and network resources in the cloud environment."
+      },
+      {
+        "id": "4275098a-eeb7-4eab-9e08-b275b1ecafba",
+        "order": 2,
+        "title": "Install Required Software",
+        "completed": false,
+        "description": "Install the operating system and Commvault software on the provisioned VMs."
+      },
+      {
+        "id": "eb4581a4-53ed-4179-9b50-fab190c65106",
+        "order": 3,
+        "title": "Configure Network Connectivity",
+        "completed": false,
+        "description": "Configure network settings, including IP addresses, DNS, and firewall rules."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "eafe41f7-3e1c-4efc-8655-ffecf1240d18",
+    "runbook_id": "a8e734de-0009-48eb-8d74-6cd8c16a26f9",
+    "title": "Data Recovery and Restoration",
+    "description": "Restore data from clean backups and verify data integrity across all systems.",
+    "step_order": 4,
+    "estimated_duration_minutes": 180,
+    "created_at": "2025-06-05T05:44:11.312435+00:00",
+    "updated_at": "2025-06-06T06:51:00.677+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-4-1",
+        "order": 0,
+        "title": "Restore critical system data",
+        "completed": false,
+        "description": "Begin with essential systems like domain controllers and core databases"
+      },
+      {
+        "id": "task-4-2",
+        "order": 1,
+        "title": "Restore file shares and user data",
+        "completed": false,
+        "description": "Recover network shares and individual user directories from backup"
+      },
+      {
+        "id": "task-4-3",
+        "order": 2,
+        "title": "Verify data integrity",
+        "completed": false,
+        "description": "Check restored files for completeness and corruption"
+      },
+      {
+        "id": "task-4-4",
+        "order": 3,
+        "title": "Test application functionality",
+        "completed": false,
+        "description": "Verify that restored applications and databases are functioning correctly"
+      },
+      {
+        "id": "task-4-5",
+        "order": 4,
+        "title": "Document recovery gaps",
+        "completed": false,
+        "description": "Identify any data that could not be recovered and assess impact"
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "24608149-8987-4116-9c33-86ede64eb625",
+    "runbook_id": "a8e734de-0009-48eb-8d74-6cd8c16a26f9",
+    "title": "Final Validation and Documentation",
+    "description": "Perform comprehensive testing and document the recovery process for future reference.",
+    "step_order": 6,
+    "estimated_duration_minutes": 60,
+    "created_at": "2025-06-05T05:44:11.312435+00:00",
+    "updated_at": "2025-06-06T16:03:22.074+00:00",
+    "assigned_to": "67f80d02-749f-49a9-b104-a3b1ea787e72",
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-6-1",
+        "order": 0,
+        "title": "Conduct user acceptance testing",
+        "completed": false,
+        "description": "Have key users test critical systems and workflows"
+      },
+      {
+        "id": "task-6-2",
+        "order": 1,
+        "title": "Monitor system performance",
+        "completed": false,
+        "description": "Observe systems for 48 hours to ensure stability and normal operation"
+      },
+      {
+        "id": "task-6-3",
+        "order": 2,
+        "title": "Document lessons learned",
+        "completed": false,
+        "description": "Create detailed incident report with timeline and improvement recommendations"
+      },
+      {
+        "id": "task-6-4",
+        "order": 3,
+        "title": "Update disaster recovery plan",
+        "completed": false,
+        "description": "Revise DR procedures based on lessons learned from this incident"
+      },
+      {
+        "id": "task-6-5",
+        "order": 4,
+        "title": "Schedule follow-up review",
+        "completed": false,
+        "description": "Plan post-incident review meeting with all stakeholders"
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "329d7e9f-b28d-4c67-a060-5aec48205f68",
+    "runbook_id": "69bf7c4b-8de5-491c-999a-1b3329a26bdb",
+    "title": "CommServe Restoration",
+    "description": "Restore the CommServe from a known good backup.",
+    "step_order": 3,
+    "estimated_duration_minutes": 120,
+    "created_at": "2025-06-13T17:31:17.213561+00:00",
+    "updated_at": "2025-06-13T17:31:17.213561+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "70236134-dfab-4d51-ba9f-e7ef158e040a",
+        "order": 1,
+        "title": "Retrieve Immutable Cloud Backup",
+        "completed": false,
+        "description": "Access and download the CommServe backup from the immutable cloud storage."
+      },
+      {
+        "id": "55d46885-696e-4c63-977b-edaf477f7217",
+        "order": 2,
+        "title": "Restore CommServe",
+        "completed": false,
+        "description": "Restore the CommServe to the prepared cloud environment using the downloaded backup."
+      },
+      {
+        "id": "21a81aa8-c9a2-4e98-8744-50caabd70b1c",
+        "order": 3,
+        "title": "Verify CommServe Functionality",
+        "question": {
+          "type": "yes_no",
+          "question": "Is the CommServe restored and functioning correctly?",
+          "required": true
+        },
+        "completed": false,
+        "description": "Test CommServe functionality, including connection to storage and client access."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "74be7f28-0217-4c82-937a-da0299d9286e",
+    "runbook_id": "69bf7c4b-8de5-491c-999a-1b3329a26bdb",
+    "title": "Data Recovery (MVP)",
+    "description": "Recover critical data to achieve minimum viable product functionality.",
+    "step_order": 4,
+    "estimated_duration_minutes": 180,
+    "created_at": "2025-06-13T17:31:17.333768+00:00",
+    "updated_at": "2025-06-13T17:31:17.333768+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "cdec89c1-6a9d-41d6-9884-47f167d6da2a",
+        "order": 1,
+        "title": "Identify Critical Data",
+        "completed": false,
+        "description": "Determine the minimum data required for essential operations."
+      },
+      {
+        "id": "e361afd0-b598-4744-9410-8f80d490a22c",
+        "order": 2,
+        "title": "Prioritize Data Recovery",
+        "completed": false,
+        "description": "Prioritize the recovery of critical data based on business impact."
+      },
+      {
+        "id": "652a8080-dd04-4427-874d-ea02555ae403",
+        "order": 3,
+        "title": "Recover Critical Data",
+        "completed": false,
+        "description": "Recover the prioritized data from the immutable cloud copy."
+      },
+      {
+        "id": "36a0925b-7ba7-4bbb-a72b-54d81d4b7e90",
+        "order": 4,
+        "title": "Verify Data Integrity",
+        "question": {
+          "type": "yes_no",
+          "question": "Is the critical data restored and verified?",
+          "required": true
+        },
+        "completed": false,
+        "description": "Validate the integrity and usability of the recovered data."
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "713556b5-6736-40dc-9fc2-da6d616521b2",
+    "runbook_id": "a8e734de-0009-48eb-8d74-6cd8c16a26f9",
+    "title": "Initial Assessment and Network Isolation",
+    "description": "Immediately assess the scope of the ransomware attack and isolate affected systems to prevent further spread.",
+    "step_order": 2,
+    "estimated_duration_minutes": 30,
+    "created_at": "2025-06-05T05:44:11.312435+00:00",
+    "updated_at": "2025-06-06T14:44:15.588+00:00",
+    "assigned_to": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-1-1",
+        "order": 1,
+        "title": "Disconnect affected systems from network",
+        "question": null,
+        "completed": false,
+        "description": "Physically disconnect or disable network connections for all infected systems"
+      },
+      {
+        "id": "task-1-2",
+        "order": 0,
+        "title": "Document all affected systems and services",
+        "completed": false,
+        "description": "Create a comprehensive list of impacted servers, workstations, and storage systems"
+      },
+      {
+        "id": "task-1-3",
+        "order": 2,
+        "title": "Identify ransomware variant",
+        "completed": false,
+        "photo_url": "https://gnafycjxxjhlrbnxyftp.supabase.co/storage/v1/object/public/runbook-step-photos/task-photos/task-1-3-1749142506331.png",
+        "description": "Analyze ransomware notes and encrypted file extensions to determine the specific variant"
+      },
+      {
+        "id": "task-1-4",
+        "order": 3,
+        "title": "Notify incident response team",
+        "completed": false,
+        "description": "Alert all relevant stakeholders including IT security, management, and legal teams"
+      }
+    ],
+    "app_id": "c45e51a7-3c01-4a3c-bb07-840fc1a8e1cd",
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "06a5d5ce-f0ce-4841-982a-1598ca5626d8",
+    "runbook_id": "a8e734de-0009-48eb-8d74-6cd8c16a26f9",
+    "title": "Backup System Verification and Assessment",
+    "description": "Verify the integrity and availability of backup systems to ensure they are not compromised.",
+    "step_order": 1,
+    "estimated_duration_minutes": 40,
+    "created_at": "2025-06-05T05:44:11.312435+00:00",
+    "updated_at": "2025-06-17T18:28:57.563+00:00",
+    "assigned_to": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "2df200b2-8804-4c97-b010-f9c038b0ee9b",
+        "order": 3,
+        "title": "Check backup system connectivity",
+        "question": {
+          "id": "bb6605ce-6c9c-4e76-a70d-105fc5ebfe96",
+          "type": "yes_no",
+          "options": [],
+          "question": "Is it Conditional?",
+          "required": false
+        },
+        "completed": true,
+        "description": "Verify that backup storage systems are accessible and not encrypted"
+      },
+      {
+        "id": "3a42bf3b-eb49-43e4-821e-b09a53df8437",
+        "order": 4,
+        "title": "Test backup restoration process",
+        "codeBlock": "<mat-dialog-content>\n  <form [formGroup]=\"runbookForm\" (ngSubmit)=\"onSubmit()\">\n    <mat-form-field appearance=\"outline\" class=\"full-width\">\n      <mat-label>Title</mat-label>\n      <input matInput formControlName=\"title\" placeholder=\"Enter runbook title\" required>\n      <mat-error *ngIf=\"runbookForm.get('title')?.hasError('required')\">\n        Title is required\n      </mat-error>\n      <mat-error *ngIf=\"runbookForm.get('title')?.hasError('minlength')\">\n        Title must be at least 3 characters long\n      </mat-error>\n    </mat-form-field>",
+        "completed": false,
+        "description": "Perform a test restore of a small dataset to verify backup functionality",
+        "visibilityRules": [
+          {
+            "id": "bb38962a-89ee-4179-8114-09bb45ef0fa5",
+            "stepId": "06a5d5ce-f0ce-4841-982a-1598ca5626d8",
+            "taskId": "2df200b2-8804-4c97-b010-f9c038b0ee9b",
+            "questionId": "bb6605ce-6c9c-4e76-a70d-105fc5ebfe96",
+            "description": "Show when \"Is it Conditional?\" = \"yes\"",
+            "requiredAnswer": "yes"
+          }
+        ]
+      },
+      {
+        "id": "53e85906-c8cb-477a-9517-e073bae9f4d2",
+        "order": 3,
+        "title": "recover active directory from Blah service/......",
+        "completed": false
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "c7448893-30d6-4e39-b6e4-34fad7b6e109",
+    "runbook_id": "a2ee29d0-8300-425d-af65-e41dfe1715c9",
+    "title": "CommServer Validation",
+    "description": "",
+    "step_order": 1,
+    "estimated_duration_minutes": null,
+    "created_at": "2025-06-10T18:06:51.013388+00:00",
+    "updated_at": "2025-06-13T17:12:49.167+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "7eb89fa5-1cee-4f3c-bab0-aec410ca1272",
+        "order": 1,
+        "title": "Java Console | Command Center",
+        "question": {
+          "id": "a47497cc-12ab-42ab-aeae-4923525401e4",
+          "type": "yes_no",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "question": "Are you able access the console",
+          "required": false
+        },
+        "completed": true
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "e1cf5925-53a0-4f1f-b96a-655889f618aa",
+    "runbook_id": "a8e734de-0009-48eb-8d74-6cd8c16a26f9",
+    "title": "Security Hardening and Prevention",
+    "description": "Implement additional security measures to prevent future ransomware attacks.",
+    "step_order": 5,
+    "estimated_duration_minutes": 90,
+    "created_at": "2025-06-05T05:44:11.312435+00:00",
+    "updated_at": "2025-06-11T15:52:18.358+00:00",
+    "assigned_to": "67f80d02-749f-49a9-b104-a3b1ea787e72",
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "task-5-1",
+        "order": 0,
+        "title": "Enable advanced threat protection",
+        "completed": true,
+        "description": "Deploy or update endpoint detection and response (EDR) solutions"
+      },
+      {
+        "id": "task-5-2",
+        "order": 1,
+        "title": "Configure backup isolation",
+        "completed": true,
+        "description": "Implement air-gapped or immutable backup storage solutions"
+      },
+      {
+        "id": "task-5-3",
+        "order": 2,
+        "title": "Update security policies",
+        "completed": true,
+        "description": "Review and strengthen access controls, password policies, and user permissions"
+      },
+      {
+        "id": "task-5-4",
+        "order": 3,
+        "title": "Implement network segmentation",
+        "completed": true,
+        "description": "Create network zones to limit lateral movement in future attacks"
+      },
+      {
+        "id": "task-5-5",
+        "order": 4,
+        "title": "Schedule security training",
+        "completed": true,
+        "description": "Plan and conduct user awareness training on ransomware prevention"
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  },
+  {
+    "id": "09d43f49-6bc0-449d-8b76-dacc4261a5a2",
+    "runbook_id": "a2ee29d0-8300-425d-af65-e41dfe1715c9",
+    "title": "Recovering the Commcell",
+    "description": "",
+    "step_order": 3,
+    "estimated_duration_minutes": null,
+    "created_at": "2025-06-10T19:01:50.934409+00:00",
+    "updated_at": "2025-06-13T17:13:05.235+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "0beee28f-728a-4c41-8d16-3a09c692916e",
+        "order": 1,
+        "title": "Commcell Rebuild Options",
+        "question": {
+          "id": "b191e00d-2433-4d7e-80b8-ad047064df3c",
+          "type": "select",
+          "options": [
+            "Live Sync Failover",
+            "Recover from DR backup"
+          ],
+          "question": "What type of Commcell Recovery do you need to Perform",
+          "required": false
+        },
+        "completed": true
+      }
+    ],
+    "app_id": null,
+    "conditions": {
+      "visibilityRules": [
+        {
+          "id": "a93ef3f8-8b12-4d6f-9728-ee744135af88",
+          "stepId": "c7448893-30d6-4e39-b6e4-34fad7b6e109",
+          "taskId": "7eb89fa5-1cee-4f3c-bab0-aec410ca1272",
+          "questionId": "a47497cc-12ab-42ab-aeae-4923525401e4",
+          "description": "Show when \"Are you able access the console\" = \"no\"",
+          "requiredAnswer": "no"
+        }
+      ]
+    },
+    "depends_on": null
+  },
+  {
+    "id": "9220c079-6f9e-4fd3-abb1-be9f694d6495",
+    "runbook_id": "a2ee29d0-8300-425d-af65-e41dfe1715c9",
+    "title": "Validate Commvault Infrastructure",
+    "description": "",
+    "step_order": 2,
+    "estimated_duration_minutes": 30,
+    "created_at": "2025-06-10T18:03:59.217972+00:00",
+    "updated_at": "2025-06-10T20:34:25.142+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "0de98557-77de-40aa-8690-6e4463e00e09",
+        "order": 1,
+        "title": "Review Commvault Alerts and Events",
+        "completed": false,
+        "description": "Log in to the Commvault Command Center and navigate to the Monitoring > Alerts section.\nScrutinize all recent alerts for any suspicious activity, such as:\nFailed login attempts to the CommServe.\nUnexpected changes to backup policies or schedules.\nAnomalous job failure rates.\nUnusual data aging or deletion activities.\nAlerts related to ransomware protection features (if enabled)."
+      },
+      {
+        "id": "71eb040b-7381-4f1d-a901-9a5aaac8c65c",
+        "order": 2,
+        "title": "Examine Commvault Audit Trails",
+        "completed": false,
+        "description": "In the Commvault Command Center, access the Reports section and run the Audit Trail report.\nFilter the report to cover the period of the security incident and look for unauthorized or suspicious activities, such as:\nChanges to user accounts and permissions.\nModifications to storage policies or libraries.\nDeletion of backup jobs or data."
+      }
+    ],
+    "app_id": null,
+    "conditions": {
+      "visibilityRules": [
+        {
+          "id": "dae53c34-5018-4800-aba5-0447ccb3f412",
+          "stepId": "c7448893-30d6-4e39-b6e4-34fad7b6e109",
+          "taskId": "7eb89fa5-1cee-4f3c-bab0-aec410ca1272",
+          "questionId": "a47497cc-12ab-42ab-aeae-4923525401e4",
+          "description": "Show when \"Are you able access the console\" = \"yes\"",
+          "requiredAnswer": "yes"
+        }
+      ]
+    },
+    "depends_on": null
+  },
+  {
+    "id": "4ee808e4-2aeb-4361-82c7-cb305255e938",
+    "runbook_id": "a2ee29d0-8300-425d-af65-e41dfe1715c9",
+    "title": "Failing Over the Commcell",
+    "description": "",
+    "step_order": 4,
+    "estimated_duration_minutes": null,
+    "created_at": "2025-06-10T20:37:13.879447+00:00",
+    "updated_at": "2025-06-12T17:11:32.713+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "496dc9ab-b567-46ef-a83c-4825f44c9ce8",
+        "order": 1,
+        "title": "Live Sync Failover",
+        "completed": false,
+        "description": "Step-by-Step Guide:\n\nCaution: An unplanned failover can result in some data loss as the last transaction logs from the production CommServe may not have been replicated.\n\nConfirm the Outage: Verify that the production CommServe host is genuinely down and not just experiencing a temporary network issue.\n\nLog in to the Standby CommServe Host(): Access the server that will become the new active CommServe.\n\nInitiate the Failover:\n\nOpen the Commvault Process Manager.\nGo to the Failover Assistant tab.\nFrom the Failover To list, select the current standby node.\nFrom the Failover Type list, select Production.\nClick Initiate Failover.\nConfirm the Action:\n\nIn the confirmation prompt, type confirm and click OK. The process may take a few minutes to start as it attempts to communicate with the production node.\nPost-Failover Actions:\n\nDNS Update: As with a planned failover, update your floating CommServe name in DNS to point to the new active server's IP address.\nVerify Operations: Log in to the new active CommServe and verify that backup and restore operations are functioning.\nAddress the Original Production CommServe: Once the original production CommServe is back online, it will automatically be set to passive. You will need to ensure Live Sync is re-established from the new active to the now passive node. If the original host is unrecoverable, you will need to provision a new standby CommServe."
+      }
+    ],
+    "app_id": null,
+    "conditions": {
+      "visibilityRules": [
+        {
+          "id": "8f2891aa-5334-49c7-8ac8-4f34d0bab99f",
+          "stepId": "09d43f49-6bc0-449d-8b76-dacc4261a5a2",
+          "taskId": "0beee28f-728a-4c41-8d16-3a09c692916e",
+          "questionId": "b191e00d-2433-4d7e-80b8-ad047064df3c",
+          "description": "Show when \"What type of Commcell Recovery do you need to Perform\" = \"Live Sync Failover\"",
+          "requiredAnswer": "Live Sync Failover"
+        }
+      ]
+    },
+    "depends_on": null
+  },
+  {
+    "id": "4b0177bb-a62c-4b3c-b6d2-1592ffb63617",
+    "runbook_id": "a2ee29d0-8300-425d-af65-e41dfe1715c9",
+    "title": "Dr Backup Recovery",
+    "description": "",
+    "step_order": 5,
+    "estimated_duration_minutes": null,
+    "created_at": "2025-06-10T20:49:04.102204+00:00",
+    "updated_at": "2025-06-13T17:13:14.699+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "1dbd94a9-57b5-4ad6-becb-7874dd8db99b",
+        "order": 1,
+        "title": "Export Options",
+        "question": {
+          "id": "34f4fb14-84c1-47b6-b974-c5a2025a1846",
+          "type": "select",
+          "options": [
+            "Cloud.commvault.com",
+            "UNC path",
+            "Cloud Bucket"
+          ],
+          "question": "Where do you want to export the DR backup from",
+          "required": false
+        },
+        "completed": true
+      }
+    ],
+    "app_id": null,
+    "conditions": {
+      "visibilityRules": [
+        {
+          "id": "9afe2a70-7ac2-4887-9cd7-4136da89fddc",
+          "stepId": "09d43f49-6bc0-449d-8b76-dacc4261a5a2",
+          "taskId": "0beee28f-728a-4c41-8d16-3a09c692916e",
+          "questionId": "b191e00d-2433-4d7e-80b8-ad047064df3c",
+          "description": "Show when \"What type of Commcell Recovery do you need to Perform\" = \"Recover from DR backup\"",
+          "requiredAnswer": "Recover from DR backup"
+        }
+      ]
+    },
+    "depends_on": null
+  },
+  {
+    "id": "be01c3c6-45b4-4eb2-be97-71baf77cfbc8",
+    "runbook_id": "a2ee29d0-8300-425d-af65-e41dfe1715c9",
+    "title": "Cloud.Commvault.com DR Export",
+    "description": "",
+    "step_order": 6,
+    "estimated_duration_minutes": null,
+    "created_at": "2025-06-10T21:01:40.569144+00:00",
+    "updated_at": "2025-06-10T21:03:15.1+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "eb270686-3255-441c-9465-0e2c8845bcb4",
+        "order": 1,
+        "title": "How to Export",
+        "completed": false,
+        "description": "Key Prerequisites:\n\nCloud Portal Access: You need valid credentials to log in to the Commvault Cloud Services Portal.\nRequired User Role: To download DR backup files, your user account must be assigned the \"CS Recovery Manager\" role in the portal. Users without this permission may be able to see the backups but will not have the option to download them.\nStep-by-Step Download Guide:\n\nLog in to the Commvault Cloud Portal: Open a web browser and navigate to https://cloud.commvault.com.\n\nNavigate to the CommCell Dashboard:\n\nFrom the main portal dashboard, click on the CommCells service or use the left-hand navigation menu to find your registered CommCells.\nSelect Your CommCell:\n\nFrom the list of registered CommCells, click on the name of the CommServe whose DR backup you wish to export.\nAccess the DR Backups Page:\n\nOn the specific CommCell's dashboard page, locate the Support & Services widget.\nYou will see a \"DR backup\" status with a timestamp. Click on this timestamp.\nChoose the DR Backup Set:\n\nYou will now be on the \"DR Backups\" page, which lists backup sets by date and time. Each entry, typically named a SET_ folder, represents a specific DR backup job.\nIdentify the backup set you need. For a full recovery, you will generally need the most recent Full backup and any subsequent Differential backups. Click on the desired SET_ folder.\nDownload the Required Files:\n\nInside the SET_ folder, you will see the individual files that constitute the DR backup (.dmp, .cab files, etc.).\nTo download a file, hover your mouse over its name, and a Download icon will appear to the left. Click this icon.\nRepeat this step for all the files within the backup set that you require for recovery."
+      }
+    ],
+    "app_id": null,
+    "conditions": {
+      "visibilityRules": [
+        {
+          "id": "20e40d9f-9acb-4480-9d79-0a711b72c66d",
+          "stepId": "4b0177bb-a62c-4b3c-b6d2-1592ffb63617",
+          "taskId": "1dbd94a9-57b5-4ad6-becb-7874dd8db99b",
+          "questionId": "34f4fb14-84c1-47b6-b974-c5a2025a1846",
+          "description": "Show when \"Where do you want to export the DR backup from\" = \"Cloud.commvault.com\"",
+          "requiredAnswer": "Cloud.commvault.com"
+        }
+      ]
+    },
+    "depends_on": null
+  },
+  {
+    "id": "6ce3a192-d6b3-4bb0-bf37-66587a8ebc82",
+    "runbook_id": "a2ee29d0-8300-425d-af65-e41dfe1715c9",
+    "title": "UNC path Location",
+    "description": "",
+    "step_order": 7,
+    "estimated_duration_minutes": null,
+    "created_at": "2025-06-10T21:03:35.246449+00:00",
+    "updated_at": "2025-06-10T21:06:26.565+00:00",
+    "assigned_to": null,
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "b7432f4e-3034-44a5-90ca-8f577d71dff5",
+        "order": 1,
+        "title": "UNC Path Location",
+        "completed": false,
+        "description": "The UNC Path Location is \\\\share\\share"
+      }
+    ],
+    "app_id": null,
+    "conditions": {
+      "visibilityRules": [
+        {
+          "id": "a1ec70f0-4580-4358-b66e-1fb6bce7571f",
+          "stepId": "4b0177bb-a62c-4b3c-b6d2-1592ffb63617",
+          "taskId": "1dbd94a9-57b5-4ad6-becb-7874dd8db99b",
+          "questionId": "34f4fb14-84c1-47b6-b974-c5a2025a1846",
+          "description": "Show when \"Where do you want to export the DR backup from\" = \"UNC path\"",
+          "requiredAnswer": "UNC path"
+        }
+      ]
+    },
+    "depends_on": null
+  },
+  {
+    "id": "d4fd3ab6-6a82-4c46-80e4-b3dcd5457a1a",
+    "runbook_id": "93bda43e-ae13-4cfe-86d4-60349bbf04a4",
+    "title": "Step 1",
+    "description": "Step 1 desc",
+    "step_order": 1,
+    "estimated_duration_minutes": 10,
+    "created_at": "2025-06-05T03:28:06.785296+00:00",
+    "updated_at": "2025-06-12T17:16:23.338+00:00",
+    "assigned_to": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
+    "photo_url": null,
+    "tasks": [
+      {
+        "id": "735ee07f-4325-4aff-9b0a-a92a27101531",
+        "order": 0,
+        "title": "Step 1 test",
+        "completed": false,
+        "photo_url": "https://gnafycjxxjhlrbnxyftp.supabase.co/storage/v1/object/public/runbook-step-photos/task-photos/735ee07f-4325-4aff-9b0a-a92a27101531-1749096998121.png",
+        "description": ""
+      },
+      {
+        "id": "8eb241c7-775c-424f-829e-004b3e37778e",
+        "order": 1,
+        "title": "Step 2 Test",
+        "question": {
+          "id": "d52740ca-3d57-4350-b6d6-ea0df746d073",
+          "type": "yes_no",
+          "options": [],
+          "question": "Sample Question",
+          "required": false
+        },
+        "completed": false,
+        "photo_url": "https://gnafycjxxjhlrbnxyftp.supabase.co/storage/v1/object/public/runbook-step-photos/task-photos/8eb241c7-775c-424f-829e-004b3e37778e-1749097013576.png",
+        "description": ""
+      },
+      {
+        "id": "68a8a908-7b47-4245-bc88-cfdf2597e5b8",
+        "order": 3,
+        "title": "Task Sample",
+        "question": null,
+        "codeBlock": "<h1>",
+        "completed": false,
+        "conditions": null,
+        "description": "Test"
+      }
+    ],
+    "app_id": null,
+    "conditions": null,
+    "depends_on": null
+  }
+]

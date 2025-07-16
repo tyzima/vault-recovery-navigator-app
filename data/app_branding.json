@@ -1,0 +1,13 @@
+[
+  {
+    "id": "default",
+    "app_name": "Missile Defense Agency",
+    "app_logo_url": "/uploads/general/1750464984611-2c8xlvuvlsh.png",
+    "primary_color": "#8cc840",
+    "secondary_color": "#1e3546",
+    "created_at": "2025-01-17T00:00:00.000Z",
+    "updated_at": "2025-06-21T18:03:13.821Z",
+    "created_by": "system",
+    "theme_mode": "dark"
+  }
+]

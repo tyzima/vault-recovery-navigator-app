@@ -1,0 +1,263 @@
+[
+  {
+    "id": "02205614-6b6c-4e62-84f5-fd6cdc0fbacc",
+    "step_id": "d4fd3ab6-6a82-4c46-80e4-b3dcd5457a1a",
+    "photo_url": "https://gnafycjxxjhlrbnxyftp.supabase.co/storage/v1/object/public/runbook-step-photos/step-photos/d4fd3ab6-6a82-4c46-80e4-b3dcd5457a1a-1749094370945.svg",
+    "caption": "Photo for step d4fd3ab6-6a82-4c46-80e4-b3dcd5457a1a",
+    "uploaded_by": null,
+    "created_at": "2025-06-05T03:32:51.529115+00:00",
+    "updated_at": "2025-06-05T03:32:51.529115+00:00"
+  },
+  {
+    "id": "56666afb-3566-457c-9ec9-6ece94fa6a53",
+    "step_id": "80dc45f7-8821-4376-8a3f-d37fea7c3d7c",
+    "photo_url": "https://gnafycjxxjhlrbnxyftp.supabase.co/storage/v1/object/public/runbook-step-photos/step-photos/80dc45f7-8821-4376-8a3f-d37fea7c3d7c-1749181374996.png",
+    "caption": "Photo for step 80dc45f7-8821-4376-8a3f-d37fea7c3d7c",
+    "uploaded_by": null,
+    "created_at": "2025-06-06T03:42:55.612328+00:00",
+    "updated_at": "2025-06-06T03:42:55.612328+00:00"
+  },
+  {
+    "id": "fdfeebc2-7288-4d5d-8524-cacb959d330a",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750473676591.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T02:41:16.599Z",
+    "updated_at": "2025-06-21T02:41:16.599Z"
+  },
+  {
+    "id": "f6c460ff-367e-450b-b28e-37c76655a7c8",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750474344669.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T02:52:24.672Z",
+    "updated_at": "2025-06-21T02:52:24.672Z"
+  },
+  {
+    "id": "08be82aa-1e96-4580-9868-543b7328e010",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750474961048.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T03:02:41.052Z",
+    "updated_at": "2025-06-21T03:02:41.052Z"
+  },
+  {
+    "id": "79df1267-ad3a-4d9f-8a55-6817d2078ca8",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750476086158.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T03:21:26.160Z",
+    "updated_at": "2025-06-21T03:21:26.160Z"
+  },
+  {
+    "id": "6df68200-ee5b-49c8-a226-9a68ee0e1f01",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750476130977.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T03:22:10.981Z",
+    "updated_at": "2025-06-21T03:22:10.981Z"
+  },
+  {
+    "id": "2ab3b9c3-d166-4f0b-8628-fb68131f9e48",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750477405403.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T03:43:25.410Z",
+    "updated_at": "2025-06-21T03:43:25.410Z"
+  },
+  {
+    "id": "34a677b6-b90d-47b1-88c1-1a9664eec8f9",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750477413838.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T03:43:33.843Z",
+    "updated_at": "2025-06-21T03:43:33.843Z"
+  },
+  {
+    "id": "ceb2b725-29b0-4c82-9fe3-39c9f93d5ec7",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750477506276.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T03:45:06.281Z",
+    "updated_at": "2025-06-21T03:45:06.281Z"
+  },
+  {
+    "id": "ca71bcf2-f8e6-4adb-935b-fffea4c21822",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750477554934.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T03:45:54.941Z",
+    "updated_at": "2025-06-21T03:45:54.941Z"
+  },
+  {
+    "id": "9fca5eeb-4005-4477-99dd-ccb47bca397f",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750477581954.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T03:46:21.956Z",
+    "updated_at": "2025-06-21T03:46:21.956Z"
+  },
+  {
+    "id": "129426b7-353a-482e-b726-c8903ee03901",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750477598869.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T03:46:38.875Z",
+    "updated_at": "2025-06-21T03:46:38.875Z"
+  },
+  {
+    "id": "0dfdb43a-a49c-40fe-9b1a-92253bbd2e44",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750477717559.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T03:48:37.562Z",
+    "updated_at": "2025-06-21T03:48:37.562Z"
+  },
+  {
+    "id": "323d1da4-3c34-4253-85e2-d68e8e9ec5f6",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750478237674.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T03:57:17.682Z",
+    "updated_at": "2025-06-21T03:57:17.682Z"
+  },
+  {
+    "id": "7b98b8bd-8647-411c-8ed5-93c6ef11d0cc",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750478254113.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T03:57:34.118Z",
+    "updated_at": "2025-06-21T03:57:34.118Z"
+  },
+  {
+    "id": "546d98f0-2d67-434b-abb2-01d15e148494",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750478274312.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T03:57:54.316Z",
+    "updated_at": "2025-06-21T03:57:54.316Z"
+  },
+  {
+    "id": "fd3a6b68-2354-44ad-b889-8064ce6629ca",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750478315041.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T03:58:35.045Z",
+    "updated_at": "2025-06-21T03:58:35.045Z"
+  },
+  {
+    "id": "c28ae579-409a-4a7c-ba9d-bdfea45ef9fb",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750478433411.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T04:00:33.421Z",
+    "updated_at": "2025-06-21T04:00:33.421Z"
+  },
+  {
+    "id": "c5f6ef04-0700-4022-a440-72617241080d",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750478589307.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T04:03:09.311Z",
+    "updated_at": "2025-06-21T04:03:09.311Z"
+  },
+  {
+    "id": "4855960a-e794-4c3d-9b95-779ce69ced40",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750478823879.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T04:07:03.883Z",
+    "updated_at": "2025-06-21T04:07:03.883Z"
+  },
+  {
+    "id": "9b784ade-1ad6-440e-b550-ac78b6c617e1",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750478847982.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T04:07:27.984Z",
+    "updated_at": "2025-06-21T04:07:27.984Z"
+  },
+  {
+    "id": "62e85f29-fcce-4111-ae59-9ec8ab322d0c",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750478916276.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T04:08:36.279Z",
+    "updated_at": "2025-06-21T04:08:36.279Z"
+  },
+  {
+    "id": "924e7275-94c3-414c-a7cb-2a6a4cd1a707",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750479754875.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T04:22:34.882Z",
+    "updated_at": "2025-06-21T04:22:34.882Z"
+  },
+  {
+    "id": "fcdfa953-2048-409c-8092-15054cc0111f",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750479893708.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T04:24:53.713Z",
+    "updated_at": "2025-06-21T04:24:53.713Z"
+  },
+  {
+    "id": "35acc936-1cba-4eb5-85a9-c85350c77e0d",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750480078571.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T04:27:58.577Z",
+    "updated_at": "2025-06-21T04:27:58.577Z"
+  },
+  {
+    "id": "7768ef9a-ef64-459e-b518-4d6385a03cd1",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750481157454.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T04:45:57.465Z",
+    "updated_at": "2025-06-21T04:45:57.465Z"
+  },
+  {
+    "id": "7029cbbb-dc2b-4203-aa01-f957f5d65329",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750482926054.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T05:15:26.057Z",
+    "updated_at": "2025-06-21T05:15:26.057Z"
+  },
+  {
+    "id": "6ec5568c-2064-4261-8d49-fc4cad0341b6",
+    "step_id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "photo_url": "/uploads/step-photos/69b8015c-15f2-4b69-8787-5199e0f0ff64-1750493823984.png",
+    "caption": "Photo for step 69b8015c-15f2-4b69-8787-5199e0f0ff64",
+    "uploaded_by": null,
+    "created_at": "2025-06-21T08:17:03.987Z",
+    "updated_at": "2025-06-21T08:17:03.987Z"
+  }
+]

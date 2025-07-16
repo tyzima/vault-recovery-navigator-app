@@ -1,0 +1,37 @@
+[
+  {
+    "id": "bd7aa3f9-c093-4a58-9ef2-84e7b6d2a52b",
+    "name": "Microsoft",
+    "logo_url": "https://xs26tevltn.ufs.sh/f/W00C7B5w6itefWgQrlqA0sMUwrBydQYiklhDWfqaX9ecVuNE",
+    "created_at": "2025-06-05T15:33:46.951574+00:00",
+    "updated_at": "2025-06-05T15:33:46.951574+00:00"
+  },
+  {
+    "id": "69389757-546a-4a2f-b352-a57bbb3c2f7c",
+    "name": "Azure",
+    "logo_url": "https://xs26tevltn.ufs.sh/f/W00C7B5w6itez9Vb5zZr6CZiGvYokUc2RzlW5H3hfuqOBAFs",
+    "created_at": "2025-06-05T15:33:46.951574+00:00",
+    "updated_at": "2025-06-05T15:33:46.951574+00:00"
+  },
+  {
+    "id": "c45e51a7-3c01-4a3c-bb07-840fc1a8e1cd",
+    "name": "Commvault",
+    "logo_url": "https://xs26tevltn.ufs.sh/f/W00C7B5w6itexZuEPo0SxJ5Hnkp0of3uPlZT9ts4GXrKQFI2",
+    "created_at": "2025-06-05T15:33:46.951574+00:00",
+    "updated_at": "2025-06-05T15:33:46.951574+00:00"
+  },
+  {
+    "id": "9f002fb8-b181-44fd-ba1e-c1ab7444c426",
+    "name": "AWS",
+    "logo_url": "https://xs26tevltn.ufs.sh/f/W00C7B5w6itetFQ4NOmR243hZqeCU971lMbcFYwIuiaTNoJf",
+    "created_at": "2025-06-05T15:33:46.951574+00:00",
+    "updated_at": "2025-06-05T15:33:46.951574+00:00"
+  },
+  {
+    "id": "ae83f173-6659-4da0-88e7-e09395bde7ec",
+    "name": "Google",
+    "logo_url": "https://xs26tevltn.ufs.sh/f/W00C7B5w6ite7rHABDae2NmqzVOZrSsuLj6I1ki8aBp4bhcn",
+    "created_at": "2025-06-05T15:33:46.951574+00:00",
+    "updated_at": "2025-06-05T15:33:46.951574+00:00"
+  }
+]

@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vault Recovery Navigator - License Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            min-height: 600px;
+        }
+
+        .form-section, .output-section {
+            padding: 40px;
+        }
+
+        .form-section {
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #4a5568;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .button:active {
+            transform: translateY(0);
+        }
+
+        .button.secondary {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+
+        .button.secondary:hover {
+            background: #cbd5e0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .key-management {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .status-indicator.ready {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .status-indicator.missing {
+            background: #fed7e2;
+            color: #742a2a;
+        }
+
+        .output-area {
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 200px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .license-details {
+            background: #edf2f7;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .license-details h4 {
+            margin-bottom: 12px;
+            color: #2d3748;
+        }
+
+        .license-details p {
+            margin-bottom: 8px;
+            color: #4a5568;
+        }
+
+        .copy-button {
+            background: #48bb78;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+
+        .copy-button:hover {
+            background: #38a169;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .feature-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .feature-tag {
+            background: #bee3f8;
+            color: #2c5282;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-section {
+                border-right: none;
+                border-bottom: 1px solid #e2e8f0;
+            }
+            
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .alert {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .alert.success {
+            background: #c6f6d5;
+            color: #22543d;
+            border: 1px solid #9ae6b4;
+        }
+
+        .alert.error {
+            background: #fed7e2;
+            color: #742a2a;
+            border: 1px solid #fbb6ce;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔐 License Generator</h1>
+            <p>Vault Recovery Navigator - Admin Tool</p>
+        </div>
+
+        <div class="main-content">
+            <!-- Form Section -->
+            <div class="form-section">
+                <h2 class="section-title">
+                    🔑 Key Management
+                </h2>
+
+                <div class="key-management">
+                    <div id="keyStatus" class="status-indicator missing">
+                        ❌ No keys loaded
+                    </div>
+                    
+                    <div class="grid-2">
+                        <button class="button secondary" onclick="generateKeys()">
+                            <span id="generateKeyText">Generate New Keys</span>
+                        </button>
+                        <div class="file-input-wrapper">
+                            <input type="file" id="privateKeyFile" class="file-input" accept=".pem" onchange="loadPrivateKey(event)">
+                            <button class="button secondary">Load Private Key</button>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="section-title">
+                    📋 License Details
+                </h2>
+
+                <form id="licenseForm">
+                    <div class="form-group">
+                        <label for="customerId">Customer ID *</label>
+                        <input type="text" id="customerId" required placeholder="e.g., ACME-Corp-2024">
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="maxRunbooks">Max Runbooks *</label>
+                            <input type="number" id="maxRunbooks" required value="10" min="1" max="10000">
+                        </div>
+                        <div class="form-group">
+                            <label for="validityDays">Validity (Days) *</label>
+                            <input type="number" id="validityDays" required value="365" min="1" max="3650">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="features">Features</label>
+                        <input type="text" id="features" placeholder="e.g., runbook_creation,runbook_execution,advanced_features" value="runbook_creation,runbook_execution">
+                        <div class="feature-tags">
+                            <span class="feature-tag">runbook_creation</span>
+                            <span class="feature-tag">runbook_execution</span>
+                            <span class="feature-tag">advanced_features</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="button">
+                        <span id="generateLicenseText">🚀 Generate License</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Output Section -->
+            <div class="output-section">
+                <h2 class="section-title">
+                    📄 Generated License
+                </h2>
+
+                <div id="alertContainer"></div>
+
+                <div id="licenseOutput" style="display: none;">
+                    <div class="license-details">
+                        <h4>License Information</h4>
+                        <p><strong>Customer:</strong> <span id="outputCustomerId"></span></p>
+                        <p><strong>Max Runbooks:</strong> <span id="outputMaxRunbooks"></span></p>
+                        <p><strong>Issued:</strong> <span id="outputIssued"></span></p>
+                        <p><strong>Expires:</strong> <span id="outputExpires"></span></p>
+                        <p><strong>Features:</strong> <span id="outputFeatures"></span></p>
+                    </div>
+
+                    <h4>License Key</h4>
+                    <div class="output-area" id="licenseKey"></div>
+                    <button class="copy-button" onclick="copyLicenseKey()">
+                        📋 Copy License Key
+                    </button>
+                </div>
+
+                <div id="publicKeyOutput" style="display: none;">
+                    <h4>Public Key for Code Embedding</h4>
+                    <div class="output-area" id="publicKeySegments"></div>
+                    <button class="copy-button" onclick="copyPublicKey()">
+                        📋 Copy Public Key Code
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let privateKey = null;
+        let publicKey = null;
+
+        // Generate RSA key pair
+        async function generateKeys() {
+            const generateButton = document.getElementById('generateKeyText');
+            generateButton.innerHTML = '<span class="loading"></span>Generating...';
+            
+            try {
+                const keyPair = await crypto.subtle.generateKey(
+                    {
+                        name: 'RSA-PSS',
+                        modulusLength: 2048,
+                        publicExponent: new Uint8Array([1, 0, 1]),
+                        hash: 'SHA-256',
+                    },
+                    true,
+                    ['sign', 'verify']
+                );
+
+                privateKey = keyPair.privateKey;
+                publicKey = keyPair.publicKey;
+
+                updateKeyStatus(true);
+                showPublicKeyForEmbedding();
+                showAlert('Keys generated successfully! You can now create licenses.', 'success');
+                
+                // Offer to download private key
+                await downloadPrivateKey();
+                
+            } catch (error) {
+                console.error('Key generation failed:', error);
+                showAlert('Failed to generate keys: ' + error.message, 'error');
+            } finally {
+                generateButton.innerHTML = 'Generate New Keys';
+            }
+        }
+
+        // Load private key from file
+        async function loadPrivateKey(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            try {
+                const pemText = await file.text();
+                
+                // Parse PEM format
+                const pemHeader = "-----BEGIN PRIVATE KEY-----";
+                const pemFooter = "-----END PRIVATE KEY-----";
+                const pemContents = pemText
+                    .replace(pemHeader, '')
+                    .replace(pemFooter, '')
+                    .replace(/\s/g, '');
+
+                const binaryDerString = atob(pemContents);
+                const binaryDer = new Uint8Array(binaryDerString.length);
+                for (let i = 0; i < binaryDerString.length; i++) {
+                    binaryDer[i] = binaryDerString.charCodeAt(i);
+                }
+
+                privateKey = await crypto.subtle.importKey(
+                    'pkcs8',
+                    binaryDer,
+                    {
+                        name: 'RSA-PSS',
+                        hash: 'SHA-256',
+                    },
+                    true,
+                    ['sign']
+                );
+
+                // Extract public key
+                const privateKeyData = await crypto.subtle.exportKey('jwk', privateKey);
+                const publicKeyData = {
+                    kty: privateKeyData.kty,
+                    n: privateKeyData.n,
+                    e: privateKeyData.e,
+                    alg: 'PS256',
+                    use: 'sig'
+                };
+
+                publicKey = await crypto.subtle.importKey(
+                    'jwk',
+                    publicKeyData,
+                    {
+                        name: 'RSA-PSS',
+                        hash: 'SHA-256',
+                    },
+                    true,
+                    ['verify']
+                );
+
+                updateKeyStatus(true);
+                showPublicKeyForEmbedding();
+                showAlert('Private key loaded successfully!', 'success');
+
+            } catch (error) {
+                console.error('Failed to load private key:', error);
+                showAlert('Failed to load private key: ' + error.message, 'error');
+            }
+        }
+
+        // Update key status indicator
+        function updateKeyStatus(hasKeys) {
+            const statusEl = document.getElementById('keyStatus');
+            if (hasKeys) {
+                statusEl.className = 'status-indicator ready';
+                statusEl.innerHTML = '✅ Keys ready';
+            } else {
+                statusEl.className = 'status-indicator missing';
+                statusEl.innerHTML = '❌ No keys loaded';
+            }
+        }
+
+        // Download private key
+        async function downloadPrivateKey() {
+            if (!privateKey) return;
+
+            try {
+                const exported = await crypto.subtle.exportKey('pkcs8', privateKey);
+                const exportedAsBase64 = btoa(String.fromCharCode(...new Uint8Array(exported)));
+                
+                const pem = `-----BEGIN PRIVATE KEY-----\n${exportedAsBase64.match(/.{1,64}/g).join('\n')}\n-----END PRIVATE KEY-----`;
+                
+                const blob = new Blob([pem], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `vault-nav-private-key-${Date.now()}.pem`;
+                a.click();
+                URL.revokeObjectURL(url);
+
+                showAlert('Private key downloaded. Keep this file secure!', 'success');
+            } catch (error) {
+                console.error('Failed to download private key:', error);
+            }
+        }
+
+        // Show public key for embedding in code
+        async function showPublicKeyForEmbedding() {
+            if (!publicKey) return;
+
+            try {
+                const exported = await crypto.subtle.exportKey('spki', publicKey);
+                const exportedAsBase64 = btoa(String.fromCharCode(...new Uint8Array(exported)));
+                const pem = `-----BEGIN PUBLIC KEY-----\n${exportedAsBase64.match(/.{1,64}/g).join('\n')}\n-----END PUBLIC KEY-----`;
+                
+                const base64Key = btoa(pem);
+                
+                // Split into segments for obfuscation
+                const segments = [];
+                const segmentLength = 32;
+                for (let i = 0; i < base64Key.length; i += segmentLength) {
+                    segments.push(base64Key.substr(i, segmentLength));
+                }
+
+                let codeOutput = 'const PUBLIC_KEY_SEGMENTS = [\n';
+                segments.forEach(segment => {
+                    codeOutput += `  '${segment}',\n`;
+                });
+                codeOutput += '];';
+
+                document.getElementById('publicKeySegments').textContent = codeOutput;
+                document.getElementById('publicKeyOutput').style.display = 'block';
+
+            } catch (error) {
+                console.error('Failed to export public key:', error);
+            }
+        }
+
+        // Generate license
+        async function generateLicense(event) {
+            event.preventDefault();
+            
+            if (!privateKey) {
+                showAlert('Please generate or load keys first.', 'error');
+                return;
+            }
+
+            const generateButton = document.getElementById('generateLicenseText');
+            generateButton.innerHTML = '<span class="loading"></span>Generating...';
+
+            try {
+                // Get form data
+                const customerId = document.getElementById('customerId').value;
+                const maxRunbooks = parseInt(document.getElementById('maxRunbooks').value);
+                const validityDays = parseInt(document.getElementById('validityDays').value);
+                const featuresText = document.getElementById('features').value;
+                const features = featuresText.split(',').map(f => f.trim()).filter(f => f);
+
+                // Create license data
+                const currentTime = Math.floor(Date.now() / 1000);
+                const expirationTime = currentTime + (validityDays * 24 * 60 * 60);
+
+                const licenseData = {
+                    customer_id: customerId,
+                    max_runbooks: maxRunbooks,
+                    issued_at: currentTime,
+                    expires_at: expirationTime,
+                    features: features
+                };
+
+                // Sign the license
+                const payload = JSON.stringify(licenseData);
+                const encoder = new TextEncoder();
+                const data = encoder.encode(payload);
+
+                const signature = await crypto.subtle.sign(
+                    {
+                        name: 'RSA-PSS',
+                        saltLength: 32,
+                    },
+                    privateKey,
+                    data
+                );
+
+                const signatureBase64 = btoa(String.fromCharCode(...new Uint8Array(signature)));
+
+                const license = {
+                    ...licenseData,
+                    signature: signatureBase64
+                };
+
+                // Create license key
+                const licenseKey = btoa(JSON.stringify(license));
+
+                // Display results
+                displayLicenseOutput(license, licenseKey);
+                showAlert('License generated successfully!', 'success');
+
+            } catch (error) {
+                console.error('License generation failed:', error);
+                showAlert('Failed to generate license: ' + error.message, 'error');
+            } finally {
+                generateButton.innerHTML = '🚀 Generate License';
+            }
+        }
+
+        // Display license output
+        function displayLicenseOutput(license, licenseKey) {
+            document.getElementById('outputCustomerId').textContent = license.customer_id;
+            document.getElementById('outputMaxRunbooks').textContent = license.max_runbooks;
+            document.getElementById('outputIssued').textContent = new Date(license.issued_at * 1000).toLocaleDateString();
+            document.getElementById('outputExpires').textContent = new Date(license.expires_at * 1000).toLocaleDateString();
+            document.getElementById('outputFeatures').textContent = license.features.join(', ');
+            
+            document.getElementById('licenseKey').textContent = licenseKey;
+            document.getElementById('licenseOutput').style.display = 'block';
+        }
+
+        // Copy license key to clipboard
+        async function copyLicenseKey() {
+            const licenseKey = document.getElementById('licenseKey').textContent;
+            try {
+                await navigator.clipboard.writeText(licenseKey);
+                showAlert('License key copied to clipboard!', 'success');
+            } catch (error) {
+                console.error('Failed to copy:', error);
+            }
+        }
+
+        // Copy public key code to clipboard
+        async function copyPublicKey() {
+            const publicKeyCode = document.getElementById('publicKeySegments').textContent;
+            try {
+                await navigator.clipboard.writeText(publicKeyCode);
+                showAlert('Public key code copied to clipboard!', 'success');
+            } catch (error) {
+                console.error('Failed to copy:', error);
+            }
+        }
+
+        // Show alert message
+        function showAlert(message, type) {
+            const container = document.getElementById('alertContainer');
+            const alert = document.createElement('div');
+            alert.className = `alert ${type}`;
+            alert.textContent = message;
+            
+            container.innerHTML = '';
+            container.appendChild(alert);
+
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                if (alert.parentNode) {
+                    alert.remove();
+                }
+            }, 5000);
+        }
+
+        // Event listeners
+        document.getElementById('licenseForm').addEventListener('submit', generateLicense);
+
+        // Initialize
+        updateKeyStatus(false);
+    </script>
+</body>
+</html> 

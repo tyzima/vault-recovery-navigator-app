@@ -1,0 +1,10 @@
+{
+  "enabled": true,
+  "schedule": "daily",
+  "time": "15:17",
+  "selectedFiles": "all",
+  "fileSelection": [],
+  "googleUserEmail": "ty@bespokegoods.co",
+  "lastBackup": null,
+  "nextBackup": "2025-06-23T19:17:00.000Z"
+}

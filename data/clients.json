@@ -1,0 +1,46 @@
+[
+  {
+    "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+    "name": "Infrastructure Team",
+    "description": "Responsible for physical and cloud infrastructure (servers, networks, VMs, etc.). Manages cloud infrastructure recovery on AWS, data center power outage recovery.",
+    "contact_email": "infrastructure@company.com",
+    "contact_phone": "555-0001",
+    "address": "",
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-06-22T18:18:22.418Z",
+    "logo_url": "/uploads/client-logos/a1b2c3d4-e5f6-7890-1234-567890abcdef-1750616302415.png"
+  },
+  {
+    "id": "b2c3d4e5-f6g7-8901-2345-678901bcdefg",
+    "name": "Database Team",
+    "description": "Manages all data storage systems, backups, and replication. Specializes in PostgreSQL recovery, database failover procedures, and production data restoration from snapshots.",
+    "contact_email": "database@company.com",
+    "contact_phone": "555-0002",
+    "address": "Data Operations Center, Building B",
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-06-21T19:17:11.543Z",
+    "logo_url": "/uploads/client-logos/b2c3d4e5-f6g7-8901-2345-678901bcdefg-1750533431541.png"
+  },
+  {
+    "id": "c3d4e5f6-g7h8-9012-3456-789012cdefgh",
+    "name": "Application/DevOps Team",
+    "description": "Focuses on CI/CD pipelines, app deployment, and service orchestration. Manages microservices deployment, Docker/Kubernetes operations, and application rollback.",
+    "contact_email": "devops@company.com",
+    "contact_phone": "555-0003",
+    "address": "Development Operations Center, Building C",
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-06-20T16:18:47.284Z",
+    "logo_url": "/uploads/client-logos/c3d4e5f6-g7h8-9012-3456-789012cdefgh-1750436327282.png"
+  },
+  {
+    "id": "d4e5f6g7-h8i9-0123-4567-890123defghi",
+    "name": "Security & Compliance Team",
+    "description": "Handles access control, breach response, and regulatory compliance. Manages ransomware response, credential rotation, forensics, and security incident management.",
+    "contact_email": "security@company.com",
+    "contact_phone": "555-0004",
+    "address": "Security Operations Center, Building D",
+    "created_at": "2025-01-20T10:00:00.000000+00:00",
+    "updated_at": "2025-06-21T19:17:24.169Z",
+    "logo_url": "/uploads/client-logos/d4e5f6g7-h8i9-0123-4567-890123defghi-1750533444166.png"
+  }
+]

@@ -1,0 +1,14 @@
+runbooks.local {
+    tls runbooks.local.pem runbooks.local-key.pem
+    
+    # Handle all requests to backend (including WebSocket)
+    reverse_proxy /api/* localhost:3001
+    reverse_proxy /ws localhost:3001
+    
+    # Handle static file uploads
+    reverse_proxy /uploads/* localhost:3001
+    reverse_proxy /data/* localhost:3001
+    
+    # Handle all other requests to frontend
+    reverse_proxy localhost:8080
+} 

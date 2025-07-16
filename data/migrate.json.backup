@@ -1,0 +1,1362 @@
+[
+  {
+    "data": {
+      "profiles": [
+        {
+          "id": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
+          "email": "ty@bespokegoods.co",
+          "first_name": "Test",
+          "last_name": "Last",
+          "role": "kelyn_admin",
+          "client_id": null,
+          "created_at": "2025-06-05T02:30:48.82849+00:00",
+          "updated_at": "2025-06-05T02:30:48.82849+00:00"
+        },
+        {
+          "id": "54d23b1b-0753-4f96-a850-65bd877023ac",
+          "email": "ty@kelyntech.com",
+          "first_name": "Ty",
+          "last_name": "Rep",
+          "role": "kelyn_rep",
+          "client_id": "71ee1158-dda2-46c3-9733-f415f5cf0557",
+          "created_at": "2025-06-05T06:30:01.832366+00:00",
+          "updated_at": "2025-06-05T06:30:01.832366+00:00"
+        },
+        {
+          "id": "67f80d02-749f-49a9-b104-a3b1ea787e72",
+          "email": "kelyntech@mkzaso.com",
+          "first_name": "Client",
+          "last_name": "Account",
+          "role": "client_member",
+          "client_id": "71ee1158-dda2-46c3-9733-f415f5cf0557",
+          "created_at": "2025-06-06T13:46:30.2139+00:00",
+          "updated_at": "2025-06-06T13:46:30.2139+00:00"
+        },
+        {
+          "id": "bd15862a-168e-4f2a-b1eb-6a9f442e0637",
+          "email": "kevin@kelyntech.com",
+          "first_name": "Kevin",
+          "last_name": "Cronin",
+          "role": "client_member",
+          "client_id": "71ee1158-dda2-46c3-9733-f415f5cf0557",
+          "created_at": "2025-06-06T20:18:12.716709+00:00",
+          "updated_at": "2025-06-06T20:18:12.716709+00:00"
+        },
+        {
+          "id": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
+          "email": "tydinbox@gmail.com",
+          "first_name": "Steve",
+          "last_name": "Carell",
+          "role": "client_admin",
+          "client_id": "71ee1158-dda2-46c3-9733-f415f5cf0557",
+          "created_at": "2025-06-05T03:58:08.135844+00:00",
+          "updated_at": "2025-06-05T03:58:08.135844+00:00"
+        }
+      ],
+      "clients": [
+        {
+          "id": "dc10b744-d042-4bf2-afd8-b8e45c00a5da",
+          "name": "ONSEMi",
+          "description": "",
+          "contact_email": "",
+          "contact_phone": "",
+          "address": "",
+          "created_at": "2025-06-10T16:10:29.921364+00:00",
+          "updated_at": "2025-06-10T16:10:29.921364+00:00",
+          "logo_url": "https://gnafycjxxjhlrbnxyftp.supabase.co/storage/v1/object/public/client-logos/dc10b744-d042-4bf2-afd8-b8e45c00a5da-1749739728639.png"
+        },
+        {
+          "id": "71ee1158-dda2-46c3-9733-f415f5cf0557",
+          "name": "Missile Defense Agency",
+          "description": "Test Client",
+          "contact_email": "Testing@client.com",
+          "contact_phone": "8136006000",
+          "address": "1234 Main St Test, Huntsville, AL 33604",
+          "created_at": "2025-06-05T02:43:59.027964+00:00",
+          "updated_at": "2025-06-13T17:25:55.668+00:00",
+          "logo_url": null
+        },
+        {
+          "id": "e7ee6a72-50e6-48a0-9fa3-372c924dd377",
+          "name": "Commvault",
+          "description": "",
+          "contact_email": "",
+          "contact_phone": "",
+          "address": "",
+          "created_at": "2025-06-13T17:28:31.279782+00:00",
+          "updated_at": "2025-06-13T17:28:31.279782+00:00",
+          "logo_url": null
+        }
+      ],
+      "apps": [
+        {
+          "id": "bd7aa3f9-c093-4a58-9ef2-84e7b6d2a52b",
+          "name": "Microsoft",
+          "logo_url": "https://xs26tevltn.ufs.sh/f/W00C7B5w6itefWgQrlqA0sMUwrBydQYiklhDWfqaX9ecVuNE",
+          "created_at": "2025-06-05T15:33:46.951574+00:00",
+          "updated_at": "2025-06-05T15:33:46.951574+00:00"
+        },
+        {
+          "id": "69389757-546a-4a2f-b352-a57bbb3c2f7c",
+          "name": "Azure",
+          "logo_url": "https://xs26tevltn.ufs.sh/f/W00C7B5w6itez9Vb5zZr6CZiGvYokUc2RzlW5H3hfuqOBAFs",
+          "created_at": "2025-06-05T15:33:46.951574+00:00",
+          "updated_at": "2025-06-05T15:33:46.951574+00:00"
+        },
+        {
+          "id": "c45e51a7-3c01-4a3c-bb07-840fc1a8e1cd",
+          "name": "Commvault",
+          "logo_url": "https://xs26tevltn.ufs.sh/f/W00C7B5w6itexZuEPo0SxJ5Hnkp0of3uPlZT9ts4GXrKQFI2",
+          "created_at": "2025-06-05T15:33:46.951574+00:00",
+          "updated_at": "2025-06-05T15:33:46.951574+00:00"
+        },
+        {
+          "id": "9f002fb8-b181-44fd-ba1e-c1ab7444c426",
+          "name": "AWS",
+          "logo_url": "https://xs26tevltn.ufs.sh/f/W00C7B5w6itetFQ4NOmR243hZqeCU971lMbcFYwIuiaTNoJf",
+          "created_at": "2025-06-05T15:33:46.951574+00:00",
+          "updated_at": "2025-06-05T15:33:46.951574+00:00"
+        },
+        {
+          "id": "ae83f173-6659-4da0-88e7-e09395bde7ec",
+          "name": "Google",
+          "logo_url": "https://xs26tevltn.ufs.sh/f/W00C7B5w6ite7rHABDae2NmqzVOZrSsuLj6I1ki8aBp4bhcn",
+          "created_at": "2025-06-05T15:33:46.951574+00:00",
+          "updated_at": "2025-06-05T15:33:46.951574+00:00"
+        }
+      ],
+      "client_assignments": [
+        {
+          "id": "0ed403a4-01ac-44f1-9e93-8f66b58f071e",
+          "kelyn_rep_id": "54d23b1b-0753-4f96-a850-65bd877023ac",
+          "client_id": "71ee1158-dda2-46c3-9733-f415f5cf0557",
+          "created_at": "2025-06-05T06:30:28.540201+00:00"
+        }
+      ],
+      "runbooks": [
+        {
+          "id": "93bda43e-ae13-4cfe-86d4-60349bbf04a4",
+          "client_id": "71ee1158-dda2-46c3-9733-f415f5cf0557",
+          "title": "Sample Runbook",
+          "description": "Runbook description 1",
+          "is_template": false,
+          "created_by": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
+          "created_at": "2025-06-05T03:20:52.286235+00:00",
+          "updated_at": "2025-06-05T03:20:52.286235+00:00",
+          "app_id": null,
+          "template_name": null,
+          "template_description": null
+        },
+        {
+          "id": "a2ee29d0-8300-425d-af65-e41dfe1715c9",
+          "client_id": "dc10b744-d042-4bf2-afd8-b8e45c00a5da",
+          "title": "ONSEMi Cyber Recovery",
+          "description": "",
+          "is_template": false,
+          "created_by": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
+          "created_at": "2025-06-10T16:13:36.228301+00:00",
+          "updated_at": "2025-06-10T16:13:36.228301+00:00",
+          "app_id": null,
+          "template_name": null,
+          "template_description": null
+        },
+        {
+          "id": "a8e734de-0009-48eb-8d74-6cd8c16a26f9",
+          "client_id": "71ee1158-dda2-46c3-9733-f415f5cf0557",
+          "title": "Cyber Storage Recovery After Ransomware Attack",
+          "description": "Comprehensive recovery procedures for restoring encrypted storage systems and data following a ransomware incident.",
+          "is_template": true,
+          "created_by": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
+          "created_at": "2025-06-05T05:44:11.312435+00:00",
+          "updated_at": "2025-06-05T15:44:52.081+00:00",
+          "app_id": "c45e51a7-3c01-4a3c-bb07-840fc1a8e1cd",
+          "template_name": "Cyber Storage Recovery After Ransomware Attack Template",
+          "template_description": ""
+        },
+        {
+          "id": "69bf7c4b-8de5-491c-999a-1b3329a26bdb",
+          "client_id": "e7ee6a72-50e6-48a0-9fa3-372c924dd377",
+          "title": "Cyber Recovery: Commvault Commserver Restoration from Immutable Cloud Copy",
+          "description": "This runbook outlines the process of identifying a cyberattack impact, restoring a Commvault CommServe to the cloud, and recovering data from an immutable cloud copy.  It focuses on achieving Minimum Viable Product (MVP) functionality to resume critical operations.",
+          "is_template": false,
+          "created_by": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
+          "created_at": "2025-06-13T17:31:16.534267+00:00",
+          "updated_at": "2025-06-13T17:31:16.534267+00:00",
+          "app_id": null,
+          "template_name": null,
+          "template_description": null
+        }
+      ],
+      "runbook_apps": [
+        {
+          "id": "85c66fce-23fb-4b32-bf2f-799b4f572461",
+          "runbook_id": "a8e734de-0009-48eb-8d74-6cd8c16a26f9",
+          "app_id": "9f002fb8-b181-44fd-ba1e-c1ab7444c426",
+          "created_at": "2025-06-05T17:46:22.243235+00:00"
+        },
+        {
+          "id": "71024a4f-84fb-4891-9900-3682be2d5d71",
+          "runbook_id": "a8e734de-0009-48eb-8d74-6cd8c16a26f9",
+          "app_id": "c45e51a7-3c01-4a3c-bb07-840fc1a8e1cd",
+          "created_at": "2025-06-05T17:46:22.243235+00:00"
+        },
+        {
+          "id": "4407beba-43bd-41a7-ac5f-f90216d9d9c0",
+          "runbook_id": "a8e734de-0009-48eb-8d74-6cd8c16a26f9",
+          "app_id": "ae83f173-6659-4da0-88e7-e09395bde7ec",
+          "created_at": "2025-06-05T17:46:22.243235+00:00"
+        }
+      ],
+      "runbook_steps": [
+        {
+          "id": "c04d04b4-f813-42c0-b826-f84c4ec3e954",
+          "runbook_id": "69bf7c4b-8de5-491c-999a-1b3329a26bdb",
+          "title": "Post-Recovery Validation",
+          "description": "Validate the system and ensure its stability.",
+          "step_order": 5,
+          "estimated_duration_minutes": 60,
+          "created_at": "2025-06-13T17:31:17.451808+00:00",
+          "updated_at": "2025-06-13T17:31:17.451808+00:00",
+          "assigned_to": null,
+          "photo_url": null,
+          "tasks": [
+            {
+              "id": "fd2beb79-7373-4bb6-b118-039f4c11b7e7",
+              "order": 1,
+              "title": "System Checks",
+              "completed": false,
+              "description": "Perform comprehensive system checks to ensure stability and functionality."
+            },
+            {
+              "id": "f7e6758a-6333-4e4b-9dba-12fee9888e35",
+              "order": 2,
+              "title": "Application Testing",
+              "completed": false,
+              "description": "Test critical applications to confirm proper functionality."
+            },
+            {
+              "id": "bcf8cce8-f040-4884-b194-abdd8d4eb391",
+              "order": 3,
+              "title": "User Acceptance Testing (UAT)",
+              "question": {
+                "type": "yes_no",
+                "question": "Is the system stable and functioning as expected?",
+                "required": true
+              },
+              "completed": false,
+              "description": "Conduct UAT with key users to validate the restored system."
+            }
+          ],
+          "app_id": null,
+          "conditions": null,
+          "depends_on": null
+        },
+        {
+          "id": "80dc45f7-8821-4376-8a3f-d37fea7c3d7c",
+          "runbook_id": "a8e734de-0009-48eb-8d74-6cd8c16a26f9",
+          "title": "System Sanitization and Malware Removal",
+          "description": "Clean and sanitize all affected systems to remove ransomware and prevent reinfection.",
+          "step_order": 3,
+          "estimated_duration_minutes": 120,
+          "created_at": "2025-06-05T05:44:11.312435+00:00",
+          "updated_at": "2025-06-06T06:13:53.9+00:00",
+          "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+          "photo_url": "https://gnafycjxxjhlrbnxyftp.supabase.co/storage/v1/object/public/runbook-step-photos/step-photos/80dc45f7-8821-4376-8a3f-d37fea7c3d7c-1749181374996.png",
+          "tasks": [
+            {
+              "id": "task-3-1",
+              "order": 0,
+              "title": "Boot from clean media",
+              "completed": false,
+              "description": "Start systems using antivirus rescue disks or clean USB drives"
+            },
+            {
+              "id": "task-3-2",
+              "order": 1,
+              "title": "Run comprehensive malware scan",
+              "completed": false,
+              "description": "Perform deep scan using multiple antivirus engines to detect all malware"
+            },
+            {
+              "id": "task-3-3",
+              "order": 2,
+              "title": "Remove ransomware artifacts",
+              "completed": false,
+              "description": "Delete ransomware executables, registry entries, and scheduled tasks"
+            },
+            {
+              "id": "task-3-4",
+              "order": 3,
+              "title": "Format and rebuild critical systems",
+              "completed": false,
+              "description": "For heavily infected systems, perform complete OS reinstallation"
+            },
+            {
+              "id": "task-3-5",
+              "order": 4,
+              "title": "Update system patches",
+              "completed": false,
+              "description": "Apply all security patches and updates before reconnecting to network"
+            }
+          ],
+          "app_id": null,
+          "conditions": null,
+          "depends_on": null
+        },
+        {
+          "id": "06f5bd07-8fae-4154-bd3d-446a9f388c8c",
+          "runbook_id": "69bf7c4b-8de5-491c-999a-1b3329a26bdb",
+          "title": "Impact Assessment and Confirmation",
+          "description": "Determine the extent of the cyberattack and confirm CommServe compromise.",
+          "step_order": 1,
+          "estimated_duration_minutes": 60,
+          "created_at": "2025-06-13T17:31:16.822586+00:00",
+          "updated_at": "2025-06-13T17:33:00.32+00:00",
+          "assigned_to": null,
+          "photo_url": null,
+          "tasks": [
+            {
+              "id": "400f2b29-b8dd-4cfb-84bb-ab27a5dd7b0a",
+              "order": 1,
+              "title": "Review Security Logs and Alerts",
+              "completed": false,
+              "description": "Analyze system logs, security information and event management (SIEM) alerts, and endpoint detection and response (EDR) data for evidence of compromise."
+            },
+            {
+              "id": "a80872ac-6c89-4852-b3cb-ff940852a7cf",
+              "order": 2,
+              "title": "Assess CommServe Functionality",
+              "completed": false,
+              "description": "Verify CommServe access, backup/restore functionality, and data integrity. Check for unusual activity or unauthorized changes."
+            },
+            {
+              "id": "2f5b12bb-3765-45a7-bb9b-bc57ca2e5f9a",
+              "order": 3,
+              "title": "Confirm Data Integrity Issues",
+              "question": {
+                "type": "yes_no",
+                "question": "Is the CommServe compromised or data integrity compromised?",
+                "required": true
+              },
+              "completed": true,
+              "description": "Check for data corruption, unauthorized data access or modification, or data deletion."
+            }
+          ],
+          "app_id": null,
+          "conditions": null,
+          "depends_on": null
+        },
+        {
+          "id": "fa883577-8291-489c-935b-179ac3935431",
+          "runbook_id": "69bf7c4b-8de5-491c-999a-1b3329a26bdb",
+          "title": "Cloud Environment Preparation",
+          "description": "Prepare the cloud environment for CommServe restoration.",
+          "step_order": 2,
+          "estimated_duration_minutes": 90,
+          "created_at": "2025-06-13T17:31:17.086674+00:00",
+          "updated_at": "2025-06-13T17:31:17.086674+00:00",
+          "assigned_to": null,
+          "photo_url": null,
+          "tasks": [
+            {
+              "id": "37b7e903-e40c-4ef6-ae34-da8d56025834",
+              "order": 1,
+              "title": "Provision Cloud Resources",
+              "completed": false,
+              "description": "Create the necessary virtual machines (VMs), storage, and network resources in the cloud environment."
+            },
+            {
+              "id": "4275098a-eeb7-4eab-9e08-b275b1ecafba",
+              "order": 2,
+              "title": "Install Required Software",
+              "completed": false,
+              "description": "Install the operating system and Commvault software on the provisioned VMs."
+            },
+            {
+              "id": "eb4581a4-53ed-4179-9b50-fab190c65106",
+              "order": 3,
+              "title": "Configure Network Connectivity",
+              "completed": false,
+              "description": "Configure network settings, including IP addresses, DNS, and firewall rules."
+            }
+          ],
+          "app_id": null,
+          "conditions": null,
+          "depends_on": null
+        },
+        {
+          "id": "eafe41f7-3e1c-4efc-8655-ffecf1240d18",
+          "runbook_id": "a8e734de-0009-48eb-8d74-6cd8c16a26f9",
+          "title": "Data Recovery and Restoration",
+          "description": "Restore data from clean backups and verify data integrity across all systems.",
+          "step_order": 4,
+          "estimated_duration_minutes": 180,
+          "created_at": "2025-06-05T05:44:11.312435+00:00",
+          "updated_at": "2025-06-06T06:51:00.677+00:00",
+          "assigned_to": null,
+          "photo_url": null,
+          "tasks": [
+            {
+              "id": "task-4-1",
+              "order": 0,
+              "title": "Restore critical system data",
+              "completed": false,
+              "description": "Begin with essential systems like domain controllers and core databases"
+            },
+            {
+              "id": "task-4-2",
+              "order": 1,
+              "title": "Restore file shares and user data",
+              "completed": false,
+              "description": "Recover network shares and individual user directories from backup"
+            },
+            {
+              "id": "task-4-3",
+              "order": 2,
+              "title": "Verify data integrity",
+              "completed": false,
+              "description": "Check restored files for completeness and corruption"
+            },
+            {
+              "id": "task-4-4",
+              "order": 3,
+              "title": "Test application functionality",
+              "completed": false,
+              "description": "Verify that restored applications and databases are functioning correctly"
+            },
+            {
+              "id": "task-4-5",
+              "order": 4,
+              "title": "Document recovery gaps",
+              "completed": false,
+              "description": "Identify any data that could not be recovered and assess impact"
+            }
+          ],
+          "app_id": null,
+          "conditions": null,
+          "depends_on": null
+        },
+        {
+          "id": "24608149-8987-4116-9c33-86ede64eb625",
+          "runbook_id": "a8e734de-0009-48eb-8d74-6cd8c16a26f9",
+          "title": "Final Validation and Documentation",
+          "description": "Perform comprehensive testing and document the recovery process for future reference.",
+          "step_order": 6,
+          "estimated_duration_minutes": 60,
+          "created_at": "2025-06-05T05:44:11.312435+00:00",
+          "updated_at": "2025-06-06T16:03:22.074+00:00",
+          "assigned_to": "67f80d02-749f-49a9-b104-a3b1ea787e72",
+          "photo_url": null,
+          "tasks": [
+            {
+              "id": "task-6-1",
+              "order": 0,
+              "title": "Conduct user acceptance testing",
+              "completed": false,
+              "description": "Have key users test critical systems and workflows"
+            },
+            {
+              "id": "task-6-2",
+              "order": 1,
+              "title": "Monitor system performance",
+              "completed": false,
+              "description": "Observe systems for 48 hours to ensure stability and normal operation"
+            },
+            {
+              "id": "task-6-3",
+              "order": 2,
+              "title": "Document lessons learned",
+              "completed": false,
+              "description": "Create detailed incident report with timeline and improvement recommendations"
+            },
+            {
+              "id": "task-6-4",
+              "order": 3,
+              "title": "Update disaster recovery plan",
+              "completed": false,
+              "description": "Revise DR procedures based on lessons learned from this incident"
+            },
+            {
+              "id": "task-6-5",
+              "order": 4,
+              "title": "Schedule follow-up review",
+              "completed": false,
+              "description": "Plan post-incident review meeting with all stakeholders"
+            }
+          ],
+          "app_id": null,
+          "conditions": null,
+          "depends_on": null
+        },
+        {
+          "id": "329d7e9f-b28d-4c67-a060-5aec48205f68",
+          "runbook_id": "69bf7c4b-8de5-491c-999a-1b3329a26bdb",
+          "title": "CommServe Restoration",
+          "description": "Restore the CommServe from a known good backup.",
+          "step_order": 3,
+          "estimated_duration_minutes": 120,
+          "created_at": "2025-06-13T17:31:17.213561+00:00",
+          "updated_at": "2025-06-13T17:31:17.213561+00:00",
+          "assigned_to": null,
+          "photo_url": null,
+          "tasks": [
+            {
+              "id": "70236134-dfab-4d51-ba9f-e7ef158e040a",
+              "order": 1,
+              "title": "Retrieve Immutable Cloud Backup",
+              "completed": false,
+              "description": "Access and download the CommServe backup from the immutable cloud storage."
+            },
+            {
+              "id": "55d46885-696e-4c63-977b-edaf477f7217",
+              "order": 2,
+              "title": "Restore CommServe",
+              "completed": false,
+              "description": "Restore the CommServe to the prepared cloud environment using the downloaded backup."
+            },
+            {
+              "id": "21a81aa8-c9a2-4e98-8744-50caabd70b1c",
+              "order": 3,
+              "title": "Verify CommServe Functionality",
+              "question": {
+                "type": "yes_no",
+                "question": "Is the CommServe restored and functioning correctly?",
+                "required": true
+              },
+              "completed": false,
+              "description": "Test CommServe functionality, including connection to storage and client access."
+            }
+          ],
+          "app_id": null,
+          "conditions": null,
+          "depends_on": null
+        },
+        {
+          "id": "74be7f28-0217-4c82-937a-da0299d9286e",
+          "runbook_id": "69bf7c4b-8de5-491c-999a-1b3329a26bdb",
+          "title": "Data Recovery (MVP)",
+          "description": "Recover critical data to achieve minimum viable product functionality.",
+          "step_order": 4,
+          "estimated_duration_minutes": 180,
+          "created_at": "2025-06-13T17:31:17.333768+00:00",
+          "updated_at": "2025-06-13T17:31:17.333768+00:00",
+          "assigned_to": null,
+          "photo_url": null,
+          "tasks": [
+            {
+              "id": "cdec89c1-6a9d-41d6-9884-47f167d6da2a",
+              "order": 1,
+              "title": "Identify Critical Data",
+              "completed": false,
+              "description": "Determine the minimum data required for essential operations."
+            },
+            {
+              "id": "e361afd0-b598-4744-9410-8f80d490a22c",
+              "order": 2,
+              "title": "Prioritize Data Recovery",
+              "completed": false,
+              "description": "Prioritize the recovery of critical data based on business impact."
+            },
+            {
+              "id": "652a8080-dd04-4427-874d-ea02555ae403",
+              "order": 3,
+              "title": "Recover Critical Data",
+              "completed": false,
+              "description": "Recover the prioritized data from the immutable cloud copy."
+            },
+            {
+              "id": "36a0925b-7ba7-4bbb-a72b-54d81d4b7e90",
+              "order": 4,
+              "title": "Verify Data Integrity",
+              "question": {
+                "type": "yes_no",
+                "question": "Is the critical data restored and verified?",
+                "required": true
+              },
+              "completed": false,
+              "description": "Validate the integrity and usability of the recovered data."
+            }
+          ],
+          "app_id": null,
+          "conditions": null,
+          "depends_on": null
+        },
+        {
+          "id": "713556b5-6736-40dc-9fc2-da6d616521b2",
+          "runbook_id": "a8e734de-0009-48eb-8d74-6cd8c16a26f9",
+          "title": "Initial Assessment and Network Isolation",
+          "description": "Immediately assess the scope of the ransomware attack and isolate affected systems to prevent further spread.",
+          "step_order": 2,
+          "estimated_duration_minutes": 30,
+          "created_at": "2025-06-05T05:44:11.312435+00:00",
+          "updated_at": "2025-06-06T14:44:15.588+00:00",
+          "assigned_to": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
+          "photo_url": null,
+          "tasks": [
+            {
+              "id": "task-1-1",
+              "order": 1,
+              "title": "Disconnect affected systems from network",
+              "question": null,
+              "completed": false,
+              "description": "Physically disconnect or disable network connections for all infected systems"
+            },
+            {
+              "id": "task-1-2",
+              "order": 0,
+              "title": "Document all affected systems and services",
+              "completed": false,
+              "description": "Create a comprehensive list of impacted servers, workstations, and storage systems"
+            },
+            {
+              "id": "task-1-3",
+              "order": 2,
+              "title": "Identify ransomware variant",
+              "completed": false,
+              "photo_url": "https://gnafycjxxjhlrbnxyftp.supabase.co/storage/v1/object/public/runbook-step-photos/task-photos/task-1-3-1749142506331.png",
+              "description": "Analyze ransomware notes and encrypted file extensions to determine the specific variant"
+            },
+            {
+              "id": "task-1-4",
+              "order": 3,
+              "title": "Notify incident response team",
+              "completed": false,
+              "description": "Alert all relevant stakeholders including IT security, management, and legal teams"
+            }
+          ],
+          "app_id": "c45e51a7-3c01-4a3c-bb07-840fc1a8e1cd",
+          "conditions": null,
+          "depends_on": null
+        },
+        {
+          "id": "06a5d5ce-f0ce-4841-982a-1598ca5626d8",
+          "runbook_id": "a8e734de-0009-48eb-8d74-6cd8c16a26f9",
+          "title": "Backup System Verification and Assessment",
+          "description": "Verify the integrity and availability of backup systems to ensure they are not compromised.",
+          "step_order": 1,
+          "estimated_duration_minutes": 40,
+          "created_at": "2025-06-05T05:44:11.312435+00:00",
+          "updated_at": "2025-06-17T18:28:57.563+00:00",
+          "assigned_to": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
+          "photo_url": null,
+          "tasks": [
+            {
+              "id": "2df200b2-8804-4c97-b010-f9c038b0ee9b",
+              "order": 3,
+              "title": "Check backup system connectivity",
+              "question": {
+                "id": "bb6605ce-6c9c-4e76-a70d-105fc5ebfe96",
+                "type": "yes_no",
+                "options": [],
+                "question": "Is it Conditional?",
+                "required": false
+              },
+              "completed": true,
+              "description": "Verify that backup storage systems are accessible and not encrypted"
+            },
+            {
+              "id": "3a42bf3b-eb49-43e4-821e-b09a53df8437",
+              "order": 4,
+              "title": "Test backup restoration process",
+              "codeBlock": "<mat-dialog-content>\n  <form [formGroup]=\"runbookForm\" (ngSubmit)=\"onSubmit()\">\n    <mat-form-field appearance=\"outline\" class=\"full-width\">\n      <mat-label>Title</mat-label>\n      <input matInput formControlName=\"title\" placeholder=\"Enter runbook title\" required>\n      <mat-error *ngIf=\"runbookForm.get('title')?.hasError('required')\">\n        Title is required\n      </mat-error>\n      <mat-error *ngIf=\"runbookForm.get('title')?.hasError('minlength')\">\n        Title must be at least 3 characters long\n      </mat-error>\n    </mat-form-field>",
+              "completed": false,
+              "description": "Perform a test restore of a small dataset to verify backup functionality",
+              "visibilityRules": [
+                {
+                  "id": "bb38962a-89ee-4179-8114-09bb45ef0fa5",
+                  "stepId": "06a5d5ce-f0ce-4841-982a-1598ca5626d8",
+                  "taskId": "2df200b2-8804-4c97-b010-f9c038b0ee9b",
+                  "questionId": "bb6605ce-6c9c-4e76-a70d-105fc5ebfe96",
+                  "description": "Show when \"Is it Conditional?\" = \"yes\"",
+                  "requiredAnswer": "yes"
+                }
+              ]
+            },
+            {
+              "id": "53e85906-c8cb-477a-9517-e073bae9f4d2",
+              "order": 3,
+              "title": "recover active directory from Blah service/......",
+              "completed": false
+            }
+          ],
+          "app_id": null,
+          "conditions": null,
+          "depends_on": null
+        },
+        {
+          "id": "c7448893-30d6-4e39-b6e4-34fad7b6e109",
+          "runbook_id": "a2ee29d0-8300-425d-af65-e41dfe1715c9",
+          "title": "CommServer Validation",
+          "description": "",
+          "step_order": 1,
+          "estimated_duration_minutes": null,
+          "created_at": "2025-06-10T18:06:51.013388+00:00",
+          "updated_at": "2025-06-13T17:12:49.167+00:00",
+          "assigned_to": null,
+          "photo_url": null,
+          "tasks": [
+            {
+              "id": "7eb89fa5-1cee-4f3c-bab0-aec410ca1272",
+              "order": 1,
+              "title": "Java Console | Command Center",
+              "question": {
+                "id": "a47497cc-12ab-42ab-aeae-4923525401e4",
+                "type": "yes_no",
+                "options": [
+                  "Yes",
+                  "No"
+                ],
+                "question": "Are you able access the console",
+                "required": false
+              },
+              "completed": true
+            }
+          ],
+          "app_id": null,
+          "conditions": null,
+          "depends_on": null
+        },
+        {
+          "id": "e1cf5925-53a0-4f1f-b96a-655889f618aa",
+          "runbook_id": "a8e734de-0009-48eb-8d74-6cd8c16a26f9",
+          "title": "Security Hardening and Prevention",
+          "description": "Implement additional security measures to prevent future ransomware attacks.",
+          "step_order": 5,
+          "estimated_duration_minutes": 90,
+          "created_at": "2025-06-05T05:44:11.312435+00:00",
+          "updated_at": "2025-06-11T15:52:18.358+00:00",
+          "assigned_to": "67f80d02-749f-49a9-b104-a3b1ea787e72",
+          "photo_url": null,
+          "tasks": [
+            {
+              "id": "task-5-1",
+              "order": 0,
+              "title": "Enable advanced threat protection",
+              "completed": true,
+              "description": "Deploy or update endpoint detection and response (EDR) solutions"
+            },
+            {
+              "id": "task-5-2",
+              "order": 1,
+              "title": "Configure backup isolation",
+              "completed": true,
+              "description": "Implement air-gapped or immutable backup storage solutions"
+            },
+            {
+              "id": "task-5-3",
+              "order": 2,
+              "title": "Update security policies",
+              "completed": true,
+              "description": "Review and strengthen access controls, password policies, and user permissions"
+            },
+            {
+              "id": "task-5-4",
+              "order": 3,
+              "title": "Implement network segmentation",
+              "completed": true,
+              "description": "Create network zones to limit lateral movement in future attacks"
+            },
+            {
+              "id": "task-5-5",
+              "order": 4,
+              "title": "Schedule security training",
+              "completed": true,
+              "description": "Plan and conduct user awareness training on ransomware prevention"
+            }
+          ],
+          "app_id": null,
+          "conditions": null,
+          "depends_on": null
+        },
+        {
+          "id": "09d43f49-6bc0-449d-8b76-dacc4261a5a2",
+          "runbook_id": "a2ee29d0-8300-425d-af65-e41dfe1715c9",
+          "title": "Recovering the Commcell",
+          "description": "",
+          "step_order": 3,
+          "estimated_duration_minutes": null,
+          "created_at": "2025-06-10T19:01:50.934409+00:00",
+          "updated_at": "2025-06-13T17:13:05.235+00:00",
+          "assigned_to": null,
+          "photo_url": null,
+          "tasks": [
+            {
+              "id": "0beee28f-728a-4c41-8d16-3a09c692916e",
+              "order": 1,
+              "title": "Commcell Rebuild Options",
+              "question": {
+                "id": "b191e00d-2433-4d7e-80b8-ad047064df3c",
+                "type": "select",
+                "options": [
+                  "Live Sync Failover",
+                  "Recover from DR backup"
+                ],
+                "question": "What type of Commcell Recovery do you need to Perform",
+                "required": false
+              },
+              "completed": true
+            }
+          ],
+          "app_id": null,
+          "conditions": {
+            "visibilityRules": [
+              {
+                "id": "a93ef3f8-8b12-4d6f-9728-ee744135af88",
+                "stepId": "c7448893-30d6-4e39-b6e4-34fad7b6e109",
+                "taskId": "7eb89fa5-1cee-4f3c-bab0-aec410ca1272",
+                "questionId": "a47497cc-12ab-42ab-aeae-4923525401e4",
+                "description": "Show when \"Are you able access the console\" = \"no\"",
+                "requiredAnswer": "no"
+              }
+            ]
+          },
+          "depends_on": null
+        },
+        {
+          "id": "9220c079-6f9e-4fd3-abb1-be9f694d6495",
+          "runbook_id": "a2ee29d0-8300-425d-af65-e41dfe1715c9",
+          "title": "Validate Commvault Infrastructure",
+          "description": "",
+          "step_order": 2,
+          "estimated_duration_minutes": 30,
+          "created_at": "2025-06-10T18:03:59.217972+00:00",
+          "updated_at": "2025-06-10T20:34:25.142+00:00",
+          "assigned_to": null,
+          "photo_url": null,
+          "tasks": [
+            {
+              "id": "0de98557-77de-40aa-8690-6e4463e00e09",
+              "order": 1,
+              "title": "Review Commvault Alerts and Events",
+              "completed": false,
+              "description": "Log in to the Commvault Command Center and navigate to the Monitoring > Alerts section.\nScrutinize all recent alerts for any suspicious activity, such as:\nFailed login attempts to the CommServe.\nUnexpected changes to backup policies or schedules.\nAnomalous job failure rates.\nUnusual data aging or deletion activities.\nAlerts related to ransomware protection features (if enabled)."
+            },
+            {
+              "id": "71eb040b-7381-4f1d-a901-9a5aaac8c65c",
+              "order": 2,
+              "title": "Examine Commvault Audit Trails",
+              "completed": false,
+              "description": "In the Commvault Command Center, access the Reports section and run the Audit Trail report.\nFilter the report to cover the period of the security incident and look for unauthorized or suspicious activities, such as:\nChanges to user accounts and permissions.\nModifications to storage policies or libraries.\nDeletion of backup jobs or data."
+            }
+          ],
+          "app_id": null,
+          "conditions": {
+            "visibilityRules": [
+              {
+                "id": "dae53c34-5018-4800-aba5-0447ccb3f412",
+                "stepId": "c7448893-30d6-4e39-b6e4-34fad7b6e109",
+                "taskId": "7eb89fa5-1cee-4f3c-bab0-aec410ca1272",
+                "questionId": "a47497cc-12ab-42ab-aeae-4923525401e4",
+                "description": "Show when \"Are you able access the console\" = \"yes\"",
+                "requiredAnswer": "yes"
+              }
+            ]
+          },
+          "depends_on": null
+        },
+        {
+          "id": "4ee808e4-2aeb-4361-82c7-cb305255e938",
+          "runbook_id": "a2ee29d0-8300-425d-af65-e41dfe1715c9",
+          "title": "Failing Over the Commcell",
+          "description": "",
+          "step_order": 4,
+          "estimated_duration_minutes": null,
+          "created_at": "2025-06-10T20:37:13.879447+00:00",
+          "updated_at": "2025-06-12T17:11:32.713+00:00",
+          "assigned_to": null,
+          "photo_url": null,
+          "tasks": [
+            {
+              "id": "496dc9ab-b567-46ef-a83c-4825f44c9ce8",
+              "order": 1,
+              "title": "Live Sync Failover",
+              "completed": false,
+              "description": "Step-by-Step Guide:\n\nCaution: An unplanned failover can result in some data loss as the last transaction logs from the production CommServe may not have been replicated.\n\nConfirm the Outage: Verify that the production CommServe host is genuinely down and not just experiencing a temporary network issue.\n\nLog in to the Standby CommServe Host(): Access the server that will become the new active CommServe.\n\nInitiate the Failover:\n\nOpen the Commvault Process Manager.\nGo to the Failover Assistant tab.\nFrom the Failover To list, select the current standby node.\nFrom the Failover Type list, select Production.\nClick Initiate Failover.\nConfirm the Action:\n\nIn the confirmation prompt, type confirm and click OK. The process may take a few minutes to start as it attempts to communicate with the production node.\nPost-Failover Actions:\n\nDNS Update: As with a planned failover, update your floating CommServe name in DNS to point to the new active server's IP address.\nVerify Operations: Log in to the new active CommServe and verify that backup and restore operations are functioning.\nAddress the Original Production CommServe: Once the original production CommServe is back online, it will automatically be set to passive. You will need to ensure Live Sync is re-established from the new active to the now passive node. If the original host is unrecoverable, you will need to provision a new standby CommServe."
+            }
+          ],
+          "app_id": null,
+          "conditions": {
+            "visibilityRules": [
+              {
+                "id": "8f2891aa-5334-49c7-8ac8-4f34d0bab99f",
+                "stepId": "09d43f49-6bc0-449d-8b76-dacc4261a5a2",
+                "taskId": "0beee28f-728a-4c41-8d16-3a09c692916e",
+                "questionId": "b191e00d-2433-4d7e-80b8-ad047064df3c",
+                "description": "Show when \"What type of Commcell Recovery do you need to Perform\" = \"Live Sync Failover\"",
+                "requiredAnswer": "Live Sync Failover"
+              }
+            ]
+          },
+          "depends_on": null
+        },
+        {
+          "id": "4b0177bb-a62c-4b3c-b6d2-1592ffb63617",
+          "runbook_id": "a2ee29d0-8300-425d-af65-e41dfe1715c9",
+          "title": "Dr Backup Recovery",
+          "description": "",
+          "step_order": 5,
+          "estimated_duration_minutes": null,
+          "created_at": "2025-06-10T20:49:04.102204+00:00",
+          "updated_at": "2025-06-13T17:13:14.699+00:00",
+          "assigned_to": null,
+          "photo_url": null,
+          "tasks": [
+            {
+              "id": "1dbd94a9-57b5-4ad6-becb-7874dd8db99b",
+              "order": 1,
+              "title": "Export Options",
+              "question": {
+                "id": "34f4fb14-84c1-47b6-b974-c5a2025a1846",
+                "type": "select",
+                "options": [
+                  "Cloud.commvault.com",
+                  "UNC path",
+                  "Cloud Bucket"
+                ],
+                "question": "Where do you want to export the DR backup from",
+                "required": false
+              },
+              "completed": true
+            }
+          ],
+          "app_id": null,
+          "conditions": {
+            "visibilityRules": [
+              {
+                "id": "9afe2a70-7ac2-4887-9cd7-4136da89fddc",
+                "stepId": "09d43f49-6bc0-449d-8b76-dacc4261a5a2",
+                "taskId": "0beee28f-728a-4c41-8d16-3a09c692916e",
+                "questionId": "b191e00d-2433-4d7e-80b8-ad047064df3c",
+                "description": "Show when \"What type of Commcell Recovery do you need to Perform\" = \"Recover from DR backup\"",
+                "requiredAnswer": "Recover from DR backup"
+              }
+            ]
+          },
+          "depends_on": null
+        },
+        {
+          "id": "be01c3c6-45b4-4eb2-be97-71baf77cfbc8",
+          "runbook_id": "a2ee29d0-8300-425d-af65-e41dfe1715c9",
+          "title": "Cloud.Commvault.com DR Export",
+          "description": "",
+          "step_order": 6,
+          "estimated_duration_minutes": null,
+          "created_at": "2025-06-10T21:01:40.569144+00:00",
+          "updated_at": "2025-06-10T21:03:15.1+00:00",
+          "assigned_to": null,
+          "photo_url": null,
+          "tasks": [
+            {
+              "id": "eb270686-3255-441c-9465-0e2c8845bcb4",
+              "order": 1,
+              "title": "How to Export",
+              "completed": false,
+              "description": "Key Prerequisites:\n\nCloud Portal Access: You need valid credentials to log in to the Commvault Cloud Services Portal.\nRequired User Role: To download DR backup files, your user account must be assigned the \"CS Recovery Manager\" role in the portal. Users without this permission may be able to see the backups but will not have the option to download them.\nStep-by-Step Download Guide:\n\nLog in to the Commvault Cloud Portal: Open a web browser and navigate to https://cloud.commvault.com.\n\nNavigate to the CommCell Dashboard:\n\nFrom the main portal dashboard, click on the CommCells service or use the left-hand navigation menu to find your registered CommCells.\nSelect Your CommCell:\n\nFrom the list of registered CommCells, click on the name of the CommServe whose DR backup you wish to export.\nAccess the DR Backups Page:\n\nOn the specific CommCell's dashboard page, locate the Support & Services widget.\nYou will see a \"DR backup\" status with a timestamp. Click on this timestamp.\nChoose the DR Backup Set:\n\nYou will now be on the \"DR Backups\" page, which lists backup sets by date and time. Each entry, typically named a SET_ folder, represents a specific DR backup job.\nIdentify the backup set you need. For a full recovery, you will generally need the most recent Full backup and any subsequent Differential backups. Click on the desired SET_ folder.\nDownload the Required Files:\n\nInside the SET_ folder, you will see the individual files that constitute the DR backup (.dmp, .cab files, etc.).\nTo download a file, hover your mouse over its name, and a Download icon will appear to the left. Click this icon.\nRepeat this step for all the files within the backup set that you require for recovery."
+            }
+          ],
+          "app_id": null,
+          "conditions": {
+            "visibilityRules": [
+              {
+                "id": "20e40d9f-9acb-4480-9d79-0a711b72c66d",
+                "stepId": "4b0177bb-a62c-4b3c-b6d2-1592ffb63617",
+                "taskId": "1dbd94a9-57b5-4ad6-becb-7874dd8db99b",
+                "questionId": "34f4fb14-84c1-47b6-b974-c5a2025a1846",
+                "description": "Show when \"Where do you want to export the DR backup from\" = \"Cloud.commvault.com\"",
+                "requiredAnswer": "Cloud.commvault.com"
+              }
+            ]
+          },
+          "depends_on": null
+        },
+        {
+          "id": "6ce3a192-d6b3-4bb0-bf37-66587a8ebc82",
+          "runbook_id": "a2ee29d0-8300-425d-af65-e41dfe1715c9",
+          "title": "UNC path Location",
+          "description": "",
+          "step_order": 7,
+          "estimated_duration_minutes": null,
+          "created_at": "2025-06-10T21:03:35.246449+00:00",
+          "updated_at": "2025-06-10T21:06:26.565+00:00",
+          "assigned_to": null,
+          "photo_url": null,
+          "tasks": [
+            {
+              "id": "b7432f4e-3034-44a5-90ca-8f577d71dff5",
+              "order": 1,
+              "title": "UNC Path Location",
+              "completed": false,
+              "description": "The UNC Path Location is \\\\share\\share"
+            }
+          ],
+          "app_id": null,
+          "conditions": {
+            "visibilityRules": [
+              {
+                "id": "a1ec70f0-4580-4358-b66e-1fb6bce7571f",
+                "stepId": "4b0177bb-a62c-4b3c-b6d2-1592ffb63617",
+                "taskId": "1dbd94a9-57b5-4ad6-becb-7874dd8db99b",
+                "questionId": "34f4fb14-84c1-47b6-b974-c5a2025a1846",
+                "description": "Show when \"Where do you want to export the DR backup from\" = \"UNC path\"",
+                "requiredAnswer": "UNC path"
+              }
+            ]
+          },
+          "depends_on": null
+        },
+        {
+          "id": "d4fd3ab6-6a82-4c46-80e4-b3dcd5457a1a",
+          "runbook_id": "93bda43e-ae13-4cfe-86d4-60349bbf04a4",
+          "title": "Step 1",
+          "description": "Step 1 desc",
+          "step_order": 1,
+          "estimated_duration_minutes": 10,
+          "created_at": "2025-06-05T03:28:06.785296+00:00",
+          "updated_at": "2025-06-12T17:16:23.338+00:00",
+          "assigned_to": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
+          "photo_url": null,
+          "tasks": [
+            {
+              "id": "735ee07f-4325-4aff-9b0a-a92a27101531",
+              "order": 0,
+              "title": "Step 1 test",
+              "completed": false,
+              "photo_url": "https://gnafycjxxjhlrbnxyftp.supabase.co/storage/v1/object/public/runbook-step-photos/task-photos/735ee07f-4325-4aff-9b0a-a92a27101531-1749096998121.png",
+              "description": ""
+            },
+            {
+              "id": "8eb241c7-775c-424f-829e-004b3e37778e",
+              "order": 1,
+              "title": "Step 2 Test",
+              "question": {
+                "id": "d52740ca-3d57-4350-b6d6-ea0df746d073",
+                "type": "yes_no",
+                "options": [],
+                "question": "Sample Question",
+                "required": false
+              },
+              "completed": false,
+              "photo_url": "https://gnafycjxxjhlrbnxyftp.supabase.co/storage/v1/object/public/runbook-step-photos/task-photos/8eb241c7-775c-424f-829e-004b3e37778e-1749097013576.png",
+              "description": ""
+            },
+            {
+              "id": "68a8a908-7b47-4245-bc88-cfdf2597e5b8",
+              "order": 3,
+              "title": "Task Sample",
+              "question": null,
+              "codeBlock": "<h1>",
+              "completed": false,
+              "conditions": null,
+              "description": "Test"
+            }
+          ],
+          "app_id": null,
+          "conditions": null,
+          "depends_on": null
+        }
+      ],
+      "runbook_step_apps": [
+        {
+          "id": "0be86b5b-31d2-49f4-9618-db0c3568c7fa",
+          "step_id": "713556b5-6736-40dc-9fc2-da6d616521b2",
+          "app_id": "9f002fb8-b181-44fd-ba1e-c1ab7444c426",
+          "created_at": "2025-06-05T15:48:25.716959+00:00"
+        },
+        {
+          "id": "1f3a51b3-f1d8-40ec-8994-9b8b5782fc16",
+          "step_id": "80dc45f7-8821-4376-8a3f-d37fea7c3d7c",
+          "app_id": "69389757-546a-4a2f-b352-a57bbb3c2f7c",
+          "created_at": "2025-06-06T04:32:30.623936+00:00"
+        },
+        {
+          "id": "b3e2139d-897e-4cca-a664-16b9f37df9b3",
+          "step_id": "80dc45f7-8821-4376-8a3f-d37fea7c3d7c",
+          "app_id": "9f002fb8-b181-44fd-ba1e-c1ab7444c426",
+          "created_at": "2025-06-06T04:32:30.623936+00:00"
+        },
+        {
+          "id": "db0d59d6-ffd9-4f2c-8c7d-429f50ce21bd",
+          "step_id": "d4fd3ab6-6a82-4c46-80e4-b3dcd5457a1a",
+          "app_id": "9f002fb8-b181-44fd-ba1e-c1ab7444c426",
+          "created_at": "2025-06-06T04:46:11.461514+00:00"
+        },
+        {
+          "id": "7be2d972-e5a8-4afa-b72d-21cf3ee5bcf1",
+          "step_id": "d4fd3ab6-6a82-4c46-80e4-b3dcd5457a1a",
+          "app_id": "69389757-546a-4a2f-b352-a57bbb3c2f7c",
+          "created_at": "2025-06-06T04:46:11.461514+00:00"
+        },
+        {
+          "id": "1a1c1b69-1f75-433b-902c-081fc437141c",
+          "step_id": "06a5d5ce-f0ce-4841-982a-1598ca5626d8",
+          "app_id": "69389757-546a-4a2f-b352-a57bbb3c2f7c",
+          "created_at": "2025-06-06T10:34:43.380946+00:00"
+        },
+        {
+          "id": "827ff01d-184f-4cf8-bfd7-9833febd78fc",
+          "step_id": "06a5d5ce-f0ce-4841-982a-1598ca5626d8",
+          "app_id": "9f002fb8-b181-44fd-ba1e-c1ab7444c426",
+          "created_at": "2025-06-06T10:34:43.380946+00:00"
+        },
+        {
+          "id": "42589db2-0e7c-4354-a136-f32270a14207",
+          "step_id": "06a5d5ce-f0ce-4841-982a-1598ca5626d8",
+          "app_id": "c45e51a7-3c01-4a3c-bb07-840fc1a8e1cd",
+          "created_at": "2025-06-06T10:34:43.380946+00:00"
+        },
+        {
+          "id": "065bc0ee-9279-4038-a592-a55bcc33f740",
+          "step_id": "06a5d5ce-f0ce-4841-982a-1598ca5626d8",
+          "app_id": "ae83f173-6659-4da0-88e7-e09395bde7ec",
+          "created_at": "2025-06-06T10:34:43.380946+00:00"
+        },
+        {
+          "id": "d82a87f0-32b4-40ab-bcf2-173ac15a0ba9",
+          "step_id": "c7448893-30d6-4e39-b6e4-34fad7b6e109",
+          "app_id": "c45e51a7-3c01-4a3c-bb07-840fc1a8e1cd",
+          "created_at": "2025-06-10T18:14:55.632662+00:00"
+        },
+        {
+          "id": "634e08f2-ea82-4bc7-b192-3b37f00e6536",
+          "step_id": "09d43f49-6bc0-449d-8b76-dacc4261a5a2",
+          "app_id": "c45e51a7-3c01-4a3c-bb07-840fc1a8e1cd",
+          "created_at": "2025-06-10T19:05:43.729875+00:00"
+        },
+        {
+          "id": "3d8636cf-0034-40bf-a255-9e50f24fb4d8",
+          "step_id": "4ee808e4-2aeb-4361-82c7-cb305255e938",
+          "app_id": "c45e51a7-3c01-4a3c-bb07-840fc1a8e1cd",
+          "created_at": "2025-06-10T20:37:51.112319+00:00"
+        },
+        {
+          "id": "5cab45e6-3ff7-4793-b68c-38988ba6c5c0",
+          "step_id": "4b0177bb-a62c-4b3c-b6d2-1592ffb63617",
+          "app_id": "c45e51a7-3c01-4a3c-bb07-840fc1a8e1cd",
+          "created_at": "2025-06-10T20:49:42.970067+00:00"
+        },
+        {
+          "id": "7562e9ba-4e66-4a5f-b203-58eab5f148cc",
+          "step_id": "be01c3c6-45b4-4eb2-be97-71baf77cfbc8",
+          "app_id": "c45e51a7-3c01-4a3c-bb07-840fc1a8e1cd",
+          "created_at": "2025-06-10T21:02:11.047937+00:00"
+        }
+      ],
+      "runbook_step_photos": [
+        {
+          "id": "02205614-6b6c-4e62-84f5-fd6cdc0fbacc",
+          "step_id": "d4fd3ab6-6a82-4c46-80e4-b3dcd5457a1a",
+          "photo_url": "https://gnafycjxxjhlrbnxyftp.supabase.co/storage/v1/object/public/runbook-step-photos/step-photos/d4fd3ab6-6a82-4c46-80e4-b3dcd5457a1a-1749094370945.svg",
+          "caption": "Photo for step d4fd3ab6-6a82-4c46-80e4-b3dcd5457a1a",
+          "uploaded_by": null,
+          "created_at": "2025-06-05T03:32:51.529115+00:00",
+          "updated_at": "2025-06-05T03:32:51.529115+00:00"
+        },
+        {
+          "id": "56666afb-3566-457c-9ec9-6ece94fa6a53",
+          "step_id": "80dc45f7-8821-4376-8a3f-d37fea7c3d7c",
+          "photo_url": "https://gnafycjxxjhlrbnxyftp.supabase.co/storage/v1/object/public/runbook-step-photos/step-photos/80dc45f7-8821-4376-8a3f-d37fea7c3d7c-1749181374996.png",
+          "caption": "Photo for step 80dc45f7-8821-4376-8a3f-d37fea7c3d7c",
+          "uploaded_by": null,
+          "created_at": "2025-06-06T03:42:55.612328+00:00",
+          "updated_at": "2025-06-06T03:42:55.612328+00:00"
+        }
+      ],
+      "runbook_executions": [
+        {
+          "id": "4413b08f-a252-4beb-aff3-672780fbcfd8",
+          "runbook_id": "93bda43e-ae13-4cfe-86d4-60349bbf04a4",
+          "client_id": "71ee1158-dda2-46c3-9733-f415f5cf0557",
+          "title": "Test Exec 1",
+          "status": "completed",
+          "started_by": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
+          "started_at": "2025-06-05T04:43:36.638+00:00",
+          "completed_at": "2025-06-05T05:09:25.752+00:00",
+          "created_at": "2025-06-05T04:43:36.696456+00:00",
+          "updated_at": "2025-06-05T05:09:25.752+00:00"
+        },
+        {
+          "id": "4702d27e-fc41-4761-9a42-5d9ca28520bf",
+          "runbook_id": "a8e734de-0009-48eb-8d74-6cd8c16a26f9",
+          "client_id": "71ee1158-dda2-46c3-9733-f415f5cf0557",
+          "title": "Ransomware Dry-Run",
+          "status": "completed",
+          "started_by": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
+          "started_at": "2025-06-05T06:08:35.057+00:00",
+          "completed_at": "2025-06-06T10:29:59.864+00:00",
+          "created_at": "2025-06-05T06:08:35.168179+00:00",
+          "updated_at": "2025-06-06T10:29:59.864+00:00"
+        },
+        {
+          "id": "58ac3398-e6fe-4406-b932-322afd58c52e",
+          "runbook_id": "a8e734de-0009-48eb-8d74-6cd8c16a26f9",
+          "client_id": "71ee1158-dda2-46c3-9733-f415f5cf0557",
+          "title": "Cyber Recovery Dry Run",
+          "status": "active",
+          "started_by": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
+          "started_at": "2025-06-06T16:07:53.347+00:00",
+          "completed_at": null,
+          "created_at": "2025-06-06T16:07:53.4693+00:00",
+          "updated_at": "2025-06-06T16:07:53.4693+00:00"
+        }
+      ],
+      "execution_step_assignments": [
+        {
+          "id": "994fc787-26ae-42b4-bcc3-b89347871383",
+          "execution_id": "58ac3398-e6fe-4406-b932-322afd58c52e",
+          "step_id": "06a5d5ce-f0ce-4841-982a-1598ca5626d8",
+          "assigned_to": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
+          "status": "completed",
+          "notes": null,
+          "started_at": null,
+          "completed_at": "2025-06-06T16:08:08.797+00:00",
+          "created_at": "2025-06-06T16:07:53.710455+00:00",
+          "updated_at": "2025-06-06T16:08:08.797+00:00"
+        },
+        {
+          "id": "23256154-65a3-4fde-94a7-a1336da3c9d2",
+          "execution_id": "58ac3398-e6fe-4406-b932-322afd58c52e",
+          "step_id": "713556b5-6736-40dc-9fc2-da6d616521b2",
+          "assigned_to": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
+          "status": "completed",
+          "notes": null,
+          "started_at": null,
+          "completed_at": "2025-06-06T16:08:10.83+00:00",
+          "created_at": "2025-06-06T16:07:53.710455+00:00",
+          "updated_at": "2025-06-06T16:08:10.83+00:00"
+        },
+        {
+          "id": "73d50ce8-e884-4ca1-9f0a-a219da1ef05d",
+          "execution_id": "58ac3398-e6fe-4406-b932-322afd58c52e",
+          "step_id": "80dc45f7-8821-4376-8a3f-d37fea7c3d7c",
+          "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+          "status": "completed",
+          "notes": null,
+          "started_at": null,
+          "completed_at": "2025-06-06T16:08:13.142+00:00",
+          "created_at": "2025-06-06T16:07:53.710455+00:00",
+          "updated_at": "2025-06-06T16:08:13.142+00:00"
+        },
+        {
+          "id": "2a8aa21f-679c-4984-8c14-86acd7c496f0",
+          "execution_id": "58ac3398-e6fe-4406-b932-322afd58c52e",
+          "step_id": "eafe41f7-3e1c-4efc-8655-ffecf1240d18",
+          "assigned_to": null,
+          "status": "completed",
+          "notes": null,
+          "started_at": null,
+          "completed_at": "2025-06-06T16:08:15.867+00:00",
+          "created_at": "2025-06-06T16:07:53.710455+00:00",
+          "updated_at": "2025-06-06T16:08:15.867+00:00"
+        },
+        {
+          "id": "0fa8764d-91ad-42ad-8f4d-407f4308721a",
+          "execution_id": "58ac3398-e6fe-4406-b932-322afd58c52e",
+          "step_id": "e1cf5925-53a0-4f1f-b96a-655889f618aa",
+          "assigned_to": "67f80d02-749f-49a9-b104-a3b1ea787e72",
+          "status": "in_progress",
+          "notes": null,
+          "started_at": "2025-06-06T16:10:27.518+00:00",
+          "completed_at": null,
+          "created_at": "2025-06-06T16:07:53.710455+00:00",
+          "updated_at": "2025-06-06T16:10:27.517+00:00"
+        },
+        {
+          "id": "5dc3891b-1541-4958-8407-65548cc51aa2",
+          "execution_id": "4702d27e-fc41-4761-9a42-5d9ca28520bf",
+          "step_id": "713556b5-6736-40dc-9fc2-da6d616521b2",
+          "assigned_to": null,
+          "status": "completed",
+          "notes": null,
+          "started_at": "2025-06-05T06:11:45.94+00:00",
+          "completed_at": "2025-06-05T06:11:51.13+00:00",
+          "created_at": "2025-06-05T06:08:35.441748+00:00",
+          "updated_at": "2025-06-05T06:11:51.13+00:00"
+        },
+        {
+          "id": "ee7f76c5-6940-415b-91da-2d122ca8ef3a",
+          "execution_id": "4702d27e-fc41-4761-9a42-5d9ca28520bf",
+          "step_id": "80dc45f7-8821-4376-8a3f-d37fea7c3d7c",
+          "assigned_to": null,
+          "status": "completed",
+          "notes": null,
+          "started_at": "2025-06-05T07:05:19.492+00:00",
+          "completed_at": "2025-06-05T07:05:27.563+00:00",
+          "created_at": "2025-06-05T06:08:35.441748+00:00",
+          "updated_at": "2025-06-05T07:05:27.563+00:00"
+        },
+        {
+          "id": "b91993e6-880d-418e-9b68-fdb597369d59",
+          "execution_id": "4702d27e-fc41-4761-9a42-5d9ca28520bf",
+          "step_id": "eafe41f7-3e1c-4efc-8655-ffecf1240d18",
+          "assigned_to": null,
+          "status": "completed",
+          "notes": null,
+          "started_at": "2025-06-05T17:08:02.833+00:00",
+          "completed_at": "2025-06-05T17:08:09.005+00:00",
+          "created_at": "2025-06-05T06:08:35.441748+00:00",
+          "updated_at": "2025-06-05T17:08:09.005+00:00"
+        },
+        {
+          "id": "797416b7-8baa-43dd-8162-0c131c5c1d13",
+          "execution_id": "4702d27e-fc41-4761-9a42-5d9ca28520bf",
+          "step_id": "e1cf5925-53a0-4f1f-b96a-655889f618aa",
+          "assigned_to": null,
+          "status": "completed",
+          "notes": null,
+          "started_at": "2025-06-05T17:36:48.182+00:00",
+          "completed_at": "2025-06-05T17:58:38.769+00:00",
+          "created_at": "2025-06-05T06:08:35.441748+00:00",
+          "updated_at": "2025-06-05T17:58:38.769+00:00"
+        },
+        {
+          "id": "67128e76-3906-4211-9251-a408ff88b667",
+          "execution_id": "4413b08f-a252-4beb-aff3-672780fbcfd8",
+          "step_id": "d4fd3ab6-6a82-4c46-80e4-b3dcd5457a1a",
+          "assigned_to": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
+          "status": "completed",
+          "notes": null,
+          "started_at": "2025-06-05T04:47:49.315+00:00",
+          "completed_at": "2025-06-05T19:41:11.91+00:00",
+          "created_at": "2025-06-05T04:43:36.911516+00:00",
+          "updated_at": "2025-06-05T19:41:11.91+00:00"
+        },
+        {
+          "id": "0c6b39ad-2233-46fd-b15d-cf126defb9d1",
+          "execution_id": "4702d27e-fc41-4761-9a42-5d9ca28520bf",
+          "step_id": "24608149-8987-4116-9c33-86ede64eb625",
+          "assigned_to": null,
+          "status": "not_started",
+          "notes": null,
+          "started_at": "2025-06-06T04:54:03.756+00:00",
+          "completed_at": "2025-06-06T10:30:10.221+00:00",
+          "created_at": "2025-06-05T06:08:35.441748+00:00",
+          "updated_at": "2025-06-06T16:03:07.528+00:00"
+        },
+        {
+          "id": "09e2770d-525e-40a6-8d77-7a08038bdc9a",
+          "execution_id": "4702d27e-fc41-4761-9a42-5d9ca28520bf",
+          "step_id": "06a5d5ce-f0ce-4841-982a-1598ca5626d8",
+          "assigned_to": null,
+          "status": "not_started",
+          "notes": null,
+          "started_at": "2025-06-05T06:16:40.329+00:00",
+          "completed_at": "2025-06-06T10:29:51.606+00:00",
+          "created_at": "2025-06-05T06:08:35.441748+00:00",
+          "updated_at": "2025-06-06T16:07:04.619+00:00"
+        },
+        {
+          "id": "cff9a832-39de-4ad7-80ce-a17c8286be58",
+          "execution_id": "58ac3398-e6fe-4406-b932-322afd58c52e",
+          "step_id": "24608149-8987-4116-9c33-86ede64eb625",
+          "assigned_to": "67f80d02-749f-49a9-b104-a3b1ea787e72",
+          "status": "not_started",
+          "notes": null,
+          "started_at": null,
+          "completed_at": null,
+          "created_at": "2025-06-06T16:07:53.710455+00:00",
+          "updated_at": "2025-06-06T16:07:53.710455+00:00"
+        }
+      ]
+    }
+  }
+]
