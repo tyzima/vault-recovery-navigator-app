@@ -17,22 +17,22 @@ interface ClientLogoLibraryProps {
 }
 
 const AVAILABLE_LOGOS = [
-  { id: 'brackets', name: 'Brackets', path: '/data/uploads/saved-client-logos/brackets.png' },
-  { id: 'bug', name: 'Bug', path: '/data/uploads/saved-client-logos/bug.png' },
-  { id: 'chain', name: 'Chain', path: '/data/uploads/saved-client-logos/chain.png' },
-  { id: 'cog', name: 'Cog', path: '/data/uploads/saved-client-logos/cog.png' },
-  { id: 'folder', name: 'Folder', path: '/data/uploads/saved-client-logos/folder.png' },
-  { id: 'horn', name: 'Horn', path: '/data/uploads/saved-client-logos/horn.png' },
-  { id: 'key', name: 'Key', path: '/data/uploads/saved-client-logos/key.png' },
-  { id: 'lock2', name: 'Lock', path: '/data/uploads/saved-client-logos/lock2.png' },
-  { id: 'shield2', name: 'Shield', path: '/data/uploads/saved-client-logos/shield2.png' },
-  { id: 'terminal', name: 'Terminal', path: '/data/uploads/saved-client-logos/terminal.png' },
-  { id: 'thumb', name: 'Thumb', path: '/data/uploads/saved-client-logos/thumb.png' },
-  { id: 'truck', name: 'Truck', path: '/data/uploads/saved-client-logos/truck.png' },
-  { id: 'upload', name: 'Upload', path: '/data/uploads/saved-client-logos/upload.png' },
-  { id: 'plug', name: 'Plug', path: '/data/uploads/saved-client-logos/plug.png' },
-  { id: 'node', name: 'Node', path: '/data/uploads/saved-client-logos/node.png' },
-  { id: 'servers', name: 'Servers', path: '/data/uploads/saved-client-logos/servers.png' },
+  { id: 'brackets', name: 'Brackets', path: '/uploads/saved-client-logos/brackets.png' },
+  { id: 'bug', name: 'Bug', path: '/uploads/saved-client-logos/bug.png' },
+  { id: 'chain', name: 'Chain', path: '/uploads/saved-client-logos/chain.png' },
+  { id: 'cog', name: 'Cog', path: '/uploads/saved-client-logos/cog.png' },
+  { id: 'folder', name: 'Folder', path: '/uploads/saved-client-logos/folder.png' },
+  { id: 'horn', name: 'Horn', path: '/uploads/saved-client-logos/horn.png' },
+  { id: 'key', name: 'Key', path: '/uploads/saved-client-logos/key.png' },
+  { id: 'lock2', name: 'Lock', path: '/uploads/saved-client-logos/lock2.png' },
+  { id: 'shield2', name: 'Shield', path: '/uploads/saved-client-logos/shield2.png' },
+  { id: 'terminal', name: 'Terminal', path: '/uploads/saved-client-logos/terminal.png' },
+  { id: 'thumb', name: 'Thumb', path: '/uploads/saved-client-logos/thumb.png' },
+  { id: 'truck', name: 'Truck', path: '/uploads/saved-client-logos/truck.png' },
+  { id: 'upload', name: 'Upload', path: '/uploads/saved-client-logos/upload.png' },
+  { id: 'plug', name: 'Plug', path: '/uploads/saved-client-logos/plug.png' },
+  { id: 'node', name: 'Node', path: '/uploads/saved-client-logos/node.png' },
+  { id: 'servers', name: 'Servers', path: '/uploads/saved-client-logos/servers.png' },
 ];
 const COLOR_PALETTE = [
   // REDS
@@ -194,7 +194,8 @@ export function ClientLogoLibrary({ clientId, onLogoSelected, canEdit }: ClientL
       }
 
       // Upload using the existing logo endpoint
-      const response = await fetch(`http://localhost:3001/api/clients/${clientId}/logo`, {
+      const API_BASE = process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:3001/api';
+      const response = await fetch(`${API_BASE}/clients/${clientId}/logo`, {
         method: 'POST',
         headers,
         body: formData,
@@ -206,7 +207,9 @@ export function ClientLogoLibrary({ clientId, onLogoSelected, canEdit }: ClientL
       }
 
       const result = await response.json();
-      const logoUrl = `http://localhost:3001${result.logo_url}`;
+      const logoUrl = process.env.NODE_ENV === 'production' 
+        ? result.logo_url 
+        : `http://localhost:3001${result.logo_url}`;
 
       onLogoSelected(logoUrl);
       setIsOpen(false);
