@@ -10,7 +10,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/hooks/useAuth';
 import { useProfile } from '@/hooks/useProfile';
 import { useAppBranding } from '@/hooks/useAppBranding';
-import { BookOpen, Search, Calendar, User, Building2, Download, Play, Copy, Info, Grid3X3, List, MoreHorizontal, Clock, CheckCircle, Pause, Archive } from 'lucide-react';
+import { BookOpen, Search, Calendar, User, Building2, Download, Play, Copy, Info, Grid3X3, List, MoreHorizontal, Clock, CheckCircle, Pause, Archive, ChevronDown, ChevronUp } from 'lucide-react';
 import { generateRunbookPDF } from '@/utils/pdfGenerator';
 import { StartExecutionDialog } from '@/components/executions/StartExecutionDialog';
 import { Tooltip } from '@/components/ui/tooltip';
@@ -185,6 +185,7 @@ export function RunbooksList() {
     return (savedViewMode === 'card' || savedViewMode === 'table') ? savedViewMode : 'card';
   });
   const [isExporting, setIsExporting] = useState(false);
+  const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set());
   const { toast } = useToast();
 
   const fetchRunbooks = useCallback(async () => {
@@ -645,6 +646,20 @@ export function RunbooksList() {
     localStorage.setItem('runbooks-view-mode', newViewMode);
   };
 
+  // Toggle expanded state for a specific card
+  const toggleCardExpanded = (runbookId: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setExpandedCards(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(runbookId)) {
+        newSet.delete(runbookId);
+      } else {
+        newSet.add(runbookId);
+      }
+      return newSet;
+    });
+  };
+
   // Table View Component
   const TableView = () => (
     <div className="max-w-7xl mx-auto">
@@ -832,6 +847,18 @@ export function RunbooksList() {
               transform: translateX(-150%) skewX(-25deg);
             }
           }
+          
+          .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+          }
+          
+          .collapsible-content.expanded {
+            max-height: 200px;
+            opacity: 1;
+          }
         `}
       </style>
       <div className="space-y-6">
@@ -972,62 +999,82 @@ export function RunbooksList() {
                 </CardHeader>
                 
                 <CardContent className="pt-0 flex-grow flex flex-col">
-                  <div className="space-y-2 border-t pt-3 mb-3 flex-grow">
-                    <div className="flex items-center justify-between text-xs">
-                      <div className="flex items-center gap-1.5 text-muted-foreground">
-                        <Calendar className="h-3.5 w-3.5" />
-                        <span>Created</span>
-                      </div>
-                      <span className="font-medium text-foreground">
-                        {new Date(runbook.created_at || '').toLocaleDateString()}
-                      </span>
-                    </div>
-                    
-                                      <div className="flex items-center justify-between text-xs">
-                    <div className="flex items-center gap-1.5 text-muted-foreground">
-                      <User className="h-3.5 w-3.5" />
-                      <span>Author</span>
-                    </div>
-                    <span className="font-medium text-foreground truncate ml-2">
-                      {runbook.creator?.first_name && runbook.creator?.last_name 
-                        ? `${runbook.creator.first_name} ${runbook.creator.last_name}`
-                        : 'Unknown'
-                      }
-                    </span>
-                  </div>
-                  
-                  <div className="flex items-center justify-between text-xs">
-                    <div className="flex items-center gap-1.5 text-muted-foreground">
-                      <Clock className="h-3.5 w-3.5" />
-                      <span>Last Run Date</span>
-                    </div>
-                    <div className="flex items-end">
-                      {runbook.lastExecution ? (
-                        <Badge 
-                          variant={runbook.lastExecution.status === 'completed' ? 'default' : 
-                                   runbook.lastExecution.status === 'active' ? 'secondary' : 'outline'}
-                          className="text-[10px] px-1 py-0 h-4 flex items-center gap-1"
-                        >
-                          {runbook.lastExecution.status === 'completed' && (
-                            <CheckCircle className="h-2.5 w-2.5 text-green-600" />
-                          )}
-                          {runbook.lastExecution.status === 'active' && (
-                            <Clock className="h-2.5 w-2.5 text-blue-600" />
-                          )}
-                          {runbook.lastExecution.status === 'paused' && (
-                            <Pause className="h-2.5 w-2.5 text-orange-600" />
-                          )}
-                          {runbook.lastExecution.status === 'draft' && (
-                            <Clock className="h-2.5 w-2.5 text-gray-600" />
-                          )}
-                          {new Date(runbook.lastExecution.started_at || runbook.lastExecution.completed_at || '').toLocaleDateString()}
-                        </Badge>
+                  {/* Toggle Button */}
+                  <div className="border-t pt-3 mb-3">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={(e) => toggleCardExpanded(runbook.id, e)}
+                      className="w-full h-6 px-2 text-xs text-muted-foreground hover:text-foreground flex items-center justify-between"
+                    >
+                      <span>Details</span>
+                      {expandedCards.has(runbook.id) ? (
+                        <ChevronUp className="h-3 w-3" />
                       ) : (
-                        <span className="text-xs text-muted-foreground">Never</span>
+                        <ChevronDown className="h-3 w-3" />
                       )}
+                    </Button>
+                  </div>
+
+                  {/* Collapsible Details Section */}
+                  <div className={`collapsible-content ${expandedCards.has(runbook.id) ? 'expanded' : ''}`}>
+                    <div className="space-y-2 mb-3">
+                      <div className="flex items-center justify-between text-xs">
+                        <div className="flex items-center gap-1.5 text-muted-foreground">
+                          <Calendar className="h-3.5 w-3.5" />
+                          <span>Created</span>
+                        </div>
+                        <span className="font-medium text-foreground">
+                          {new Date(runbook.created_at || '').toLocaleDateString()}
+                        </span>
+                      </div>
+                      
+                      <div className="flex items-center justify-between text-xs">
+                        <div className="flex items-center gap-1.5 text-muted-foreground">
+                          <User className="h-3.5 w-3.5" />
+                          <span>Author</span>
+                        </div>
+                        <span className="font-medium text-foreground truncate ml-2">
+                          {runbook.creator?.first_name && runbook.creator?.last_name 
+                            ? `${runbook.creator.first_name} ${runbook.creator.last_name}`
+                            : 'Unknown'
+                          }
+                        </span>
+                      </div>
+                      
+                      <div className="flex items-center justify-between text-xs">
+                        <div className="flex items-center gap-1.5 text-muted-foreground">
+                          <Clock className="h-3.5 w-3.5" />
+                          <span>Last Run Date</span>
+                        </div>
+                        <div className="flex items-end">
+                          {runbook.lastExecution ? (
+                            <Badge 
+                              variant={runbook.lastExecution.status === 'completed' ? 'default' : 
+                                       runbook.lastExecution.status === 'active' ? 'secondary' : 'outline'}
+                              className="text-[10px] px-1 py-0 h-4 flex items-center gap-1"
+                            >
+                              {runbook.lastExecution.status === 'completed' && (
+                                <CheckCircle className="h-2.5 w-2.5 text-green-600" />
+                              )}
+                              {runbook.lastExecution.status === 'active' && (
+                                <Clock className="h-2.5 w-2.5 text-blue-600" />
+                              )}
+                              {runbook.lastExecution.status === 'paused' && (
+                                <Pause className="h-2.5 w-2.5 text-orange-600" />
+                              )}
+                              {runbook.lastExecution.status === 'draft' && (
+                                <Clock className="h-2.5 w-2.5 text-gray-600" />
+                              )}
+                              {new Date(runbook.lastExecution.started_at || runbook.lastExecution.completed_at || '').toLocaleDateString()}
+                            </Badge>
+                          ) : (
+                            <span className="text-xs text-muted-foreground">Never</span>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
                   
                   {/* Action Buttons */}
                   <div className="flex gap-2 pt-2 mt-auto">
