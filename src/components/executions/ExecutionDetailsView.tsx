@@ -310,17 +310,10 @@ export function ExecutionDetailsView({ executionId }: ExecutionDetailsViewProps)
   };
 
   const handleTasksUpdate = async (stepId: string, updatedTasks: any[]) => {
-    // Prevent task updates once execution has started
-    if (execution?.status !== 'draft') {
-      toast({
-        title: "Cannot Edit Tasks",
-        description: "Tasks cannot be modified once the execution has started",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    // Update the local state immediately
+    // For executions, we only allow task completion updates, not structural changes
+    // Task completion is handled locally and doesn't modify the runbook structure
+    
+    // Update the local state immediately for task completion
     if (execution) {
       const updatedExecution = {
         ...execution,
@@ -333,26 +326,30 @@ export function ExecutionDetailsView({ executionId }: ExecutionDetailsViewProps)
       setExecution(updatedExecution);
     }
 
-    // Then update the database (but don't refresh the entire execution)
-    const updateData = { 
-      tasks: updatedTasks as unknown as any,
-      updated_at: new Date().toISOString() 
-    };
-    
-    const { error } = await fileClient
-      .from('runbook_steps')
-      .update(updateData)
-      .eq('id', stepId);
+    // For executions, we don't save task completion states back to the runbook steps
+    // Task completion is temporary execution state, not permanent runbook changes
+    // Only draft executions would allow structural task changes
+    if (execution?.status === 'draft') {
+      const updateData = { 
+        tasks: updatedTasks as unknown as any,
+        updated_at: new Date().toISOString() 
+      };
+      
+      const { error } = await fileClient
+        .from('runbook_steps')
+        .update(updateData)
+        .eq('id', stepId);
 
-    if (error) {
-      console.error('Error updating tasks:', error);
-      // Revert the local state if save failed
-      fetchExecutionDetails();
-      toast({
-        title: "Error",
-        description: "Failed to update tasks",
-        variant: "destructive",
-      });
+      if (error) {
+        console.error('Error updating tasks:', error);
+        // Revert the local state if save failed
+        fetchExecutionDetails();
+        toast({
+          title: "Error",
+          description: "Failed to update tasks",
+          variant: "destructive",
+        });
+      }
     }
   };
 
@@ -1107,13 +1104,16 @@ export function ExecutionDetailsView({ executionId }: ExecutionDetailsViewProps)
                           {/* Tasks with individual images */}
                           {assignment.step.tasks && Array.isArray(assignment.step.tasks) && assignment.step.tasks.length > 0 && (
                             <div>
-                              <TasksList
-                                stepId={assignment.step.id}
-                                tasks={assignment.step.tasks}
-                                canEdit={canInteract && execution.status === 'draft'}
-                                onTasksUpdate={(updatedTasks) => handleTasksUpdate(assignment.step.id, updatedTasks)}
-                                availableQuestions={getAllAvailableQuestions()}
-                              />
+                                                          <TasksList
+                              stepId={assignment.step.id}
+                              tasks={assignment.step.tasks}
+                              canEdit={canInteract && execution.status === 'draft'}
+                              onTasksUpdate={(updatedTasks) => handleTasksUpdate(assignment.step.id, updatedTasks)}
+                              availableQuestions={getAllAvailableQuestions()}
+                              isExecution={true}
+                              canCheckTasks={canInteract}
+                              currentStepOrder={assignment.step.step_order}
+                            />
                             </div>
                           )}
 
