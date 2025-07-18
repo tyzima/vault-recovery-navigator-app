@@ -9,7 +9,6 @@ import { useToast } from '@/hooks/use-toast';
 import { fileClient } from '@/lib/fileClient';
 import { Loader2, User, Lock, Edit, Shield } from 'lucide-react';
 import { AppBrandingSettings } from '@/components/settings/AppBrandingSettings';
-import { localAuth } from '@/lib/auth';
 import { PasswordRequirements } from '@/components/ui/PasswordRequirements';
 import { LicenseManager } from '@/components/licensing/LicenseManager';
 
@@ -118,7 +117,7 @@ export function Settings() {
 
     setPasswordLoading(true);
     
-    const { error } = await localAuth.changePassword({
+    const { error } = await fileClient.auth.changePassword({
       currentPassword: passwordData.currentPassword,
       newPassword: passwordData.newPassword
     });

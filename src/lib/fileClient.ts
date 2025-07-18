@@ -153,6 +153,33 @@ class FileClient {
           }
         }
       };
+    },
+
+    changePassword: async ({ currentPassword, newPassword }: { currentPassword: string; newPassword: string }) => {
+      try {
+        if (!this.session?.access_token) {
+          return { error: { message: 'Not authenticated' } };
+        }
+
+        const response = await fetch(`${API_BASE}/auth/change-password`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${this.session.access_token}`
+          },
+          body: JSON.stringify({ currentPassword, newPassword })
+        });
+
+        if (!response.ok) {
+          const error = await response.json();
+          return { error };
+        }
+
+        const data = await response.json();
+        return { data, error: null };
+      } catch (error) {
+        return { error: { message: 'Network error' } };
+      }
     }
   };
 

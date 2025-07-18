@@ -422,6 +422,40 @@ app.post('/api/auth/refresh', async (req, res) => {
   }
 });
 
+app.post('/api/auth/change-password', authenticate, async (req, res) => {
+  try {
+    const { currentPassword, newPassword } = req.body;
+    
+    if (!currentPassword || !newPassword) {
+      return res.status(400).json({ error: 'Current password and new password are required' });
+    }
+
+    const userEmail = req.user.email;
+    
+    // Check current password
+    const passwordFilePath = path.join(DATA_DIR, `pwd_${Buffer.from(userEmail).toString('base64')}.txt`);
+    try {
+      const storedHash = await fs.readFile(passwordFilePath, 'utf-8');
+      const isValid = await bcrypt.compare(currentPassword, storedHash);
+      
+      if (!isValid) {
+        return res.status(401).json({ error: 'Current password is incorrect' });
+      }
+    } catch (error) {
+      return res.status(401).json({ error: 'Current password verification failed' });
+    }
+    
+    // Hash and save new password
+    const newHashedPassword = await bcrypt.hash(newPassword, 10);
+    await fs.writeFile(passwordFilePath, newHashedPassword);
+    
+    res.json({ success: true, message: 'Password changed successfully' });
+  } catch (error) {
+    console.error('Change password error:', error);
+    res.status(500).json({ error: 'Failed to change password' });
+  }
+});
+
 // File upload endpoints
 app.post('/api/clients/:clientId/logo', uploadClientLogo.single('logo'), async (req, res) => {
   try {
@@ -2206,6 +2240,7 @@ server.listen(PORT, async () => {
   console.log('API endpoints:');
   console.log('  POST /api/auth/login');
   console.log('  POST /api/auth/logout');
+  console.log('  POST /api/auth/change-password');
   console.log('  POST /api/clients/:clientId/logo');
   console.log('  DELETE /api/clients/:clientId/logo');
   console.log('  POST /api/tasks/:taskId/photo');

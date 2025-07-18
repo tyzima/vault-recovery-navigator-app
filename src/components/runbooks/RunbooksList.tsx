@@ -999,7 +999,7 @@ export function RunbooksList() {
                   <div className="flex items-center justify-between text-xs">
                     <div className="flex items-center gap-1.5 text-muted-foreground">
                       <Clock className="h-3.5 w-3.5" />
-                      <span>Last Run</span>
+                      <span>Last Run Date</span>
                     </div>
                     <div className="flex items-end">
                       {runbook.lastExecution ? (
