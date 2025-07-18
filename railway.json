@@ -5,6 +5,12 @@
   },
   "deploy": {
     "startCommand": "npm run start:production",
-    "healthcheckPath": "/api/health"
+    "healthcheckPath": "/api/health",
+    "volumes": [
+      {
+        "name": "app-data",
+        "mountPath": "/app/data"
+      }
+    ]
   }
 } 
