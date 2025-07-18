@@ -1114,6 +1114,22 @@ app.post('/api/:table', async (req, res) => {
     data.push(newItem);
     await writeTable(table, data);
     
+    // Special handling for profile creation - create password file
+    if (table === 'profiles' && newItem.email) {
+      console.log('Creating password file for new user:', newItem.email);
+      try {
+        const defaultPassword = 'changeMe123!';
+        const hashedPassword = await bcrypt.hash(defaultPassword, 10);
+        const passwordFilePath = path.join(DATA_DIR, `pwd_${Buffer.from(newItem.email).toString('base64')}.txt`);
+        await fs.writeFile(passwordFilePath, hashedPassword, 'utf-8');
+        console.log('Password file created successfully for:', newItem.email);
+      } catch (passwordError) {
+        console.error('Error creating password file for user:', newItem.email, passwordError);
+        // Don't fail the user creation if password file creation fails
+        // but log the error for debugging
+      }
+    }
+    
     res.json(newItem);
   } catch (error) {
     console.error(`Error creating ${req.params.table}:`, error);
