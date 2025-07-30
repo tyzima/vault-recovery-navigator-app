@@ -21,17 +21,5 @@
     "started_at": "2025-06-20T17:32:25.653Z",
     "created_at": "2025-06-20T17:32:25.653Z",
     "updated_at": "2025-06-20T17:32:25.653Z"
-  },
-  {
-    "id": "4fff0b6d-e806-4296-bf4f-53837f531407",
-    "title": "Dry-Run 3",
-    "runbook_id": "f1a2b3c4-d5e6-7890-1234-567890abcdef",
-    "client_id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
-    "started_by": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
-    "status": "completed",
-    "started_at": "2025-06-20T21:32:38.813Z",
-    "created_at": "2025-06-20T21:32:38.813Z",
-    "updated_at": "2025-06-20T21:49:19.298Z",
-    "completed_at": "2025-06-20T21:49:19.298Z"
   }
 ]
