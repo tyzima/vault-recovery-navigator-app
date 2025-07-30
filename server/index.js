@@ -230,8 +230,8 @@ const authenticate = async (req, res, next) => {
 
 // Apply authentication to all API routes except auth endpoints
 app.use('/api', (req, res, next) => {
-  // Skip authentication for login endpoint
-  if (req.path === '/auth/login' || req.path === '/auth/logout') {
+  // Skip authentication for login endpoint and debug endpoints
+  if (req.path === '/auth/login' || req.path === '/auth/logout' || req.path.startsWith('/debug/')) {
     return next();
   }
   return authenticate(req, res, next);
@@ -290,9 +290,13 @@ function getFilePath(tableName) {
 async function readTable(tableName) {
   try {
     const filePath = getFilePath(tableName);
+    console.log(`🔍 DEBUG: Reading table ${tableName} from ${filePath}`);
     const data = await fs.readFile(filePath, 'utf-8');
-    return JSON.parse(data);
+    const parsed = JSON.parse(data);
+    console.log(`🔍 DEBUG: Successfully read ${tableName}: ${parsed.length} records`);
+    return parsed;
   } catch (error) {
+    console.log(`🔍 DEBUG: Failed to read table ${tableName}: ${error.message}`);
     return [];
   }
 }
@@ -357,6 +361,27 @@ app.post('/api/auth/login', async (req, res) => {
 
 app.post('/api/auth/logout', (req, res) => {
   res.json({ success: true });
+});
+
+// Debug endpoints (no authentication required)
+app.get('/api/debug/files', async (req, res) => {
+  try {
+    console.log('🔍 DEBUG: Debug endpoint called');
+    const dataFiles = await fs.readdir(DATA_DIR);
+    const runbooks = await readTable('runbooks');
+    const profiles = await readTable('profiles');
+    
+    res.json({
+      dataDirectory: DATA_DIR,
+      filesInDirectory: dataFiles,
+      runbooksCount: runbooks.length,
+      runbooksData: runbooks,
+      profilesCount: profiles.length,
+      profilesData: profiles
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message, stack: error.stack });
+  }
 });
 
 app.post('/api/auth/refresh', async (req, res) => {
@@ -2154,88 +2179,115 @@ async function initialize() {
   console.log('Server initialized - using existing data files');
   console.log('Migration data loading has been disabled - data files will persist changes');
   
+  // DEBUG: Log the data directory and its contents
+  console.log(`🔍 DEBUG: Data directory: ${DATA_DIR}`);
+  try {
+    const dataFiles = await fs.readdir(DATA_DIR);
+    console.log(`🔍 DEBUG: Data directory contains ${dataFiles.length} files:`, dataFiles);
+    
+    // Check specific files
+    const runbooksPath = path.join(DATA_DIR, 'runbooks.json');
+    const runbooksExist = await fs.access(runbooksPath).then(() => true).catch(() => false);
+    console.log(`🔍 DEBUG: runbooks.json exists: ${runbooksExist}`);
+    
+    if (runbooksExist) {
+      const runbooksData = await fs.readFile(runbooksPath, 'utf-8');
+      const runbooks = JSON.parse(runbooksData);
+      console.log(`🔍 DEBUG: runbooks.json contains ${runbooks.length} runbooks`);
+    }
+    
+    const profilesPath = path.join(DATA_DIR, 'profiles.json');
+    const profilesExist = await fs.access(profilesPath).then(() => true).catch(() => false);
+    console.log(`🔍 DEBUG: profiles.json exists: ${profilesExist}`);
+    
+  } catch (error) {
+    console.error('🔍 DEBUG: Error reading data directory:', error);
+  }
+  
   // Create default admin if no profiles exist
   const profiles = await readTable('profiles');
-    if (profiles.length === 0) {
-      console.log('Creating default admin user...');
-      
-      const adminId = crypto.randomUUID();
-      const adminProfile = {
-        id: adminId,
-        email: 'admin@vault.local',
-        first_name: 'Admin',
-        last_name: 'User',
-        role: 'kelyn_admin',
-        created_at: new Date().toISOString()
-      };
-      
-      await writeTable('profiles', [adminProfile]);
-      
-      // Set admin password
-      const passwordFile = path.join(DATA_DIR, `pwd_${Buffer.from('admin@vault.local').toString('base64')}.txt`);
-      const hashedPassword = await bcrypt.hash('admin123', 10);
-      await fs.writeFile(passwordFile, hashedPassword);
-      
-      // Create default apps
-      const defaultApps = [
-        { id: crypto.randomUUID(), name: 'Windows Server', logo_url: '/icons/windows.png', created_at: new Date().toISOString() },
-        { id: crypto.randomUUID(), name: 'Active Directory', logo_url: '/icons/ad.png', created_at: new Date().toISOString() },
-        { id: crypto.randomUUID(), name: 'Exchange Server', logo_url: '/icons/exchange.png', created_at: new Date().toISOString() },
-        { id: crypto.randomUUID(), name: 'SQL Server', logo_url: '/icons/sql.png', created_at: new Date().toISOString() },
-        { id: crypto.randomUUID(), name: 'VMware', logo_url: '/icons/vmware.png', created_at: new Date().toISOString() }
-      ];
-      
-      await writeTable('apps', defaultApps);
-      
-      // Create default chat channels
-      const defaultChannels = [
-        {
-          id: crypto.randomUUID(),
-          name: 'general',
-          description: 'General team discussion',
-          type: 'public',
-          icon: 'hash',
-          created_by: adminId,
-          created_at: new Date().toISOString(),
-          archived: false
-        },
-        {
-          id: crypto.randomUUID(),
-          name: 'incident-response',
-          description: 'Emergency incident coordination',
-          type: 'public',
-          icon: 'shield',
-          created_by: adminId,
-          created_at: new Date().toISOString(),
-          archived: false
-        },
-        {
-          id: crypto.randomUUID(),
-          name: 'runbook-updates',
-          description: 'Notifications about runbook changes',
-          type: 'public',
-          icon: 'book',
-          created_by: adminId,
-          created_at: new Date().toISOString(),
-          archived: false
-        }
-      ];
-      
-      await writeTable('chat_channels', defaultChannels);
-      
-      // Create admin memberships for all channels
-      const adminMemberships = defaultChannels.map(channel => ({
+  console.log(`🔍 DEBUG: Loaded ${profiles.length} profiles from readTable`);
+  
+  if (profiles.length === 0) {
+    console.log('Creating default admin user...');
+    
+    const adminId = crypto.randomUUID();
+    const adminProfile = {
+      id: adminId,
+      email: 'admin@vault.local',
+      first_name: 'Admin',
+      last_name: 'User',
+      role: 'kelyn_admin',
+      created_at: new Date().toISOString()
+    };
+    
+    await writeTable('profiles', [adminProfile]);
+    
+    // Set admin password
+    const passwordFile = path.join(DATA_DIR, `pwd_${Buffer.from('admin@vault.local').toString('base64')}.txt`);
+    const hashedPassword = await bcrypt.hash('admin123', 10);
+    await fs.writeFile(passwordFile, hashedPassword);
+    
+    // Create default apps
+    const defaultApps = [
+      { id: crypto.randomUUID(), name: 'Windows Server', logo_url: '/icons/windows.png', created_at: new Date().toISOString() },
+      { id: crypto.randomUUID(), name: 'Active Directory', logo_url: '/icons/ad.png', created_at: new Date().toISOString() },
+      { id: crypto.randomUUID(), name: 'Exchange Server', logo_url: '/icons/exchange.png', created_at: new Date().toISOString() },
+      { id: crypto.randomUUID(), name: 'SQL Server', logo_url: '/icons/sql.png', created_at: new Date().toISOString() },
+      { id: crypto.randomUUID(), name: 'VMware', logo_url: '/icons/vmware.png', created_at: new Date().toISOString() }
+    ];
+    
+    await writeTable('apps', defaultApps);
+    
+    // Create default chat channels
+    const defaultChannels = [
+      {
         id: crypto.randomUUID(),
-        channel_id: channel.id,
-        user_id: adminId,
-        role: 'admin',
-        joined_at: new Date().toISOString()
-      }));
-      
-      await writeTable('channel_memberships', adminMemberships);
-      
-      console.log('Default data created');
-    }
+        name: 'general',
+        description: 'General team discussion',
+        type: 'public',
+        icon: 'hash',
+        created_by: adminId,
+        created_at: new Date().toISOString(),
+        archived: false
+      },
+      {
+        id: crypto.randomUUID(),
+        name: 'incident-response',
+        description: 'Emergency incident coordination',
+        type: 'public',
+        icon: 'shield',
+        created_by: adminId,
+        created_at: new Date().toISOString(),
+        archived: false
+      },
+      {
+        id: crypto.randomUUID(),
+        name: 'runbook-updates',
+        description: 'Notifications about runbook changes',
+        type: 'public',
+        icon: 'book',
+        created_by: adminId,
+        created_at: new Date().toISOString(),
+        archived: false
+      }
+    ];
+    
+    await writeTable('chat_channels', defaultChannels);
+    
+    // Create admin memberships for all channels
+    const adminMemberships = defaultChannels.map(channel => ({
+      id: crypto.randomUUID(),
+      channel_id: channel.id,
+      user_id: adminId,
+      role: 'admin',
+      joined_at: new Date().toISOString()
+    }));
+    
+    await writeTable('channel_memberships', adminMemberships);
+    
+    console.log('Default data created');
+  }
   
   console.log(`Data directory: ${DATA_DIR}`);
 }
