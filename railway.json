@@ -6,5 +6,11 @@
   "deploy": {
     "startCommand": "npm run start:production",
     "healthcheckPath": "/api/health"
+  },
+  "environments": {
+    "production": {
+      "NODE_ENV": "production",
+      "PORT": 3000
+    }
   }
 } 
