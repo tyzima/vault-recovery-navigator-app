@@ -1,14 +1,3 @@
 [
-  {
-    "id": "b0de055f-5eb5-4ba2-8e0d-ab7ea340dc15",
-    "title": "Dry-Run SS25",
-    "runbook_id": "f1a2b3c4-d5e6-7890-1234-567890abcdef",
-    "client_id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
-    "started_by": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
-    "status": "completed",
-    "started_at": "2025-06-20T16:37:14.965Z",
-    "created_at": "2025-06-20T16:37:14.965Z",
-    "updated_at": "2025-06-20T17:13:53.604Z",
-    "completed_at": "2025-06-20T17:13:53.604Z"
-  }
+ 
 ]
