@@ -10,16 +10,5 @@
     "created_at": "2025-06-20T16:37:14.965Z",
     "updated_at": "2025-06-20T17:13:53.604Z",
     "completed_at": "2025-06-20T17:13:53.604Z"
-  },
-  {
-    "id": "8e605680-d324-4988-9870-e22b7701f79e",
-    "title": "Dry-Run June 2025",
-    "runbook_id": "g2b3c4d5-e6f7-8901-2345-678901bcdefg",
-    "client_id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
-    "started_by": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
-    "status": "active",
-    "started_at": "2025-06-20T17:32:25.653Z",
-    "created_at": "2025-06-20T17:32:25.653Z",
-    "updated_at": "2025-06-20T17:32:25.653Z"
   }
 ]
