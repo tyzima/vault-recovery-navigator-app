@@ -2,45 +2,28 @@
   {
     "id": "aws-step-001-uuid",
     "runbook_id": "f1a2b3c4-d5e6-7890-1234-567890abcdef",
-    "title": "Initial Assessment and AWS Console Access",
-    "description": "Verify AWS access and assess the scope of infrastructure failure.",
+    "title": "Contact Law Enforcement and appropriate authorities",
+    "description": null,
     "step_order": 1,
-    "estimated_duration_minutes": 15,
+    "estimated_duration_minutes": 30,
     "created_at": "2025-01-20T10:00:00.000000+00:00",
-    "updated_at": "2025-06-27T16:13:48.967Z",
-    "assigned_to": null,
+    "updated_at": "2025-07-30T13:40:24.159Z",
+    "assigned_to": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
     "photo_url": null,
     "tasks": [
       {
-        "id": "task-aws-001-1",
-        "order": 1,
-        "title": "Verify AWS Console Access",
-        "completed": false,
-        "description": "Log into AWS Management Console and verify access to all required services (EC2, RDS, Route53, ELB).",
-        "question": {
-          "id": "c6ce4177-9012-4b44-9065-7ca490df4a7f",
-          "question": "Enter your question here",
-          "type": "yes_no",
-          "options": [
-            "Yes",
-            "No"
-          ],
-          "required": false
-        }
-      },
-      {
         "id": "task-aws-001-2",
-        "order": 2,
-        "title": "Check AWS Health Dashboard",
+        "order": 1,
+        "title": "Contact Local PD Field office at 987-6543",
         "completed": false,
         "description": "Review AWS Service Health Dashboard for any ongoing service disruptions in your region."
       },
       {
         "id": "task-aws-001-3",
-        "order": 3,
-        "title": "Document Failed Resources",
+        "order": 2,
+        "title": "Contact Brett Baier at Fox News and tell them this is not a news story",
         "completed": false,
-        "description": "Create a list of all failed EC2 instances, RDS databases, load balancers, and DNS records."
+        "description": "1-800-FOX-News"
       }
     ],
     "app_id": null,
@@ -50,69 +33,28 @@
   {
     "id": "aws-step-002-uuid",
     "runbook_id": "f1a2b3c4-d5e6-7890-1234-567890abcdef",
-    "title": "EC2 Instance Recovery",
-    "description": "Restore failed EC2 instances from AMIs or snapshots.",
+    "title": "Create New AWS account",
+    "description": "Utilize CloudSculptor to initiate Cyber Recovery from scratch. CloudSculptor will create a new AWS account, attach backup data repository, format a new account.",
     "step_order": 2,
     "estimated_duration_minutes": 45,
     "created_at": "2025-01-20T10:00:00.000000+00:00",
-    "updated_at": "2025-06-22T01:39:36.460Z",
+    "updated_at": "2025-07-30T13:42:47.233Z",
     "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
     "photo_url": null,
     "tasks": [
       {
         "id": "task-aws-002-1",
         "order": 1,
-        "title": "Launch Instances from AMIs",
+        "title": "Initiate Cyber Recovery in CloudSculptor",
         "completed": false,
-        "description": "Launch new EC2 instances from the latest AMI backups, using the same instance types and configurations.",
-        "question": null,
-        "codeBlock": "# Add your code here..."
+        "description": "CloudSculptor will create a new AWS account, attach immutable backup data repository, deploy data locator console and prepare for further instructions.",
+        "question": null
       },
       {
-        "id": "task-aws-002-2",
-        "order": 2,
-        "title": "Restore EBS Volumes from Snapshots",
+        "id": "9d22d295-8b48-492b-afc4-d62beb5dc376",
+        "title": "Add required administrators in AWS",
         "completed": false,
-        "description": "Create new EBS volumes from the most recent snapshots and attach to recovered instances.",
-        "question": {
-          "id": "abe14457-6f24-4082-a598-9b8f775046e8",
-          "question": "Enter your question here",
-          "type": "yes_no",
-          "options": [
-            "Yes",
-            "No"
-          ],
-          "required": false
-        }
-      },
-      {
-        "id": "task-aws-002-3",
-        "order": 3,
-        "title": "Configure Security Groups and Key Pairs",
-        "completed": false,
-        "description": "Apply appropriate security groups and SSH key pairs to restored instances.",
-        "question": {
-          "id": "dcd5bac1-0057-40b3-a6ce-eaca8bc4a01b",
-          "question": "Enter your question here",
-          "type": "yes_no",
-          "options": [
-            "Yes",
-            "No"
-          ],
-          "required": false
-        }
-      },
-      {
-        "id": "task-aws-002-4",
-        "order": 4,
-        "title": "Verify Instance Health",
-        "question": {
-          "type": "yes_no",
-          "question": "Are all EC2 instances running and passing health checks?",
-          "required": true
-        },
-        "completed": true,
-        "description": "Check that all restored instances are in 'running' state and passing system status checks."
+        "order": 2
       }
     ],
     "app_id": null,
@@ -122,35 +64,32 @@
   {
     "id": "aws-step-003-uuid",
     "runbook_id": "f1a2b3c4-d5e6-7890-1234-567890abcdef",
-    "title": "Load Balancer and DNS Recovery",
-    "description": "Restore Elastic Load Balancers and Route53 DNS configurations.",
+    "title": "Recover Active Directory",
+    "description": "During a Cyber Event AD will most likely be compromised. It is best to do a Forest-level recovery to ensure capability of providing Forest-level recoveries.",
     "step_order": 3,
     "estimated_duration_minutes": 30,
     "created_at": "2025-01-20T10:00:00.000000+00:00",
-    "updated_at": "2025-06-20T22:32:47.482Z",
+    "updated_at": "2025-07-30T13:42:04.167Z",
     "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
     "photo_url": null,
     "tasks": [
       {
-        "id": "task-aws-003-1",
-        "order": 1,
-        "title": "Recreate Load Balancers",
-        "completed": true,
-        "description": "Create new Application or Network Load Balancers and configure target groups with recovered instances."
+        "id": "1ba92347-f883-467a-acf9-4cc4f8dbc1a8",
+        "title": "Recover Active Directory",
+        "completed": false,
+        "order": 1
       },
       {
-        "id": "task-aws-003-2",
-        "order": 2,
-        "title": "Update Route53 DNS Records",
-        "completed": true,
-        "description": "Update DNS A records and CNAMEs to point to new load balancer endpoints or instance IPs."
+        "id": "dd75a8b4-7c9f-4994-aa89-418ee011c93a",
+        "title": "Validate AD recovery and mitigate corrupted entries",
+        "completed": false,
+        "order": 2
       },
       {
-        "id": "task-aws-003-3",
-        "order": 3,
-        "title": "Test DNS Resolution",
-        "completed": true,
-        "description": "Verify that all domain names resolve correctly to the new infrastructure endpoints."
+        "id": "f7213499-2b4f-4eb8-8601-1a324a9d4dd1",
+        "title": "Promote AD as authoritative",
+        "completed": false,
+        "order": 3
       }
     ],
     "app_id": null,
@@ -852,38 +791,6 @@
     "app_id": null,
     "conditions": null,
     "depends_on": null
-  },
-  {
-    "id": "e587827a-ce52-4c28-8ba6-e28d6730e3ba",
-    "title": "k",
-    "description": "",
-    "estimated_duration_minutes": null,
-    "assigned_to": null,
-    "runbook_id": "f1a2b3c4-d5e6-7890-1234-567890abcdef",
-    "step_order": 4,
-    "created_at": "2025-06-20T16:29:22.100Z",
-    "updated_at": "2025-06-20T22:30:13.994Z",
-    "conditions": {
-      "visibilityRules": [
-        {
-          "id": "945445bb-3a1d-4a21-9d99-3df064cb4846",
-          "stepId": "aws-step-002-uuid",
-          "taskId": "task-aws-002-4",
-          "requiredAnswer": "yes",
-          "description": "Show when \"Are all EC2 instances running and passing health checks?\" = \"yes\""
-        }
-      ],
-      "question": {
-        "id": "dff2e300-e0a8-43ff-aee6-138a68efbc1a",
-        "type": "select",
-        "question": "Test",
-        "options": [
-          "One",
-          "Two"
-        ],
-        "required": false
-      }
-    }
   },
   {
     "id": "69b8015c-15f2-4b69-8787-5199e0f0ff64",
@@ -4079,6 +3986,211 @@
         "order": 1,
         "question": null,
         "codeBlock": "# Add your code here..kkkkk"
+      }
+    ]
+  },
+  {
+    "id": "02b310e5-afb5-410b-8808-a7706a5342ab",
+    "title": "Create new M365 Account",
+    "description": "CloudSculptor will create M365 account using the new AD account from step 2.",
+    "estimated_duration_minutes": null,
+    "assigned_to": null,
+    "runbook_id": "f1a2b3c4-d5e6-7890-1234-567890abcdef",
+    "step_order": 4,
+    "created_at": "2025-07-30T13:42:30.272Z",
+    "updated_at": "2025-07-30T13:43:13.809Z",
+    "tasks": [
+      {
+        "id": "d9f808cd-c217-4763-9ee7-0fa378102e00",
+        "title": "Create new M365 Account",
+        "completed": false,
+        "order": 1
+      },
+      {
+        "id": "e91f918a-1e71-4b63-a9c0-886f485c2b56",
+        "title": "Begin recovery of CloudSculptor Users",
+        "completed": false,
+        "order": 2
+      }
+    ]
+  },
+  {
+    "id": "4df1d308-f0bf-4be0-b6af-387385b6d3c6",
+    "title": "Initial Assessment and AWS Console Access",
+    "description": "Verify AWS access and assess the scope of infrastructure failure.",
+    "estimated_duration_minutes": 30,
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "runbook_id": "f1a2b3c4-d5e6-7890-1234-567890abcdef",
+    "step_order": 5,
+    "created_at": "2025-07-30T13:43:34.870Z",
+    "updated_at": "2025-07-30T13:48:40.772Z",
+    "tasks": [
+      {
+        "id": "1da323be-b578-4bd6-b69c-4045fca10d60",
+        "title": "Verify AWS Console",
+        "description": "Log into AWS Management Console and verify access to all required services.",
+        "completed": false,
+        "order": 1,
+        "question": {
+          "id": "ad60a26a-412b-43d6-9736-d80ce68208bc",
+          "type": "select",
+          "question": "Is access verified? ",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "required": false
+        }
+      },
+      {
+        "id": "03aeaa54-bfbf-4bab-8420-5c28b6e74ad2",
+        "title": "Check AWS Health Dashboard",
+        "description": "Review AWS Service Health Dashboard for any ongoing service disruptions in your region.",
+        "completed": false,
+        "order": 2
+      },
+      {
+        "id": "f24e311d-a6ea-488a-a940-cccd0752a182",
+        "title": "Document Failed Resources",
+        "description": "Create a list of failed EC2 instances, RDS databases, load balancers, and DNS records.",
+        "completed": false,
+        "order": 3
+      }
+    ]
+  },
+  {
+    "id": "7e088074-341f-4bcd-af78-e6369389731e",
+    "title": "Recover AWS hosted infrastructure",
+    "description": "Recover networks, routes, security groups and other AWS-hosted functions.",
+    "estimated_duration_minutes": null,
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "runbook_id": "f1a2b3c4-d5e6-7890-1234-567890abcdef",
+    "step_order": 6,
+    "created_at": "2025-07-30T13:44:47.230Z",
+    "updated_at": "2025-07-30T13:45:03.455Z",
+    "tasks": [
+      {
+        "id": "8cd9713b-5553-44b3-b84f-b13c5fb157ee",
+        "title": "Use CloudSculptor to recover AWS hosted infrastructure",
+        "completed": false,
+        "order": 1
+      }
+    ]
+  },
+  {
+    "id": "460157f5-b860-4eec-9097-ba61cdeac448",
+    "title": "EC2 Instance Recovery",
+    "description": "Restore failed EC2 instances from AMIs or snapshots.",
+    "estimated_duration_minutes": 45,
+    "assigned_to": "admin-vault-local-id",
+    "runbook_id": "f1a2b3c4-d5e6-7890-1234-567890abcdef",
+    "step_order": 7,
+    "created_at": "2025-07-30T13:45:24.036Z",
+    "updated_at": "2025-07-30T13:49:24.293Z",
+    "tasks": [
+      {
+        "id": "60318443-2ac5-40ed-9976-193fddfd7ac7",
+        "title": "Launch instances from AMIs",
+        "description": "Launch new EC2 instances from the latest AMI backups, using the same instance types and configurations.",
+        "completed": false,
+        "order": 1
+      },
+      {
+        "id": "f417282d-fb07-4194-8652-10703dc5280b",
+        "title": "Recover Tier 0/1 VMs",
+        "description": "Using definition, recover all Tier 0/1 VMs.",
+        "completed": false,
+        "order": 2
+      },
+      {
+        "id": "372be181-66cd-4f36-aaec-224cf4300081",
+        "title": "Run thermal load on recovered VMs prior to placing VMs in service",
+        "completed": false,
+        "order": 3
+      },
+      {
+        "id": "5202dc3d-842c-43c6-b787-5de1fb058127",
+        "title": "Restore EBS volumes from Snapshots",
+        "description": "Create new EBS volumes from the most recent snapshots and attach to recovered instances.",
+        "completed": false,
+        "order": 4
+      },
+      {
+        "id": "e0681c17-770d-4815-82f2-34afd097a9de",
+        "title": "Configure Security Groups and Key Pairs",
+        "description": "Apply appropriate security groups and SSH key pairs to restored instances.",
+        "completed": false,
+        "order": 5
+      },
+      {
+        "id": "5193b324-b0ae-442c-9a07-1b6b4498a6fc",
+        "title": "Verify Instance Health",
+        "description": "Check that all recovered instances are in ‘running’ state and passing system status checks.",
+        "completed": false,
+        "order": 6,
+        "question": {
+          "id": "3f685c6b-1c8f-417f-a4c5-fb50c492af3c",
+          "type": "select",
+          "question": "Are all EC2 instances running and passing health checks?",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "required": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "a5b401f9-68b5-438a-b581-981a30165dc3",
+    "title": "Load Balancer and DNS Recovery",
+    "description": "Restore Elastic Load Balancers and Route 53 DNS configurations.",
+    "estimated_duration_minutes": 30,
+    "assigned_to": "admin-vault-local-id",
+    "runbook_id": "f1a2b3c4-d5e6-7890-1234-567890abcdef",
+    "step_order": 8,
+    "created_at": "2025-07-30T13:46:54.639Z",
+    "updated_at": "2025-07-30T13:47:46.717Z",
+    "tasks": [
+      {
+        "id": "1e5fdc05-8fb6-44fb-9405-52a55c3865f2",
+        "title": "Recover Load Balancers",
+        "description": "Create new Application or Network Load Balancers and configure target groups with recovered instances.",
+        "completed": false,
+        "order": 1
+      },
+      {
+        "id": "d2e75536-436c-462d-86c0-055aa372c8e6",
+        "title": "Update Route53 DNS Records",
+        "description": "Update DNS A records and CNAMEs to point to new load balancer endpoints or instance IPs.",
+        "completed": false,
+        "order": 2
+      },
+      {
+        "id": "05f69b6f-d7e4-486d-9108-4fd559d67c38",
+        "title": "Test DNS Resolution",
+        "description": "Verify that all domain names resolve correctly to the new infrastructure endpoints.",
+        "completed": false,
+        "order": 3
+      }
+    ]
+  },
+  {
+    "id": "8644e539-d873-4101-9193-aeff51b81786",
+    "title": "Recover Tier 0 Applications",
+    "description": "",
+    "estimated_duration_minutes": 30,
+    "assigned_to": "admin-vault-local-id",
+    "runbook_id": "f1a2b3c4-d5e6-7890-1234-567890abcdef",
+    "step_order": 9,
+    "created_at": "2025-07-30T13:47:58.199Z",
+    "updated_at": "2025-07-30T13:48:05.959Z",
+    "tasks": [
+      {
+        "id": "e4b41021-7d4e-404e-be2a-420640d91a1a",
+        "title": "Recover Applications using disaster",
+        "completed": false,
+        "order": 1
       }
     ]
   }

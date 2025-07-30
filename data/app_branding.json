@@ -1,12 +1,12 @@
 [
   {
     "id": "default",
-    "app_name": "Missile Defense Agency",
-    "app_logo_url": "/uploads/general/1750464984611-2c8xlvuvlsh.png",
+    "app_name": "KELYN Technologies",
+    "app_logo_url": "/uploads/general/1753882346198-cqlh07h9hqc.png",
     "primary_color": "#8cc840",
     "secondary_color": "#1e3546",
     "created_at": "2025-01-17T00:00:00.000Z",
-    "updated_at": "2025-06-21T18:03:13.821Z",
+    "updated_at": "2025-07-30T13:32:36.943Z",
     "created_by": "system",
     "theme_mode": "dark"
   }

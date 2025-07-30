@@ -2,12 +2,12 @@
   {
     "id": "f1a2b3c4-d5e6-7890-1234-567890abcdef",
     "client_id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
-    "title": "Recover Cloud Infrastructure with AWS",
+    "title": "Cyber Recovery to Cloud Infrastructure with AWS",
     "description": "Comprehensive guide for restoring EC2 instances, Elastic Load Balancers, RDS snapshots, and DNS records from Route53 after infrastructure failure.",
     "is_template": false,
     "created_by": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
     "created_at": "2025-01-20T10:00:00.000000+00:00",
-    "updated_at": "2025-06-21T00:52:17.669Z",
+    "updated_at": "2025-07-30T13:38:16.540Z",
     "app_id": null,
     "template_name": null,
     "template_description": null
