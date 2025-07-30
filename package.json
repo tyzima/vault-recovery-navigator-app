@@ -15,6 +15,7 @@
     "start:local": "./start-dev.sh",
     "start:production": "npm run build && npm run install:server && npm run ensure-data && npm run server:production",
     "ensure-data": "node -e \"console.log('📂 Ensuring data files exist...'); const fs = require('fs'); const path = require('path'); const dataDir = path.join(__dirname, 'data'); if (!fs.existsSync(dataDir)) { console.error('❌ Data directory missing!'); process.exit(1); } const allFiles = fs.readdirSync(dataDir); console.log('📁 Data dir contains:', allFiles.length, 'files:', allFiles.join(', ')); const requiredFiles = ['runbooks.json', 'clients.json', 'runbook_steps.json', 'profiles.json', 'pwd_cnVuYm9va0BhZG1pbi5jb20=.txt']; let missingCount = 0; requiredFiles.forEach(file => { const filePath = path.join(dataDir, file); const exists = fs.existsSync(filePath); console.log('📄', file + ':', exists ? '✅ EXISTS' : '❌ MISSING'); if (!exists) missingCount++; }); if (missingCount > 0) { console.error('❌', missingCount, 'required files missing! This will cause app malfunction.'); } else { console.log('✅ All required data files present!'); }\"",
+    "update-passwords": "node update-passwords.cjs",
     "install:server": "cd server && npm install",
     "server:production": "cd server && npm start"
   },

@@ -51,7 +51,7 @@ caddy run --config Caddyfile
 
 ### Access the App
 - **URL**: https://runbooks.local
-- **Login**: `admin@vault.local` / `admin123`
+- **Login**: `admin@vault.local` / `Kelyn2025!`
 - **First Run**: Click "Initialize Local Database" when prompted
 
 ## Troubleshooting
@@ -159,7 +159,7 @@ npm run setup
 npm run start:local
 
 # Access at https://runbooks.local
-# Login: admin@vault.local / admin123
+# Login: admin@vault.local / Kelyn2025!
 ```
 
 ## Project Structure
@@ -418,7 +418,7 @@ npm run setup
 ```
 
 **Login issues**
-- Default admin: `admin@vault.local` / `admin123`
+- Default admin: `admin@vault.local` / `Kelyn2025!`
 - Other users (after setup): password is `changeMe123!`
 - Clear browser localStorage if persistent issues
 

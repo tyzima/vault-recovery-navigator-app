@@ -2225,7 +2225,7 @@ async function initialize() {
     
     // Set admin password
     const passwordFile = path.join(DATA_DIR, `pwd_${Buffer.from('admin@vault.local').toString('base64')}.txt`);
-    const hashedPassword = await bcrypt.hash('admin123', 10);
+          const hashedPassword = await bcrypt.hash('Kelyn2025!', 10);
     await fs.writeFile(passwordFile, hashedPassword);
     
     // Create default apps

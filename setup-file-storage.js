@@ -61,7 +61,7 @@ async function setup() {
     console.log('   1. Start the backend: npm run server');
     console.log('   2. Start the frontend: npm run dev');
     console.log('   3. Open http://localhost:8080 in your browser');
-    console.log('\n🔑 Default login: admin@vault.local / admin123');
+    console.log('\n🔑 Default login: admin@vault.local / Kelyn2025!');
     console.log('\n📂 Your data will be stored in: ./data/');
     
   } catch (error) {

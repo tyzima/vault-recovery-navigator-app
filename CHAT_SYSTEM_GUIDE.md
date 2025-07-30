@@ -107,7 +107,7 @@ npm run start:local
 ### 2. Login and Test
 
 1. Go to `https://runbooks.local`
-2. Login with `admin@vault.local` / `admin123`
+2. Login with `admin@vault.local` / `Kelyn2025!`
 3. Look for the blue "Chat" button in the bottom-right corner
 4. Click to open the chat system
 

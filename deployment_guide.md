@@ -49,7 +49,7 @@
 
 #### Step 3: Access Your App
 - Railway gives you a URL like `https://vault-recovery-navigator-production.up.railway.app`
-- Login with: `admin@vault.local` / `admin123`
+- Login with: `admin@vault.local` / `Kelyn2025!`
 
 ---
 

@@ -31,7 +31,7 @@
 npm run setup
 npm run start:local
 → Access at https://runbooks.local
-→ Login: admin@vault.local / admin123
+→ Login: admin@vault.local / Kelyn2025!
 ```
 
 **Next Steps:** Questions & Implementation Discussion 
