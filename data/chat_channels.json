@@ -233,5 +233,16 @@
     "created_at": "2025-06-22T01:46:05.972Z",
     "archived": false,
     "last_message_at": "2025-06-22T01:46:05.979Z"
+  },
+  {
+    "id": "346fe851-441e-42aa-9576-8e5e7ef556db",
+    "name": "Test Run - Execution",
+    "description": "Private channel for the execution: Test Run",
+    "type": "private",
+    "icon": "play",
+    "client_id": null,
+    "created_by": "runbook-admin-id",
+    "created_at": "2025-07-30T14:28:17.394Z",
+    "archived": false
   }
 ]

@@ -1,109 +1,6 @@
 [
-  {
-    "id": "815cf36e-c24a-4686-96db-4c111f374535",
-    "execution_id": "b0de055f-5eb5-4ba2-8e0d-ab7ea340dc15",
-    "step_id": "aws-step-001-uuid",
-    "assigned_to": null,
-    "status": "completed",
-    "created_at": "2025-06-20T16:37:14.980Z",
-    "updated_at": "2025-06-20T17:13:47.791Z",
-    "completed_at": "2025-06-20T17:13:47.791Z"
-  },
-  {
-    "id": "162760fe-b63c-4886-90a3-0bc6526f07ad",
-    "execution_id": "b0de055f-5eb5-4ba2-8e0d-ab7ea340dc15",
-    "step_id": "aws-step-002-uuid",
-    "assigned_to": null,
-    "status": "completed",
-    "created_at": "2025-06-20T16:37:14.983Z",
-    "updated_at": "2025-06-20T17:13:49.574Z",
-    "completed_at": "2025-06-20T17:13:49.574Z"
-  },
-  {
-    "id": "33e29a80-1d60-4230-b6b8-241173e6824d",
-    "execution_id": "b0de055f-5eb5-4ba2-8e0d-ab7ea340dc15",
-    "step_id": "aws-step-003-uuid",
-    "assigned_to": null,
-    "status": "completed",
-    "created_at": "2025-06-20T16:37:14.986Z",
-    "updated_at": "2025-06-20T17:13:51.599Z",
-    "completed_at": "2025-06-20T17:13:51.599Z"
-  },
-  {
-    "id": "81046725-f894-40fa-a87f-a4216ee8959c",
-    "execution_id": "b0de055f-5eb5-4ba2-8e0d-ab7ea340dc15",
-    "step_id": "e587827a-ce52-4c28-8ba6-e28d6730e3ba",
-    "assigned_to": null,
-    "status": "completed",
-    "created_at": "2025-06-20T16:37:14.989Z",
-    "updated_at": "2025-06-20T17:13:58.424Z",
-    "completed_at": "2025-06-20T17:13:58.424Z",
-    "started_at": "2025-06-20T17:13:57.383Z"
-  },
-  {
-    "id": "98533e9c-e300-47d2-8e5f-3611ff864092",
-    "execution_id": "8e605680-d324-4988-9870-e22b7701f79e",
-    "step_id": "power-step-001-uuid",
-    "assigned_to": null,
-    "status": "not_started",
-    "created_at": "2025-06-20T17:32:25.661Z",
-    "updated_at": "2025-06-22T01:57:13.462Z",
-    "started_at": "2025-06-22T01:57:11.126Z"
-  },
-  {
-    "id": "619b7617-ea4a-4904-8422-54cfc3b9824b",
-    "execution_id": "8e605680-d324-4988-9870-e22b7701f79e",
-    "step_id": "power-step-002-uuid",
-    "assigned_to": null,
-    "status": "not_started",
-    "created_at": "2025-06-20T17:32:25.664Z",
-    "updated_at": "2025-06-20T17:32:25.664Z"
-  },
-  {
-    "id": "12fee225-cd12-4359-8444-991985f74124",
-    "execution_id": "4fff0b6d-e806-4296-bf4f-53837f531407",
-    "step_id": "aws-step-001-uuid",
-    "assigned_to": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
-    "status": "not_started",
-    "created_at": "2025-06-20T21:32:38.820Z",
-    "updated_at": "2025-06-23T02:37:40.965Z",
-    "started_at": "2025-06-20T21:40:04.658Z",
-    "completed_at": "2025-06-22T16:33:33.466Z",
-    "notes": "testingnotes"
-  },
-  {
-    "id": "2a0dc5ef-9b46-43db-8384-860f5a15cbf6",
-    "execution_id": "4fff0b6d-e806-4296-bf4f-53837f531407",
-    "step_id": "aws-step-002-uuid",
-    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
-    "status": "in_progress",
-    "created_at": "2025-06-20T21:32:38.823Z",
-    "updated_at": "2025-07-01T07:27:32.041Z",
-    "completed_at": "2025-06-22T01:33:46.750Z",
-    "started_at": "2025-06-20T21:55:16.357Z"
-  },
-  {
-    "id": "88c41df1-d76b-4ee2-9f20-c4729f4de652",
-    "execution_id": "4fff0b6d-e806-4296-bf4f-53837f531407",
-    "step_id": "aws-step-003-uuid",
-    "assigned_to": "67f80d02-749f-49a9-b104-a3b1ea787e72",
-    "status": "completed",
-    "created_at": "2025-06-20T21:32:38.825Z",
-    "updated_at": "2025-06-22T01:33:42.440Z",
-    "completed_at": "2025-06-22T01:33:42.440Z",
-    "started_at": "2025-06-20T21:50:14.050Z"
-  },
-  {
-    "id": "1c76dd36-97a9-447a-a4fa-638c66df3090",
-    "execution_id": "4fff0b6d-e806-4296-bf4f-53837f531407",
-    "step_id": "e587827a-ce52-4c28-8ba6-e28d6730e3ba",
-    "assigned_to": null,
-    "status": "completed",
-    "created_at": "2025-06-20T21:32:38.828Z",
-    "updated_at": "2025-06-20T21:50:46.242Z",
-    "completed_at": "2025-06-20T21:50:46.242Z",
-    "started_at": "2025-06-20T21:49:45.321Z"
-  },
+ 
+ 
   {
     "id": "0f6f7227-b595-4b89-8ec0-dc42767ccbad",
     "execution_id": "b8f8bcb2-1826-4d3f-a5cd-91707fd21818",
@@ -166,5 +63,86 @@
     "status": "not_started",
     "created_at": "2025-06-22T01:46:05.964Z",
     "updated_at": "2025-06-22T01:46:05.964Z"
+  },
+  {
+    "id": "5ae6450b-0ef8-46a0-a0ec-1e0f30b31f77",
+    "execution_id": "9c76d959-e9fa-41db-99f5-ffb9a1f6dfdd",
+    "step_id": "aws-step-001-uuid",
+    "assigned_to": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
+    "status": "not_started",
+    "created_at": "2025-07-30T14:28:17.228Z",
+    "updated_at": "2025-07-30T14:28:17.228Z"
+  },
+  {
+    "id": "084e1edf-42e3-4c2a-a2ef-e2176c63f6fe",
+    "execution_id": "9c76d959-e9fa-41db-99f5-ffb9a1f6dfdd",
+    "step_id": "aws-step-002-uuid",
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "status": "not_started",
+    "created_at": "2025-07-30T14:28:17.244Z",
+    "updated_at": "2025-07-30T14:28:17.244Z"
+  },
+  {
+    "id": "bac3ef49-af26-43c0-8d5b-1e3b290c2ff0",
+    "execution_id": "9c76d959-e9fa-41db-99f5-ffb9a1f6dfdd",
+    "step_id": "aws-step-003-uuid",
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "status": "not_started",
+    "created_at": "2025-07-30T14:28:17.260Z",
+    "updated_at": "2025-07-30T14:28:17.260Z"
+  },
+  {
+    "id": "38c45a32-1bbb-43eb-a1cb-f37546c43eff",
+    "execution_id": "9c76d959-e9fa-41db-99f5-ffb9a1f6dfdd",
+    "step_id": "02b310e5-afb5-410b-8808-a7706a5342ab",
+    "assigned_to": null,
+    "status": "not_started",
+    "created_at": "2025-07-30T14:28:17.276Z",
+    "updated_at": "2025-07-30T14:28:17.276Z"
+  },
+  {
+    "id": "8f02703b-59c6-46b5-8802-79e7f0b0d7eb",
+    "execution_id": "9c76d959-e9fa-41db-99f5-ffb9a1f6dfdd",
+    "step_id": "4df1d308-f0bf-4be0-b6af-387385b6d3c6",
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "status": "not_started",
+    "created_at": "2025-07-30T14:28:17.297Z",
+    "updated_at": "2025-07-30T14:28:17.297Z"
+  },
+  {
+    "id": "c4c1fbe2-57fb-47ee-a800-807bad2780d7",
+    "execution_id": "9c76d959-e9fa-41db-99f5-ffb9a1f6dfdd",
+    "step_id": "7e088074-341f-4bcd-af78-e6369389731e",
+    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "status": "not_started",
+    "created_at": "2025-07-30T14:28:17.313Z",
+    "updated_at": "2025-07-30T14:28:17.313Z"
+  },
+  {
+    "id": "0508a534-264e-45dc-a22f-8e77c4f714da",
+    "execution_id": "9c76d959-e9fa-41db-99f5-ffb9a1f6dfdd",
+    "step_id": "460157f5-b860-4eec-9097-ba61cdeac448",
+    "assigned_to": "admin-vault-local-id",
+    "status": "not_started",
+    "created_at": "2025-07-30T14:28:17.329Z",
+    "updated_at": "2025-07-30T14:28:17.329Z"
+  },
+  {
+    "id": "fa5715d6-018b-4e5a-9a85-4c8832b9f06f",
+    "execution_id": "9c76d959-e9fa-41db-99f5-ffb9a1f6dfdd",
+    "step_id": "a5b401f9-68b5-438a-b581-981a30165dc3",
+    "assigned_to": "admin-vault-local-id",
+    "status": "not_started",
+    "created_at": "2025-07-30T14:28:17.345Z",
+    "updated_at": "2025-07-30T14:28:17.345Z"
+  },
+  {
+    "id": "a088577a-8807-4f19-b4ab-4b2eb767d440",
+    "execution_id": "9c76d959-e9fa-41db-99f5-ffb9a1f6dfdd",
+    "step_id": "8644e539-d873-4101-9193-aeff51b81786",
+    "assigned_to": "admin-vault-local-id",
+    "status": "not_started",
+    "created_at": "2025-07-30T14:28:17.360Z",
+    "updated_at": "2025-07-30T14:28:17.360Z"
   }
 ]

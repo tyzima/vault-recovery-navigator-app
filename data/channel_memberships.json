@@ -378,5 +378,33 @@
     "user_id": "54d23b1b-0753-4f96-a850-65bd877023ac",
     "role": "member",
     "joined_at": "2025-06-22T01:46:05.973Z"
+  },
+  {
+    "id": "4448f81f-7137-42b3-bb8f-0b4226997a41",
+    "channel_id": "346fe851-441e-42aa-9576-8e5e7ef556db",
+    "user_id": "runbook-admin-id",
+    "role": "admin",
+    "joined_at": "2025-07-30T14:28:17.395Z"
+  },
+  {
+    "id": "f88444be-45df-43a8-8030-c1f6ab2d6428",
+    "channel_id": "346fe851-441e-42aa-9576-8e5e7ef556db",
+    "user_id": "ec65d080-11e3-4dbe-bd9d-62414a2e1fd3",
+    "role": "member",
+    "joined_at": "2025-07-30T14:28:17.395Z"
+  },
+  {
+    "id": "62477f36-835a-4e64-acba-e60a4f3b9434",
+    "channel_id": "346fe851-441e-42aa-9576-8e5e7ef556db",
+    "user_id": "54d23b1b-0753-4f96-a850-65bd877023ac",
+    "role": "member",
+    "joined_at": "2025-07-30T14:28:17.395Z"
+  },
+  {
+    "id": "b9a4a1b7-e3ba-449c-b87d-c2e05868390c",
+    "channel_id": "346fe851-441e-42aa-9576-8e5e7ef556db",
+    "user_id": "admin-vault-local-id",
+    "role": "member",
+    "joined_at": "2025-07-30T14:28:17.395Z"
   }
 ]
