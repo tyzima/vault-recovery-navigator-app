@@ -1,6 +1,64 @@
 [
- 
- 
+  {
+    "id": "815cf36e-c24a-4686-96db-4c111f374535",
+    "execution_id": "b0de055f-5eb5-4ba2-8e0d-ab7ea340dc15",
+    "step_id": "aws-step-001-uuid",
+    "assigned_to": null,
+    "status": "completed",
+    "created_at": "2025-06-20T16:37:14.980Z",
+    "updated_at": "2025-06-20T17:13:47.791Z",
+    "completed_at": "2025-06-20T17:13:47.791Z"
+  },
+  {
+    "id": "162760fe-b63c-4886-90a3-0bc6526f07ad",
+    "execution_id": "b0de055f-5eb5-4ba2-8e0d-ab7ea340dc15",
+    "step_id": "aws-step-002-uuid",
+    "assigned_to": null,
+    "status": "completed",
+    "created_at": "2025-06-20T16:37:14.983Z",
+    "updated_at": "2025-06-20T17:13:49.574Z",
+    "completed_at": "2025-06-20T17:13:49.574Z"
+  },
+  {
+    "id": "33e29a80-1d60-4230-b6b8-241173e6824d",
+    "execution_id": "b0de055f-5eb5-4ba2-8e0d-ab7ea340dc15",
+    "step_id": "aws-step-003-uuid",
+    "assigned_to": null,
+    "status": "completed",
+    "created_at": "2025-06-20T16:37:14.986Z",
+    "updated_at": "2025-06-20T17:13:51.599Z",
+    "completed_at": "2025-06-20T17:13:51.599Z"
+  },
+  {
+    "id": "81046725-f894-40fa-a87f-a4216ee8959c",
+    "execution_id": "b0de055f-5eb5-4ba2-8e0d-ab7ea340dc15",
+    "step_id": "e587827a-ce52-4c28-8ba6-e28d6730e3ba",
+    "assigned_to": null,
+    "status": "completed",
+    "created_at": "2025-06-20T16:37:14.989Z",
+    "updated_at": "2025-06-20T17:13:58.424Z",
+    "completed_at": "2025-06-20T17:13:58.424Z",
+    "started_at": "2025-06-20T17:13:57.383Z"
+  },
+  {
+    "id": "98533e9c-e300-47d2-8e5f-3611ff864092",
+    "execution_id": "8e605680-d324-4988-9870-e22b7701f79e",
+    "step_id": "power-step-001-uuid",
+    "assigned_to": null,
+    "status": "not_started",
+    "created_at": "2025-06-20T17:32:25.661Z",
+    "updated_at": "2025-06-22T01:57:13.462Z",
+    "started_at": "2025-06-22T01:57:11.126Z"
+  },
+  {
+    "id": "619b7617-ea4a-4904-8422-54cfc3b9824b",
+    "execution_id": "8e605680-d324-4988-9870-e22b7701f79e",
+    "step_id": "power-step-002-uuid",
+    "assigned_to": null,
+    "status": "not_started",
+    "created_at": "2025-06-20T17:32:25.664Z",
+    "updated_at": "2025-06-20T17:32:25.664Z"
+  },
   {
     "id": "0f6f7227-b595-4b89-8ec0-dc42767ccbad",
     "execution_id": "b8f8bcb2-1826-4d3f-a5cd-91707fd21818",
