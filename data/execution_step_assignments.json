@@ -60,51 +60,6 @@
     "updated_at": "2025-06-20T17:32:25.664Z"
   },
   {
-    "id": "12fee225-cd12-4359-8444-991985f74124",
-    "execution_id": "4fff0b6d-e806-4296-bf4f-53837f531407",
-    "step_id": "aws-step-001-uuid",
-    "assigned_to": "1c6e6c13-a18c-4d7c-9e35-68bbdd5dff41",
-    "status": "not_started",
-    "created_at": "2025-06-20T21:32:38.820Z",
-    "updated_at": "2025-06-23T02:37:40.965Z",
-    "started_at": "2025-06-20T21:40:04.658Z",
-    "completed_at": "2025-06-22T16:33:33.466Z",
-    "notes": "testingnotes"
-  },
-  {
-    "id": "2a0dc5ef-9b46-43db-8384-860f5a15cbf6",
-    "execution_id": "4fff0b6d-e806-4296-bf4f-53837f531407",
-    "step_id": "aws-step-002-uuid",
-    "assigned_to": "54d23b1b-0753-4f96-a850-65bd877023ac",
-    "status": "in_progress",
-    "created_at": "2025-06-20T21:32:38.823Z",
-    "updated_at": "2025-07-01T07:27:32.041Z",
-    "completed_at": "2025-06-22T01:33:46.750Z",
-    "started_at": "2025-06-20T21:55:16.357Z"
-  },
-  {
-    "id": "88c41df1-d76b-4ee2-9f20-c4729f4de652",
-    "execution_id": "4fff0b6d-e806-4296-bf4f-53837f531407",
-    "step_id": "aws-step-003-uuid",
-    "assigned_to": "67f80d02-749f-49a9-b104-a3b1ea787e72",
-    "status": "completed",
-    "created_at": "2025-06-20T21:32:38.825Z",
-    "updated_at": "2025-06-22T01:33:42.440Z",
-    "completed_at": "2025-06-22T01:33:42.440Z",
-    "started_at": "2025-06-20T21:50:14.050Z"
-  },
-  {
-    "id": "1c76dd36-97a9-447a-a4fa-638c66df3090",
-    "execution_id": "4fff0b6d-e806-4296-bf4f-53837f531407",
-    "step_id": "e587827a-ce52-4c28-8ba6-e28d6730e3ba",
-    "assigned_to": null,
-    "status": "completed",
-    "created_at": "2025-06-20T21:32:38.828Z",
-    "updated_at": "2025-06-20T21:50:46.242Z",
-    "completed_at": "2025-06-20T21:50:46.242Z",
-    "started_at": "2025-06-20T21:49:45.321Z"
-  },
-  {
     "id": "0f6f7227-b595-4b89-8ec0-dc42767ccbad",
     "execution_id": "b8f8bcb2-1826-4d3f-a5cd-91707fd21818",
     "step_id": "fa2fff4d-0262-4bba-a58f-cdbed0b00f4c",
